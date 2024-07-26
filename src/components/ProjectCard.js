@@ -12,22 +12,18 @@ const StyledCard = styled.div`
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
   position: relative;
-  
-  &:hover .project-details {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &:hover .project-title {
-    opacity: 0;
-  }
+  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
 
   @media (max-width: 1000px) {
     flex-direction: column;
     height: 100%;
-
     &:hover .project-details {
       opacity: 1;
+      transform: translateY(0);
+    }
+
+    &:hover .project-title {
+      opacity: 0;
     }
   }
 `;
@@ -86,25 +82,23 @@ const ProjectTitle = styled.div`
   }
 
   @media (max-width: 500px) {
-    margin:0;
-  }
-  
+    margin: 0;
   }
 `;
 
 const ProjectDetailsTitle = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: ${({ alignLeft }) => (alignLeft ? 'flex-start' : 'flex-end')};
   height: 50px;
 
   @media (max-width: 1000px) {
     align-items: center;
     margin-bottom: 20px;
   }
-  
+
   @media (max-width: 500px) {
-    margin:0;
+    margin: 0;
   }
 `;
 
@@ -125,17 +119,13 @@ const ProjectDetailsDescription = styled.div`
   }
 `;
 
-const ProjectStackLinks = styled.div` 
+const ProjectStackLinks = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-
+  align-self: ${({ alignLeft }) => (alignLeft ? 'flex-start' : 'flex-end')};
   @media (max-width: 1000px) {
-    align-items: center;
+    align-self: center;
   }
-
-
-  
 `;
 
 const ProjectDetailsStack = styled.ul`
@@ -153,7 +143,7 @@ const ProjectDetailsStack = styled.ul`
     color: #8892b0;
 
     @media (max-width: 500px) {
-      font-size; 12px;
+      font-size: 12px;
     }
   }
 
@@ -163,14 +153,15 @@ const ProjectDetailsStack = styled.ul`
   }
 
   @media (max-width: 500px) {
-    margin:0;
+    margin: 0;
   }
 `;
 
 const ProjectLinks = styled.div`
   display: flex;
-  align-items: center;
-  margin-left: auto;
+
+  margin-left: ${({ alignLeft }) => (alignLeft ? '0' : 'auto')};
+  margin-right: ${({ alignLeft }) => (alignLeft ? 'auto' : '0')};
 
   a {
     color: #ccd6f6;
@@ -184,6 +175,7 @@ const ProjectLinks = styled.div`
 
     svg {
       font-size: 1.5rem;
+
       @media (max-width: 500px) {
         font-size: 1rem;
       }
@@ -196,22 +188,14 @@ const ProjectLinks = styled.div`
   }
 `;
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
+  const isEven = index % 2 === 0;
+
   return (
-    <StyledCard>
+    <StyledCard reverse={!isEven}>
       <CoverImage src={project.cover} alt={project.title} className="cover" />
-
-      <ProjectTitle className="project-title">
-        <Typography variant="overline" style={{ color: '#ffefd6' }}>
-          Featured Project
-        </Typography>
-        <Typography variant="h5" style={{ marginBottom: '10px' }}>
-          {project.title}
-        </Typography>
-      </ProjectTitle>
-
       <ProjectDetails className="project-details">
-        <ProjectDetailsTitle>
+        <ProjectDetailsTitle alignLeft={!isEven}>
           <Typography variant="overline" style={{ color: '#ffefd6' }}>
             Featured Project
           </Typography>
@@ -219,21 +203,18 @@ const ProjectCard = ({ project }) => {
             {project.title}
           </Typography>
         </ProjectDetailsTitle>
-
         <ProjectDetailsDescription>
           <Typography variant="body1" style={{ marginBottom: '20px' }}>
             {project.description}
           </Typography>
         </ProjectDetailsDescription>
-        
-        <ProjectStackLinks>
+        <ProjectStackLinks  alignLeft={!isEven}>
           <ProjectDetailsStack>
             {project.tech.map((tech, index) => (
               <li key={index}>{tech}</li>
             ))}
           </ProjectDetailsStack>
-
-          <ProjectLinks>
+          <ProjectLinks alignLeft={!isEven}>
             {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 <GitHubIcon />
@@ -260,13 +241,12 @@ const Typography = styled.p`
   margin-bottom: ${({ variant }) => (variant === 'body1' ? '1rem' : '0')};
 
   @media (max-width: 600px) {
-      font-size: ${({ variant }) => (variant === 'h5' ? '1rem' : variant === 'body1' ? '1rem' : '0rem')}; //# title, text,featured
+    font-size: ${({ variant }) => (variant === 'h5' ? '1rem' : variant === 'body1' ? '1rem' : '0rem')}; //# title, text,featured
   }
 
   @media (max-width: 500px) {
-      font-size: ${({ variant }) => (variant === 'h5' ? '1rem' : variant === 'body1' ? '0.7rem' : '0rem')}; 
+    font-size: ${({ variant }) => (variant === 'h5' ? '1rem' : variant === 'body1' ? '0.7rem' : '0rem')};
   }
-
 `;
 
 export default ProjectCard;

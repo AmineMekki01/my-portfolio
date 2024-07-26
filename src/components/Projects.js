@@ -19,7 +19,7 @@ const Projects = () => {
       <Title>Some Things I’ve Built</Title>
       <ProjectGrid>
         {projectsToShow.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <ProjectCard key={index} project={project} index={index} />
         ))}
       </ProjectGrid>
       <ShowMoreButton onClick={() => setShowMore(!showMore)}>
@@ -54,9 +54,8 @@ const Title = styled.h4`
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
     font-size: clamp(16px, 3vw, 20px);
     font-weight: 400;
-    }
+  }
 `;
-
 
 const ProjectGrid = styled.div`
   display: grid;

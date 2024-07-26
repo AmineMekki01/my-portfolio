@@ -28,6 +28,11 @@ const Title = styled.h4`
   }
 `;
 
+const TechStack = styled.span`
+  color: #FFD700; /* Change this to the color you want for the tech stack */
+  font-weight: bold;
+`;
+
 const WorkExperience = () => {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -70,8 +75,17 @@ const WorkExperience = () => {
               <ul>
                 {job.description.map((desc, i) => (
                   <li key={i}>
-                    <ArrowRightIcon />
-                    {desc}
+                    {desc.startsWith("Tech Stack :") ? (
+                      <TechStack>
+                        <ArrowRightIcon />
+                        {desc}
+                      </TechStack>
+                    ) : (
+                      <>
+                        <ArrowRightIcon />
+                        {desc}
+                      </>
+                    )}
                   </li>
                 ))}
               </ul>
