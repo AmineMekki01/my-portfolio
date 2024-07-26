@@ -138,7 +138,7 @@ const Header = () => {
     setDrawerOpen(false);
     setTimeout(() => {
       document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-    }, 300); // Ensure the drawer is closed before scrolling
+    }, 300);
   };
 
   const menuItems = [
@@ -147,6 +147,7 @@ const Header = () => {
     { text: 'Projects', href: '#projects' },
     { text: 'Education', href: '#education' },
     { text: 'Contact', href: '#contact' },
+    { text: 'Tech Stack', href: '#technical-stack'},
     { text: 'Resume', href: '/resume_amine_mekki.pdf', download: 'Amine_MEKKI_Resume.pdf' },
   ];
 
@@ -160,7 +161,7 @@ const Header = () => {
               {menuItems.slice(0, -1).map((item, index) => (
                 <StyledButton key={index} href={item.href}>{item.text}</StyledButton>
               ))}
-              <ResumeButton href={menuItems[5].href} download={menuItems[5].download}>{menuItems[5].text}</ResumeButton>
+              <ResumeButton href={menuItems[6].href} download={menuItems[6].download}>{menuItems[6].text}</ResumeButton>
             </StyledBox>
           ) : (
             <MobileMenuButton edge="end" onClick={toggleDrawer(true)}>
@@ -186,7 +187,7 @@ const Header = () => {
               <CustomListItemText primary={item.text} />
             </CustomListItem>
           ))}
-          <CustomResumeButton href={menuItems[5].href} download={menuItems[5].download}>{menuItems[5].text}</CustomResumeButton>
+          <CustomResumeButton href={menuItems[6].href} download={menuItems[6].download}>{menuItems[6].text}</CustomResumeButton>
         </List>
       </CustomDrawer>
     </HeaderContainer>

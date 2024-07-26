@@ -1,5 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+`;
 
 const ContactSection = styled.section`
   text-align: center;
@@ -14,7 +26,7 @@ const ContactTitle = styled.h4`
   font-weight: 400;
   margin-bottom: 20px;
   &:before {
-    content: '05. ';
+    content: '06. ';
     color: #64ffda;
   }
 `;
@@ -22,6 +34,7 @@ const ContactTitle = styled.h4`
 const MainTitle = styled.h2`
   font-size: clamp(2.5rem, 5vw, 3rem);
   margin-bottom: 20px;
+  animation: ${bounce} 2s infinite;
 `;
 
 const ContactDescription = styled.p`
@@ -39,7 +52,7 @@ const ContactButton = styled.a`
   border-radius: 5px;
   text-decoration: none;
   transition: background 0.3s ease-in-out;
-  
+
   &:hover {
     background: rgba(100, 255, 218, 0.1);
   }
@@ -51,7 +64,7 @@ const Contact = () => {
       <ContactTitle>Get In Touch</ContactTitle>
       <MainTitle>Hi There!</MainTitle>
       <ContactDescription>
-        I’m currently looking for a Data Scientist or Machine Learning role. My inbox is always open. Whether you are interested in my profile, have a question or just want to say hi. Feel Free to reach out.
+        I’m currently looking for a Data Scientist or Machine Learning role. My inbox is always open. Whether you are interested in my profile, have a question or just want to say hi. Feel free to reach out.
       </ContactDescription>
       <ContactButton href="mailto:amine.mekki.contact@gmail.com">
         Contact Me

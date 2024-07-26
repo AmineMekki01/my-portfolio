@@ -1,0 +1,72 @@
+[
+    {
+      "name": "Python",
+      "icon": "DiPython"
+    },
+    {
+      "name": "PyTorch",
+      "icon": "SiPytorch"
+    },
+    {
+      "name": "AWS",
+      "icon": "DiAws"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "DiJavascript1"
+    },
+    {
+      "name": "React",
+      "icon": "DiReact"
+    },
+    {
+      "name": "Scikit-Learn",
+      "icon": "SiScikitlearn"
+    },
+    {
+      "name": "Docker",
+      "icon": "DiDocker"
+    },
+    {
+      "name": "Kubernetes",
+      "icon": "SiKubernetes"
+    },
+    {
+      "name": "FastApi",
+      "icon": "SiFastapi"
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "SiPostgresql"
+    },
+
+    {
+      "name": "MongoDB",
+      "icon": "SiMongodb"
+    },
+    {
+      "name": "Redis",
+      "icon": "SiRedis"
+    },
+    {
+      "name": "Apache Spark",
+      "icon": "SiApachespark"
+    },
+    {
+      "name": "Apache Kafka",
+      "icon": "SiApachekafka"
+    },
+    {
+      "name": "Pinecone", "icon": "PineconeIcon" 
+    },
+    {
+      "name": "MLflow", "icon": "SiMlflow" 
+    },
+    {
+      "name": "DVC", "icon": "SiDvc" 
+    },
+    {
+      "name": "Hugging Face", "icon": "HuggingFaceIcon" 
+    }
+]
+  

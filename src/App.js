@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import SocialSidebar from './components/SocialSidebar'; 
 import EmailSidebar from './components/EmailSidebar';
 import Education from './components/Education';
+import TechnicalStack from './components/TechnicalStack';
 
 const MainApp = styled.div`
   background-color: #0A192F;
@@ -42,6 +43,9 @@ function App() {
         <Section id="work-experience">
           <WorkExperience />
         </Section>
+        <section id="technical-stack">
+          <TechnicalStack />
+        </section>
         <Section id="projects">
           <Projects />
         </Section>
