@@ -184,7 +184,7 @@ const ProjectLinks = styled.div`
 
   @media (max-width: 1000px) {
     justify-content: center;
-    margin-left: 0;
+    margin: 0 auto;
   }
 `;
 
