@@ -160,7 +160,7 @@ const Header = () => {
               {menuItems.slice(0, -1).map((item, index) => (
                 <StyledButton key={index} href={item.href}>{item.text}</StyledButton>
               ))}
-              <ResumeButton href={menuItems[4].href} download={menuItems[4].download}>{menuItems[4].text}</ResumeButton>
+              <ResumeButton href={menuItems[5].href} download={menuItems[5].download}>{menuItems[5].text}</ResumeButton>
             </StyledBox>
           ) : (
             <MobileMenuButton edge="end" onClick={toggleDrawer(true)}>
@@ -186,7 +186,7 @@ const Header = () => {
               <CustomListItemText primary={item.text} />
             </CustomListItem>
           ))}
-          <CustomResumeButton href={menuItems[4].href} download={menuItems[4].download}>{menuItems[4].text}</CustomResumeButton>
+          <CustomResumeButton href={menuItems[5].href} download={menuItems[5].download}>{menuItems[5].text}</CustomResumeButton>
         </List>
       </CustomDrawer>
     </HeaderContainer>
