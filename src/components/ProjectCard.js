@@ -194,6 +194,14 @@ const ProjectCard = ({ project, index }) => {
   return (
     <StyledCard reverse={!isEven}>
       <CoverImage src={project.cover} alt={project.title} className="cover" />
+      <ProjectTitle className="project-title">
+        <Typography variant="overline" style={{ color: '#ffefd6' }}>
+          Featured Project
+        </Typography>
+        <Typography variant="h5" style={{ marginBottom: '10px' }}>
+          {project.title}
+        </Typography>
+      </ProjectTitle>
       <ProjectDetails className="project-details">
         <ProjectDetailsTitle alignLeft={!isEven}>
           <Typography variant="overline" style={{ color: '#ffefd6' }}>
