@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Box } from '@mui/material';
+import { AppBar, Toolbar, Box, IconButton, Drawer, List, ListItemText, useMediaQuery } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
@@ -22,6 +23,10 @@ const StyledBox = styled(Box)`
   display: flex;
   gap: 1rem;
   height: 100%;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Logo = styled.img`
@@ -58,8 +63,56 @@ const ResumeButton = styled(StyledButton)`
   }
 `;
 
+const MobileMenuButton = styled(IconButton)`
+  color: #64FFDB !important;
+  font-size: 80px;
+`;
+
+const CustomDrawer = styled(Drawer)`
+  .MuiPaper-root {
+    background-color: #071528 !important;
+    width: 250px !important;
+    height: 100% !important;
+  }
+`;
+
+const CustomListItemText = styled(ListItemText)`
+  .MuiTypography-root {
+    color: white !important;
+  }
+`;
+
+const CustomListItem = styled.div`
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+  color: #0a192f;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+  }
+`;
+
+const CustomResumeButton = styled.a`
+  color: #64FFDB;
+  padding: 16px;
+  display: flex;
+  text-decoration: none;
+  color: #64FFDB;
+  
+  &:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+  }
+`;
+
 const Header = () => {
   const [opacity, setOpacity] = useState(1);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const isSmallScreen = useMediaQuery('(max-width: 600px)');
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -74,20 +127,67 @@ const Header = () => {
     };
   }, []);
 
+  const toggleDrawer = (open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setDrawerOpen(open);
+  };
+
+  const handleMenuItemClick = (href) => {
+    setDrawerOpen(false);
+    setTimeout(() => {
+      document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    }, 300); // Ensure the drawer is closed before scrolling
+  };
+
+  const menuItems = [
+    { text: 'About', href: '#about' },
+    { text: 'Work Experience', href: '#work-experience' },
+    { text: 'Projects', href: '#projects' },
+    { text: 'Contact', href: '#contact' },
+    { text: 'Resume', href: '/resume_amine_mekki.pdf', download: 'Amine_MEKKI_Resume.pdf' },
+  ];
+
   return (
     <HeaderContainer opacity={opacity}>
       <AppBar position="static" sx={{ boxShadow: 'none', backgroundColor: 'transparent' }}>
         <StyledToolbar>
           <Logo src="/images/MyLogo.svg" alt="Logo" />
-          <StyledBox>
-            <StyledButton href="#about">About</StyledButton>
-            <StyledButton href="#work-experience">Work Experience</StyledButton>
-            <StyledButton href="#projects">Projects</StyledButton>
-            <StyledButton href="#contact">Contact</StyledButton>
-            <ResumeButton href="/resume_amine_mekki.pdf" download="Amine_MEKKI_Resume.pdf">Resume</ResumeButton>
-          </StyledBox>
+          {!isSmallScreen ? (
+            <StyledBox>
+              {menuItems.slice(0, -1).map((item, index) => (
+                <StyledButton key={index} href={item.href}>{item.text}</StyledButton>
+              ))}
+              <ResumeButton href={menuItems[4].href} download={menuItems[4].download}>{menuItems[4].text}</ResumeButton>
+            </StyledBox>
+          ) : (
+            <MobileMenuButton edge="end" onClick={toggleDrawer(true)}>
+              <MenuIcon />
+            </MobileMenuButton>
+          )}
         </StyledToolbar>
       </AppBar>
+      <CustomDrawer 
+        anchor="right" 
+        open={drawerOpen} 
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            width: { xs: '80%', sm: '250px' },
+            height: { xs: '100%', sm: '100%' },
+          },
+        }}
+      >
+        <List>
+          {menuItems.slice(0, -1).map((item, index) => (
+            <CustomListItem key={index} onClick={() => handleMenuItemClick(item.href)}>
+              <CustomListItemText primary={item.text} />
+            </CustomListItem>
+          ))}
+          <CustomResumeButton href={menuItems[4].href} download={menuItems[4].download}>{menuItems[4].text}</CustomResumeButton>
+        </List>
+      </CustomDrawer>
     </HeaderContainer>
   );
 };
