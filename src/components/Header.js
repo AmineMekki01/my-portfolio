@@ -145,6 +145,7 @@ const Header = () => {
     { text: 'About', href: '#about' },
     { text: 'Work Experience', href: '#work-experience' },
     { text: 'Projects', href: '#projects' },
+    { text: 'Education', href: '#education' },
     { text: 'Contact', href: '#contact' },
     { text: 'Resume', href: '/resume_amine_mekki.pdf', download: 'Amine_MEKKI_Resume.pdf' },
   ];

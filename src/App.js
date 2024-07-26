@@ -10,7 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SocialSidebar from './components/SocialSidebar'; 
 import EmailSidebar from './components/EmailSidebar';
-
+import Education from './components/Education';
 
 const MainApp = styled.div`
   background-color: #0A192F;
@@ -45,6 +45,9 @@ function App() {
         <Section id="projects">
           <Projects />
         </Section>
+        <section id="education">
+          <Education/>
+        </section>
         <Section id="contact">
           <Contact />
         </Section>
