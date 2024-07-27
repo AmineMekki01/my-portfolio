@@ -10,8 +10,8 @@
   {
     "title": "Healthcare Management Platform",
     "cover": "./images/tbibi.png",
-    "github": "https://github.com/AmineMekki01/tbibi_front_end",
-    "external": "https://github.com/AmineMekki01/tbibi_front_end",
+    "github": "https://github.com/AmineMekki01/healthcare_management_platform",
+    "external": "https://github.com/AmineMekki01/healthcare_management_platform",
     "tech": ["Python", "React", "Go", "FastAPI", "Docker", "LangChain"],
     "description": "Developed the TBIBI APP, a scalable web platform that enhances healthcare access and delivery for patients and professionals. Built key services including a real-time messaging system using WebSocket, a symptom-based doctor search, and an AI-powered app for doctors to review patient documents and find possible diagnoses."
   },
