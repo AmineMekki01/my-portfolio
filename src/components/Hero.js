@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const HeroSection = styled.section`
   display: flex;
@@ -58,16 +59,20 @@ const HeroSection = styled.section`
   }
 `;
 
-const Hero = () => (
-  <HeroSection>
-    <h1>Hi, my name is</h1>
-    <h2>Amine MEKKI</h2>
-    <h3>I build intelligent systems.</h3>
-    <p>I’m a data scientist and machine learning engineer specializing in creating exceptional predictive models and data-driven solutions. Currently, I’m focused on developing scalable, human-centered applications in the field of artificial intelligence and Generative AI.</p>
-    <a href="https://www.linkedin.com/in/mekki-amine/" target="_blank" rel="noopener noreferrer">
-      Check out my LinkedIn
-    </a>
-  </HeroSection>
-);
+const Hero = () => {
+  const { t } = useTranslation();
+
+  return (
+    <HeroSection>
+      <h1>{t('hero.intro')}</h1>
+      <h2>{t('hero.name')}</h2>
+      <h3>{t('hero.tagline')}</h3>
+      <p>{t('hero.description')}</p>
+      <a href="https://www.linkedin.com/in/mekki-amine/" target="_blank" rel="noopener noreferrer">
+        {t('hero.linkedinButton')}
+      </a>
+    </HeroSection>
+  );
+};
 
 export default Hero;

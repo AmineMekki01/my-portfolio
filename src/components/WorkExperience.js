@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import workExperienceData from '../data/experience.json';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { useTranslation } from 'react-i18next';
 
 const Title = styled.h4`
   color: #64FFDB;
@@ -35,10 +35,26 @@ const TechStack = styled.span`
 
 const WorkExperience = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const {t, i18n } = useTranslation();
+  const [workExperienceData, setWorkExperience] = useState([]);
+
+  useEffect(() => {
+    const loadExperienceData = async () => {
+      const language = i18n.language;
+      console.log("language",  language)
+      const response = await fetch(`/data/experience_${language}.json`);
+      const data = await response.json();
+      console.log("workExperienceData : ", workExperienceData)
+      setWorkExperience(data);
+    };
+    loadExperienceData();
+  }, [i18n.language]);
+
+
 
   return (
     <StyledSection id="work-experience">
-      <Title className="numbered-heading">Where I’ve Worked</Title>
+      <Title className="numbered-heading">{t("workExperience.title")}</Title>
       <div className="inner">
         <StyledTabList>
           {workExperienceData.map((job, index) => (

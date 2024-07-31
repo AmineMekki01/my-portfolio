@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {
@@ -59,15 +60,17 @@ const ContactButton = styled.a`
 `;
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <ContactSection id="contact">
-      <ContactTitle>Get In Touch</ContactTitle>
-      <MainTitle>Hi There!</MainTitle>
+      <ContactTitle>{t('contact.title')}</ContactTitle>
+      <MainTitle>{t('contact.mainTitle')}</MainTitle>
       <ContactDescription>
-        I’m currently looking for a Data Scientist or Machine Learning role. My inbox is always open. Whether you are interested in my profile, have a question or just want to say hi. Feel free to reach out.
+        {t('contact.description')}
       </ContactDescription>
       <ContactButton href="mailto:amine.mekki.contact@gmail.com">
-        Contact Me
+        {t('contact.button')}
       </ContactButton>
     </ContactSection>
   );

@@ -1,0 +1,35 @@
+[
+    {
+      "title": "Détection de fraude par carte de crédit",
+      "cover": "./images/credit_cart_fraud_detection.webp",
+      "github": "https://github.com/AmineMekki01/credit_card_fraud_detection",
+      "external": "https://github.com/AmineMekki01/credit_card_fraud_detection",
+      "tech": ["Python", "FastAPI", "Scikit-learn", "Kafka", "Cassandra", "Docker", "React"],
+      "description": "Développement d'un système de détection de fraude en temps réel utilisant FastAPI, Kafka et Cassandra, permettant une surveillance efficace des transactions et une analyse des fraudes avec une architecture de microservices évolutive."
+    },
+    {
+      "title": "Plateforme de gestion des soins de santé",
+      "cover": "./images/tbibi.png",
+      "github": "https://github.com/AmineMekki01/healthcare_management_platform",
+      "external": "https://github.com/AmineMekki01/healthcare_management_platform",
+      "tech": ["Python", "React", "Go", "FastAPI", "Docker", "LangChain"],
+      "description": "Développement de l'application TBIBI, une plateforme web évolutive qui améliore l'accès et la prestation des soins de santé pour les patients et les professionnels. Services clés construits incluant un système de messagerie en temps réel utilisant WebSocket, une recherche de médecins basée sur les symptômes, et une application alimentée par IA pour les médecins pour examiner les documents des patients et trouver des diagnostics possibles."
+    },
+    {
+      "title": "Légendage d'images médicales",
+      "cover": "./images/medical_images_captioning.png",
+      "github": "https://github.com/AmineMekki01/MedicalImagesCaptioning",
+      "external": "https://github.com/AmineMekki01/MedicalImagesCaptioning",
+      "tech": ["Python", "FastAPI", "GPT-2", "PyTorch", "Vision Transformer", "ResNet"],
+      "description": "Développement d'un outil d'analyse des images radiographiques thoraciques utilisant Vision Transformer et GPT-2. Amélioration des scores ROUGE et CIDEr de 5% par rapport à l'approche ResNet-GPT2."
+    },
+    {
+      "title": "Détecteur d'hameçonnage d'URL",
+      "cover": "./images/url_phishing.png",
+      "github": "https://github.com/AmineMekki01/URL_phishing",
+      "external": "https://github.com/AmineMekki01/URL_phishing",
+      "tech": ["Python", "FastAPI", "Scikit-learn", "Docker"],
+      "description": "Développement d'une solution d'apprentissage automatique pour détecter les URL d'hameçonnage, impliquant le prétraitement des données, l'ingénierie des caractéristiques et la formation du modèle. Le projet inclut un frontend React et un backend FastAPI, facilitant les interactions utilisateur pour la formation et l'inférence. L'application est conteneurisée en utilisant Docker, assurant un déploiement efficace et une évolutivité si nécessaire."
+    }
+  ]
+  

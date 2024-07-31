@@ -1,0 +1,15 @@
+[
+    {
+      "degree": "Diplôme d'ingénieur en informatique",
+      "institution": "IMT MINES ALES",
+      "range": "Août 2021 - Août 2024",
+      "courses": "Apprentissage automatique avancé, Apprentissage profond avancé, Structures de données et algorithmes, Génie logiciel, Exploration de données, Analyse des soins de santé, Gestion de produit/projet"
+    },
+    {
+      "degree": "Master of Science, Ingénierie biomédicale",
+      "institution": "Université de Montpellier",
+      "range": "Août 2021 - Août 2024",
+      "courses": "Traitement des signaux biomédicaux, Analyse des images médicales, Dispositifs médicaux, Physique nucléaire, Apprentissage statistique pour les données biomédicales"
+    }
+  ]
+  

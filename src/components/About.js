@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <AboutContainer id="about">
-      <Title>About Me</Title>
+      <Title>{t('about.title')}</Title>
       <Content>
         <Text>
-          <span>I’m a Machine learning engineer specializing in solving and building exceptional data science/Machine learning Projects. Currently, I’m focused on  improving 
-          {' '}
-          <a href="https://sanofi.com/" target="_blank" rel="noreferrer">
-            Sanofi's
-          </a>{' '}
-          Supply chain. using Data Science and Generative AI</span>
-          <p>Here are a few technologies I’ve been working with recently:</p>
+          <span>{t('about.description')}
+            {' '}
+            <a href="https://sanofi.com/" target="_blank" rel="noreferrer">
+              Sanofi's
+            </a>
+            {' '}
+            {"Supply Chain"}</span>
+          <p>{t('about.technologies')}</p>
           <TechList>
             <ul>
               <li>Python</li>
@@ -55,7 +59,6 @@ const Title = styled.h4`
   font-size: clamp(18px, 5vw, 32px);
   font-weight: 600;
   
-
   &:before {
     counter-increment: section;
     content: '0' counter(section) '.';
@@ -87,10 +90,7 @@ const Text = styled.div`
   p {
     margin: 0 0 20px 0;
     line-height: 1.6;
-    
   }
-  
- 
 `;
 
 const TechList = styled.div`

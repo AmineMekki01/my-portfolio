@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ProjectCard from './ProjectCard';
-import projectsData from '../data/projects.json';
+import { useTranslation } from 'react-i18next';
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjectsData] = useState([]);
   const [showMore, setShowMore] = useState(false);
+  const {t, i18n } = useTranslation();
+
 
   useEffect(() => {
-    setProjects(projectsData);
-  }, []);
+    const loadProjectsData = async () => {
+      const language = i18n.language;
+      console.log("language",  language)
+      const response = await fetch(`/data/projects_${language}.json`);
+      const data = await response.json();
+      console.log("projects : ", projects)
+      setProjectsData(data);
+    };
+    loadProjectsData();
+  }, [i18n.language]);
+
 
   const GRID_LIMIT = 6;
   const projectsToShow = showMore ? projects : projects.slice(0, GRID_LIMIT);
 
   return (
     <ProjectsContainer id="projects">
-      <Title>Some Things I’ve Built</Title>
+      <Title>{t("projects.title")}</Title>
       <ProjectGrid>
         {projectsToShow.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} />

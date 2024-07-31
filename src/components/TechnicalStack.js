@@ -8,6 +8,7 @@ import {
   SiPostgresql, SiMongodb, SiRedis, SiApachespark, SiApachekafka, SiMlflow, SiDvc
 } from 'react-icons/si';
 import techStackData from '../data/techStack.json';
+import { useTranslation } from 'react-i18next';
 
 const PineconeIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,6 +61,7 @@ const iconMap = {
 
 const TechnicalStack = () => {
   const [techStack, setTechStack] = useState([]);
+  const {t, i18n } = useTranslation();
 
   useEffect(() => {
     setTechStack(techStackData);
@@ -67,7 +69,7 @@ const TechnicalStack = () => {
 
   return (
     <TechnicalStackContainer id="technical-stack">
-      <Title>Technical Stack</Title>
+      <Title>{t("technicalStack.title")}</Title>
       <StackList>
         {techStack.map((item, index) => {
           const IconComponent = iconMap[item.icon];

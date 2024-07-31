@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AppBar, Toolbar, Box, IconButton, Drawer, List, ListItemText, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import styled from 'styled-components';
@@ -24,7 +25,7 @@ const StyledBox = styled(Box)`
   gap: 1rem;
   height: 100%;
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     display: none;
   }
 `;
@@ -61,6 +62,11 @@ const ResumeButton = styled(StyledButton)`
   &:hover {
     background-color: rgba(100, 255, 218, 0.1);
   }
+`;
+
+const LanguageContainer = styled.div`
+  display: flex;
+  gap: 1rem;
 `;
 
 const MobileMenuButton = styled(IconButton)`
@@ -110,9 +116,10 @@ const CustomResumeButton = styled.a`
 `;
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const [opacity, setOpacity] = useState(1);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isSmallScreen = useMediaQuery('(max-width: 600px)');
+  const isSmallScreen = useMediaQuery('(max-width: 900px)');
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -142,28 +149,39 @@ const Header = () => {
   };
 
   const menuItems = [
-    { text: 'About', href: '#about' },
-    { text: 'Work Experience', href: '#work-experience' },
-    { text: 'Projects', href: '#projects' },
-    { text: 'Education', href: '#education' },
-    { text: 'Contact', href: '#contact' },
-    { text: 'Tech Stack', href: '#technical-stack'},
-    { text: 'Resume', href: '/resume_amine_mekki.pdf', download: 'Amine_MEKKI_Resume.pdf' },
+    { text: t('header.about'), href: '#about' },
+    { text: t('header.workExperience'), href: '#work-experience' },
+    { text: t('header.projects'), href: '#projects' },
+    { text: t('header.education'), href: '#education' },
+    { text: t('header.contact'), href: '#contact' },
+    { text: t('header.technicalStack'), href: '#technical-stack'},
+    {
+      text: t('header.resume'),
+      href: i18n.language === 'fr' ? '/resume_amine_mekki_fr.pdf' : '/resume_amine_mekki_en.pdf',
+      download: i18n.language === 'fr' ? 'Amine_MEKKI_Resume_French.pdf' : 'Amine_MEKKI_Resume_English.pdf'
+    },
   ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <HeaderContainer opacity={opacity}>
       <AppBar position="static" sx={{ boxShadow: 'none', backgroundColor: 'transparent' }}>
         <StyledToolbar>
           <Logo src="/images/MyLogo.svg" alt="Logo" />
-          {!isSmallScreen ? (
-            <StyledBox>
-              {menuItems.slice(0, -1).map((item, index) => (
-                <StyledButton key={index} href={item.href}>{item.text}</StyledButton>
-              ))}
-              <ResumeButton href={menuItems[6].href} download={menuItems[6].download}>{menuItems[6].text}</ResumeButton>
-            </StyledBox>
-          ) : (
+          <StyledBox>
+            {menuItems.slice(0, -1).map((item, index) => (
+              <StyledButton key={index} href={item.href}>{item.text}</StyledButton>
+            ))}
+            <ResumeButton href={menuItems[6].href} download={menuItems[6].download}>{menuItems[6].text}</ResumeButton>
+          </StyledBox>
+          <LanguageContainer>
+            <StyledButton onClick={() => changeLanguage('en')}>EN</StyledButton>
+            <StyledButton onClick={() => changeLanguage('fr')}>FR</StyledButton>
+          </LanguageContainer>
+          {isSmallScreen && (
             <MobileMenuButton edge="end" onClick={toggleDrawer(true)}>
               <MenuIcon />
             </MobileMenuButton>

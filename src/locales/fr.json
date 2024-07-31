@@ -1,0 +1,42 @@
+{
+    "header": {
+      "about": "À propos",
+      "workExperience": "Expérience professionnelle",
+      "projects": "Projets",
+      "education": "Éducation",
+      "contact": "Contact",
+      "technicalStack": "Pile technique",
+      "resume": "CV"
+    },
+    "hero": {
+      "intro": "Salut, je m'appelle",
+      "name": "Amine MEKKI",
+      "tagline": "Je construis des systèmes intelligents.",
+      "description": "Je suis un data scientist et ingénieur en apprentissage automatique spécialisé dans la création de modèles prédictifs et de solutions basées sur les données. Actuellement, je me concentre sur le développement d'applications évolutives et centrées sur l'humain dans le domaine de l'intelligence artificielle et de l'IA générative.",
+      "linkedinButton": "Consultez mon LinkedIn"
+    },
+    "about": {
+      "title": "À propos de moi",
+      "description": "Je suis un ingénieur en apprentissage automatique spécialisé dans la résolution et la construction de projets en science des données et apprentissage automatique. Actuellement, je me concentre sur l'amélioration de la chaîne d'approvisionnement de Sanofi en utilisant la science des données et l'IA générative",
+      "technologies": "Voici quelques technologies avec lesquelles j'ai récemment travaillé:"
+    },
+    "workExperience": {
+      "title": "Où j'ai travaillé"
+    },
+    "technicalStack": {
+      "title": "Pile technique"
+    },
+    "projects": {
+      "title": "Quelques projets que j'ai réalisés"
+    },
+    "education": {
+      "title": "Éducation"
+    },
+    "contact": {
+      "title": "Entrer en contact",
+      "mainTitle": "Bonjour !",
+      "description": "Je suis actuellement à la recherche d'un poste de Data Scientist ou d'ingénieur en apprentissage automatique. Ma boîte de réception est toujours ouverte. Que vous soyez intéressé par mon profil, que vous ayez une question ou que vous vouliez simplement dire bonjour, n'hésitez pas à me contacter.",
+      "button": "Contactez-moi"
+    }
+  }
+  

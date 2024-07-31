@@ -1,0 +1,52 @@
+[
+    {
+      "company": "Sanofi",
+      "title": "Data Scientist",
+      "range": "Septembre 2023 - Actuellement",
+      "location": "Lyon, France",
+      "url": "https://www.sanofi.com/fr",
+      "description": [
+        "Automatisation de la génération de rapports de qualité en utilisant LLMs et RAG, améliorant la précision et réduisant le temps de génération de plus de 50%.",
+        "Développement d'outils personnalisés pour la récupération de données de VDB et pour la génération de graphiques.",
+        "Création d'un pipeline d'évaluation pour l'application RAG.",
+        "Tech Stack : Python, AWS S3, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
+      ]
+    },
+    {
+      "company": "Ecole des Mines Alès",
+      "title": "Ingénieur MLOps - Stagiaire",
+      "range": "Janvier - Mars 2024",
+      "location": "Alès, France",
+      "url": "https://www.imt-mines-ales.fr/fr",
+      "description": [
+        "Développement d'un pipeline MLOps pour automatiser le processus de bout en bout de formation, d'évaluation et de déploiement de modèles, gérant efficacement une variété de problèmes de ML.",
+        "Intégration de solutions de surveillance des dérives de données et de modèles pour assurer la fiabilité et les performances des modèles dans le temps, en utilisant des métriques personnalisées.",
+        "Tech Stack : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, et GitHub Actions, Docker."
+      ]
+    },
+    {
+      "company": "Vaisala",
+      "title": "Data Scientist",
+      "range": "Avril - Août 2023",
+      "location": "Saclay, France",
+      "url": "https://www.vaisala.com/fr",
+      "description": [
+        "Analyse des données des deux produits pour trouver des applications conjointes et améliorer leurs performances.",
+        "Réalisation d'études de marché approfondies et développement de méthodes d'étalonnage par apprentissage automatique, améliorant la focalisation et les mesures des produits.",
+        "Tech Stack : Python, AWS S3, Bitbucket, scikit-learn"
+      ]
+    },
+    {
+      "company": "EuroMov Digital Health in Motion",
+      "title": "Ingénieur en apprentissage automatique - Stagiaire",
+      "range": "Janvier - Avril 2023",
+      "location": "Montpellier, France",
+      "url": "https://dhm.euromov.eu/",
+      "description": [
+        "Analyse des signaux de spectroscopie proche infrarouge fonctionnelle (fNIRS) de patients subissant une stimulation transcrânienne à courant direct (tDCS).",
+        "Dérivation de biomarqueurs uniques pour établir des corrélations entre la dose électrique et les réponses fNIRS. Permettre la modulation de la dose en fonction des réponses des patients, contribuant à des stratégies de traitement personnalisées en temps réel pour la restauration des fonctions cognitives chez les patients atteints de lésions cérébrales.",
+        "Tech Stack : Python, Github, scikit-learn, Pytorch"
+      ]
+    }
+  ]
+  

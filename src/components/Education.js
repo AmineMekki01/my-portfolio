@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import SchoolIcon from '@mui/icons-material/School';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ClassIcon from '@mui/icons-material/Class';
-import educationData from '../data/education.json';
 
 const EducationContainer = styled.div`
   padding: 2rem;
@@ -27,7 +27,7 @@ const Title = styled.h4`
   font-weight: 600;
 
   &:before {
-    content: '05.';
+    content: '04.';
     margin-right: 10px;
     color: #f6f7f8;
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
@@ -41,7 +41,6 @@ const EducationList = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-top: 20px;
-
 `;
 
 const EducationItem = styled.div`
@@ -58,8 +57,8 @@ const EducationItem = styled.div`
   }
 `;
 
-const EducationTitle = styled.h3`
-  color: #64FFDB;
+const EducationTitle = styled.h5`
+  color: #ccd6f6;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
@@ -74,39 +73,30 @@ const EducationDetails = styled.div`
   gap: 10px;
 `;
 
-
-
 const Education = () => {
-  const [education, setEducation] = useState([]);
+  const { i18n } = useTranslation();
+  const [educationData, setEducationData] = useState([]);
 
   useEffect(() => {
-    setEducation(educationData);
-  }, []);
+    const loadEducationData = async () => {
+      const language = i18n.language;
+      const response = await fetch(`/data/education_${language}.json`);
+      const data = await response.json();
+      setEducationData(data);
+    };
+    loadEducationData();
+  }, [i18n.language]);
 
   return (
     <EducationContainer id="education">
       <Title>Education</Title>
       <EducationList>
-        {education.map((item, index) => (
+        {educationData.map((item, index) => (
           <EducationItem key={index}>
-            <EducationTitle>
-                <ClassIcon />
-              {item.degree}
-            </EducationTitle>
-            <EducationDetails>
-              <SchoolIcon />
-              {item.institution}
-            </EducationDetails>
-            <EducationDetails>
-              <DateRangeIcon />
-              {item.range}
-            </EducationDetails>
-            <EducationDetails>
-              <MenuBookIcon />
-              Courses: {item.courses}
-      
-            </EducationDetails>
-            
+            <EducationTitle><ClassIcon />{item.degree}</EducationTitle>
+            <EducationDetails><SchoolIcon />{item.institution}</EducationDetails>
+            <EducationDetails><DateRangeIcon />{item.range}</EducationDetails>
+            <EducationDetails><MenuBookIcon />{item.courses}</EducationDetails>
           </EducationItem>
         ))}
       </EducationList>
