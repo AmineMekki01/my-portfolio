@@ -11,7 +11,7 @@
     "hero": {
       "intro": "Hi, my name is",
       "name": "Amine MEKKI",
-      "tagline": "I build intelligent systems.",
+      "tagline": "I m looking for a Data Scientist or Machine Learning Engineer role.",
       "description": "I’m a data scientist and machine learning engineer specializing in creating predictive models and data-driven solutions. Currently, I’m focused on developing scalable, human-centered applications in the field of artificial intelligence and Generative AI.",
       "linkedinButton": "Check out my LinkedIn"
     },
@@ -36,7 +36,7 @@
     "contact": {
         "title": "Get In Touch",
         "mainTitle": "Hi There!",
-        "description": "I’m currently looking for a Data Scientist or Machine Learning role. My inbox is always open. Whether you are interested in my profile, have a question or just want to say hi. Feel free to reach out.",
+        "description": "I’m currently looking for a Data Scientist or Machine Learning Engineer role. My inbox is always open. Whether you are interested in my profile, have a question or just want to say hi. Feel free to reach out.",
         "button": "Contact Me"
     }
   }
