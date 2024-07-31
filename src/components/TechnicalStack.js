@@ -61,7 +61,7 @@ const iconMap = {
 
 const TechnicalStack = () => {
   const [techStack, setTechStack] = useState([]);
-  const {t, i18n } = useTranslation();
+  const {t } = useTranslation();
 
   useEffect(() => {
     setTechStack(techStackData);

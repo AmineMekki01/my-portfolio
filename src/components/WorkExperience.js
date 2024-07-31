@@ -41,10 +41,8 @@ const WorkExperience = () => {
   useEffect(() => {
     const loadExperienceData = async () => {
       const language = i18n.language;
-      console.log("language",  language)
       const response = await fetch(`/data/experience_${language}.json`);
       const data = await response.json();
-      console.log("workExperienceData : ", workExperienceData)
       setWorkExperience(data);
     };
     loadExperienceData();

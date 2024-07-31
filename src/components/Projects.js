@@ -12,10 +12,8 @@ const Projects = () => {
   useEffect(() => {
     const loadProjectsData = async () => {
       const language = i18n.language;
-      console.log("language",  language)
       const response = await fetch(`/data/projects_${language}.json`);
       const data = await response.json();
-      console.log("projects : ", projects)
       setProjectsData(data);
     };
     loadProjectsData();
