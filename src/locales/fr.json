@@ -12,12 +12,15 @@
       "intro": "Salut, je m'appelle",
       "name": "Amine MEKKI",
       "tagline": "Je recherche un poste de Data Scientist ou Machine Learning Engineer.",
-      "description": "Je suis un data scientist et ingénieur en apprentissage automatique spécialisé dans la création de modèles prédictifs et de solutions basées sur les données. Actuellement, je me concentre sur le développement d'applications évolutives et centrées sur l'humain dans le domaine de l'intelligence artificielle et de l'IA générative.",
+      "description": "",
       "linkedinButton": "Consultez mon LinkedIn"
     },
     "about": {
       "title": "À propos de moi",
-      "description": "Je suis un ingénieur en apprentissage automatique spécialisé dans la résolution et la construction de projets exceptionnels en science des données et apprentissage automatique. Actuellement, je me concentre sur l'amélioration de la chaîne d'approvisionnement de Sanofi en utilisant la science des données et l'IA générative",
+      "description": "Je suis un ingénieur en apprentissage automatique spécialisé dans la résolution et la construction de projets exceptionnels en science des données et apprentissage automatique. Actuellement, je me concentre sur l'amélioration de la chaîne d'approvisionnement de ",
+      "description_company": "Sanofi",
+      "description_continue" : " en utilisant la science des données et l'IA générative.",
+      "location" : "Basé à Lyon, France",
       "technologies": "Voici quelques technologies avec lesquelles j'ai récemment travaillé:"
     },
     "workExperience": {

@@ -23,7 +23,8 @@ const ContactSection = styled.section`
 
 const ContactTitle = styled.h4`
   color: #64ffda;
-  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+
   font-weight: 400;
   margin-bottom: 20px;
   &:before {
@@ -48,7 +49,7 @@ const ContactDescription = styled.p`
 const ContactButton = styled.a`
   display: inline-block;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #64ffda;
   border: 1px solid #64ffda;
   border-radius: 5px;

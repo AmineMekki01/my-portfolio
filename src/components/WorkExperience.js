@@ -8,14 +8,13 @@ import { useTranslation } from 'react-i18next';
 const Title = styled.h3`
   color: #64FFDB;
   margin-bottom: 2rem;
-  font-size: 2rem;
   display: flex;
   align-items: center;
   position: relative;
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(18px, 5vw, 36px);
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 600;
 
   &:before {

@@ -95,14 +95,13 @@ const TechnicalStackContainer = styled.div`
 const Title = styled.h4`
   color: #64FFDB;
   margin-bottom: 2rem;
-  font-size: 2rem;
   display: flex;
   align-items: center;
   position: relative;
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(18px, 5vw, 32px);
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 600;
 
   &:before {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const About = () => {
   const { t } = useTranslation();
 
@@ -13,29 +13,46 @@ const About = () => {
           <span>{t('about.description')}
             {' '}
             <a href="https://sanofi.com/" target="_blank" rel="noreferrer">
-              Sanofi's
+              {t("about.description_company")}
             </a>
-            {' '}
-            {"Supply Chain"}</span>
-          {/* <p>{t('about.technologies')}</p>
+            
+            {t("about.description_continue")}</span>
           <TechList>
             <ul>
-              <li>Python</li>
-              <li>Pytorch</li>
-              <li>Scikit-Learn</li>
-              <li>Pandas</li>
-              <li>NumPy</li>
-              <li>Keras</li>
+
+              <li><LocationOnIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />{t('about.location')}</li>
             </ul>
-          </TechList> */}
+          </TechList>
         </Text>
         <ImageWrapper>
           <Image src="./images/me_in_grad.jpg" alt="Brittany Chiang" />
         </ImageWrapper>
       </Content>
+         
+          
     </AboutContainer>
   );
 };
+const TechList = styled.div`
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    padding: 0;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    list-style: none;
+
+    li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      font-size: 1.5rem;
+      color: #8892b0;
+
+
+    }
+  }
+`;
 
 const AboutContainer = styled.div`
   padding: 2rem;
@@ -49,14 +66,13 @@ const AboutContainer = styled.div`
 const Title = styled.h4`
   color: #64FFDB;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   display: flex;
   align-items: center;
   position: relative;
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(18px, 5vw, 32px);
   font-weight: 600;
   
   &:before {
@@ -84,7 +100,7 @@ const Content = styled.div`
 
 const Text = styled.div`
   flex: 1;
-  font-size: clamp(22px, 5vw, 30px);  display: flex;
+  font-size: clamp(22px, 5vw, 30px);
   color: #ccd6f6;
   word-wrap: break-word;
   overflow-wrap: break-word;
