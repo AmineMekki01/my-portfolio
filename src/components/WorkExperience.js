@@ -5,7 +5,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { useTranslation } from 'react-i18next';
 
-const Title = styled.h4`
+const Title = styled.h3`
   color: #64FFDB;
   margin-bottom: 2rem;
   font-size: 2rem;
@@ -15,7 +15,7 @@ const Title = styled.h4`
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(18px, 5vw, 32px);
+  font-size: clamp(18px, 5vw, 36px);
   font-weight: 600;
 
   &:before {
@@ -29,13 +29,13 @@ const Title = styled.h4`
 `;
 
 const TechStack = styled.span`
-  color: #FFD700; /* Change this to the color you want for the tech stack */
+  color: #F6BC00;
   font-weight: bold;
 `;
 
 const WorkExperience = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const {t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [workExperienceData, setWorkExperience] = useState([]);
 
   useEffect(() => {
@@ -47,8 +47,6 @@ const WorkExperience = () => {
     };
     loadExperienceData();
   }, [i18n.language]);
-
-
 
   return (
     <StyledSection id="work-experience">
@@ -69,15 +67,15 @@ const WorkExperience = () => {
         <StyledTabPanels>
           {workExperienceData.map((job, index) => (
             <StyledTabPanel key={index} isActive={activeTab === index}>
-              <h3>
-                <span>{job.title}</span>
+              <h2>
+                <span className="jobTitle">{job.title}</span>
                 <span className="company">
                   &nbsp;@&nbsp;
                   <a href={job.url} className="inline-link" target="_blank" rel="noopener noreferrer">
                     {job.company}
                   </a>
                 </span>
-              </h3>
+              </h2>
               <p className="range">
                 <CalendarTodayIcon style={{ marginRight: '8px' }} />
                 {job.range}
@@ -112,7 +110,7 @@ const WorkExperience = () => {
 };
 
 const StyledSection = styled.section`
-  max-width: 700px;
+  max-width: 900px;
   height: 100vh;
   .inner {
     display: flex;
@@ -129,6 +127,7 @@ const StyledTabList = styled.div`
   padding: 0;
   margin: 0;
   list-style: none;
+  font-size: 20px;
 
   @media (max-width: 600px) {
     display: flex;
@@ -241,7 +240,8 @@ const StyledTabPanel = styled.div`
     li {
       display: flex;
       align-items: center;
-      font-size: var(--fz-xs);
+      font-size: clamp(18px, 5vw, 20px);
+
       margin-bottom: 10px;
 
       svg {
@@ -262,15 +262,20 @@ const StyledTabPanel = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-    font-size: var(--fz-xs);
+    font-size: clamp(18px, 5vw, 20px);
+
   }
 
   .location {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-    font-size: var(--fz-xs);
+    font-size: clamp(18px, 5vw, 20px);
+
   }
+
+
+ 
 `;
 
 export default WorkExperience;

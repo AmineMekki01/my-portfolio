@@ -109,6 +109,7 @@ const ProjectDetailsDescription = styled.div`
   padding: 20px;
   border-radius: 4px;
 
+
   @media (max-width: 1000px) {
     background-color: transparent;
     color: #ccd6f6;
@@ -196,7 +197,7 @@ const ProjectCard = ({ project, index }) => {
       <CoverImage src={project.cover} alt={project.title} className="cover" />
       <ProjectTitle className="project-title">
         <Typography variant="overline" style={{ color: '#ffefd6' }}>
-          Featured Project
+          Personal Project
         </Typography>
         <Typography variant="h5" style={{ marginBottom: '10px' }}>
           {project.title}
@@ -205,14 +206,16 @@ const ProjectCard = ({ project, index }) => {
       <ProjectDetails className="project-details">
         <ProjectDetailsTitle alignLeft={!isEven}>
           <Typography variant="overline" style={{ color: '#ffefd6' }}>
-            Featured Project
+            Personal Project
           </Typography>
           <Typography variant="h5" style={{ marginBottom: '10px' }}>
-            {project.title}
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+                {project.title}
+              </a>
           </Typography>
         </ProjectDetailsTitle>
         <ProjectDetailsDescription>
-          <Typography variant="body1" style={{ marginBottom: '20px' }}>
+          <Typography variant="body1" style={{ marginBottom: '20px', fontSize : "20px"}}>
             {project.description}
           </Typography>
         </ProjectDetailsDescription>
@@ -247,6 +250,12 @@ const Typography = styled.p`
   text-transform: ${({ variant }) => (variant === 'overline' ? 'uppercase' : 'none')};
   font-weight: ${({ variant }) => (variant === 'h5' ? '600' : '400')};
   margin-bottom: ${({ variant }) => (variant === 'body1' ? '1rem' : '0')};
+  
+  a {
+    text-decoration: None;
+    color: #f6f7f8;
+
+  }
 
   @media (max-width: 600px) {
     font-size: ${({ variant }) => (variant === 'h5' ? '1rem' : variant === 'body1' ? '1rem' : '0rem')}; //# title, text,featured

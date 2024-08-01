@@ -17,17 +17,17 @@ const About = () => {
             </a>
             {' '}
             {"Supply Chain"}</span>
-          <p>{t('about.technologies')}</p>
+          {/* <p>{t('about.technologies')}</p>
           <TechList>
             <ul>
               <li>Python</li>
               <li>Pytorch</li>
-              <li>AWS</li>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Go</li>
+              <li>Scikit-Learn</li>
+              <li>Pandas</li>
+              <li>NumPy</li>
+              <li>Keras</li>
             </ul>
-          </TechList>
+          </TechList> */}
         </Text>
         <ImageWrapper>
           <Image src="./images/me_in_grad.jpg" alt="Brittany Chiang" />
@@ -84,6 +84,7 @@ const Content = styled.div`
 
 const Text = styled.div`
   flex: 1;
+  font-size: clamp(22px, 5vw, 30px);  display: flex;
   color: #ccd6f6;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -93,33 +94,6 @@ const Text = styled.div`
   }
 `;
 
-const TechList = styled.div`
-  ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    padding: 0;
-    margin: 20px 0 0 0;
-    overflow: hidden;
-    list-style: none;
-
-    li {
-      position: relative;
-      margin-bottom: 10px;
-      padding-left: 20px;
-      font-size: 0.9rem;
-      color: #8892b0;
-
-      &:before {
-        content: '▹';
-        position: absolute;
-        left: 0;
-        color: #64ffda;
-        font-size: 0.8rem;
-        line-height: 12px;
-      }
-    }
-  }
-`;
 
 const ImageWrapper = styled.div`
   width: 300px;

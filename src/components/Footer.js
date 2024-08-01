@@ -13,7 +13,7 @@ const StyledFooter = styled(Box)`
 const Footer = () => {
   return (
     <StyledFooter>
-      <Typography variant="body2">&copy; {new Date().getFullYear()} Amine MEKKI . Feel Free to use the template.</Typography>
+      <Typography variant="body1">&copy; {new Date().getFullYear()} Amine MEKKI . Feel Free to use the template.</Typography>
     </StyledFooter>
   );
 };

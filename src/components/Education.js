@@ -63,6 +63,8 @@ const EducationTitle = styled.h5`
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: clamp(18px, 5vw, 22px);
+
 `;
 
 const EducationDetails = styled.div`
@@ -71,6 +73,8 @@ const EducationDetails = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: clamp(16px, 5vw, 19px);
+
 `;
 
 const Education = () => {

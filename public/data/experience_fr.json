@@ -1,13 +1,13 @@
 [
     {
       "company": "Sanofi",
-      "title": "Data Scientist",
+      "title": "Data Scientist - Alternance",
       "range": "Septembre 2023 - Actuellement",
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/fr",
       "description": [
-        "Automatisation de la génération de rapports de qualité en utilisant LLMs et RAG, améliorant la précision et réduisant le temps de génération de plus de 50%.",
-        "Développement d'outils personnalisés pour la récupération de données de VDB et pour la génération de graphiques.",
+        "Contribué à l'automatisation de la génération de rapports de qualité en utilisant des LLM et RAG, améliorant la précision et réduisant le temps de génération de plus de 50 %.",
+        "Développé des outils personnalisés pour la récupération de données depuis VDB et pour la génération de graphiques basés sur des prompts.",
         "Création d'un pipeline d'évaluation pour l'application RAG.",
         "Tech Stack : Python, AWS S3, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
       ]
@@ -26,7 +26,7 @@
     },
     {
       "company": "Vaisala",
-      "title": "Data Scientist",
+      "title": "Data Scientist - Stagiaire",
       "range": "Avril - Août 2023",
       "location": "Saclay, France",
       "url": "https://www.vaisala.com/fr",
