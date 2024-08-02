@@ -7,8 +7,6 @@
       "url": "https://www.sanofi.com/fr",
       "description": [
         "Contribué à l'automatisation de la génération de rapports de qualité en utilisant des LLM et RAG, améliorant la précision et réduisant le temps de génération de plus de 50 %.",
-        "Développé des outils personnalisés pour la récupération de données depuis VDB et pour la génération de graphiques basés sur des prompts.",
-        "Création d'un pipeline d'évaluation pour l'application RAG.",
         "Tech Stack : Python, AWS S3, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
       ]
     },
