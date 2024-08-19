@@ -2,16 +2,39 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="172mm"
+   height="172mm"
+   viewBox="0 0 172 172"
    version="1.1"
    id="svg1"
+   sodipodi:docname="MyLogo.svg"
+   inkscape:version="1.3.1 (9b9bdc1480, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0179639"
+     inkscape:cx="236.25591"
+     inkscape:cy="300.60004"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
+     inkscape:window-x="66"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
   <defs
      id="defs1" />
   <metadata
@@ -27,14 +50,14 @@
   </metadata>
   <path
      style="fill:#64ffdb;fill-opacity:1;stroke-width:0.194433"
-     d="m 68.084071,137.72418 v 42.11915 h 9.926113 v -15.34754 l 8.73022,9.92546 7.895519,-8.97648 v 28.23247 l 9.738557,11.07186 v -66.89598 l -18.49677,21.02915 z"
+     d="M 50.40987,65.650755 V 107.7699 h 9.926113 V 92.422365 l 8.73022,9.925455 7.895519,-8.976475 v 28.232465 l 9.738557,11.07186 V 65.779695 l -18.49677,21.02915 z"
      id="path1" />
   <path
      style="fill:#64ffdb;fill-opacity:1;stroke-width:0.194433"
-     d="m 105.66242,113.99538 v 65.99871 h 10.00309 l 0.002,-21.2483 18.65827,21.18409 h 11.13106 l -18.9808,-21.57951 17.23515,-19.59479 H 131.8284 l -16.16082,19.99016 6.9e-4,-33.39131 z"
+     d="m 87.988219,41.921955 v 65.998705 h 10.00309 l 0.002,-21.248295 18.658271,21.184085 h 11.13106 l -18.9808,-21.579505 17.23515,-19.59479 H 114.1542 l -16.160821,19.99016 6.9e-4,-33.39131 z"
      id="path2" />
   <path
-     d="m 104.01941,74.47254 -85.708503,83.71507 85.316513,84.09968 85.7085,-83.71507 z m -0.018,9.074182 74.63189,74.974688 -74.97471,74.63189 -74.632208,-74.97469 z"
+     d="M 86.345209,2.3991148 0.63670627,86.114185 85.953219,170.21386 171.66172,86.498795 Z m -0.018,9.0741822 L 160.9591,86.447985 85.984389,161.07987 11.352181,86.105185 Z"
      style="fill:#64ffdb;fill-opacity:1;stroke-width:0.19817"
      id="path22" />
 </svg>
