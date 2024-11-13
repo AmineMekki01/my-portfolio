@@ -17,9 +17,9 @@
     },
     "about": {
       "title": "About Me",
-      "description": "I’m a Machine learning engineer specializing in solving and building data science/Machine learning Projects. Currently, I’m focused on improving",
-      "description_company": "Sanofi's",
-      "description_continue" : " Supply chain using Data Science and Generative AI.",
+      "description": "I’m a Machine Learning Engineer specializing in building and solving complex Data Science and Machine Learning projects. Currently, I’m looking for new opportunities in Data Science and Machine Learning.",
+      "description_company": "",
+      "description_continue" : "",
       "location" : "Based in Lyon, France",
       "technologies": "Here are a few technologies I’ve been working with recently:"
     },

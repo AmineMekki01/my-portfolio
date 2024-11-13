@@ -17,9 +17,9 @@
     },
     "about": {
       "title": "À propos de moi",
-      "description": "Je suis un ingénieur en apprentissage automatique spécialisé dans la résolution et la construction de projets exceptionnels en science des données et apprentissage automatique. Actuellement, je me concentre sur l'amélioration de la chaîne d'approvisionnement de ",
-      "description_company": "Sanofi",
-      "description_continue" : " en utilisant la science des données et l'IA générative.",
+      "description": "Je suis un ingénieur en apprentissage automatique, spécialisé dans la conception et la résolution de projets complexes en science des données et apprentissage automatique. Je suis actuellement à la recherche de nouvelles opportunités en science des données et apprentissage automatique.",
+      "description_company": "",
+      "description_continue" : "",
       "location" : "Basé à Lyon, France",
       "technologies": "Voici quelques technologies avec lesquelles j'ai récemment travaillé:"
     },

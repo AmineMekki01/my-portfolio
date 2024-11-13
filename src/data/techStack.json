@@ -1,72 +1,22 @@
 [
-    {
-      "name": "Python",
-      "icon": "DiPython"
-    },
-    {
-      "name": "PyTorch",
-      "icon": "SiPytorch"
-    },
-    {
-      "name": "AWS",
-      "icon": "DiAws"
-    },
-    {
-      "name": "JavaScript",
-      "icon": "DiJavascript1"
-    },
-    {
-      "name": "React",
-      "icon": "DiReact"
-    },
-    {
-      "name": "Scikit-Learn",
-      "icon": "SiScikitlearn"
-    },
-    {
-      "name": "Docker",
-      "icon": "DiDocker"
-    },
-    {
-      "name": "Kubernetes",
-      "icon": "SiKubernetes"
-    },
-    {
-      "name": "FastApi",
-      "icon": "SiFastapi"
-    },
-    {
-      "name": "PostgreSQL",
-      "icon": "SiPostgresql"
-    },
-
-    {
-      "name": "MongoDB",
-      "icon": "SiMongodb"
-    },
-    {
-      "name": "Redis",
-      "icon": "SiRedis"
-    },
-    {
-      "name": "Apache Spark",
-      "icon": "SiApachespark"
-    },
-    {
-      "name": "Apache Kafka",
-      "icon": "SiApachekafka"
-    },
-    {
-      "name": "Pinecone", "icon": "PineconeIcon" 
-    },
-    {
-      "name": "MLflow", "icon": "SiMlflow" 
-    },
-    {
-      "name": "DVC", "icon": "SiDvc" 
-    },
-    {
-      "name": "Hugging Face", "icon": "HuggingFaceIcon" 
-    }
+  { "name": "Python", "icon": "/images/python.png" },
+  { "name": "PyTorch", "icon": "/images/pytorch.png" },
+  { "name": "AWS", "icon": "/images/aws.png" },
+  { "name": "JavaScript", "icon": "/images/javascript.png" },
+  { "name": "React", "icon": "/images/react.png" },
+  { "name": "Golang", "icon": "/images/go.png" },
+  { "name": "Scikit-Learn", "icon": "/images/scikit-learn.png" },
+  { "name": "Docker", "icon": "/images/docker.png" },
+  { "name": "Kubernetes", "icon": "/images/kubernetes.png" },
+  { "name": "FastApi", "icon": "/images/fastapi.png" },
+  { "name": "PostgreSQL", "icon": "/images/postgresql.png" },
+  { "name": "MongoDB", "icon": "/images/mongodb.png" },
+  { "name": "Redis", "icon": "/images/redis.png" },
+  { "name": "Apache Spark", "icon": "/images/apache-spark.png" },
+  { "name": "Apache Kafka", "icon": "/images/apache-kafka.png" },
+  { "name": "Pinecone", "icon": "/images/pinecone.png" },
+  { "name": "MLflow", "icon": "/images/mlflow.png" },
+  { "name": "DVC", "icon": "/images/dvc.png" },
+  { "name": "Hugging Face", "icon": "/images/hugging-face.png" },
+  { "name": "ZenML", "icon": "/images/zenml.jpeg" }
 ]
-  
