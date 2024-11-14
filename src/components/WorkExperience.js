@@ -18,7 +18,7 @@ const Title = styled.h3`
   font-weight: 600;
 
   &:before {
-    content: '02.';
+    content: '01.';
     margin-right: 10px;
     color: #f6f7f8;
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;

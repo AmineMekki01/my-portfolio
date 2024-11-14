@@ -3,7 +3,6 @@ import { CssBaseline, Container } from '@mui/material';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
 import WorkExperience from './components/WorkExperience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -37,9 +36,6 @@ function App() {
       <Header />
       <Hero />
       <Container>
-        <Section id="about">
-          <About />
-        </Section>
         <Section id="work-experience">
           <WorkExperience />
         </Section>
