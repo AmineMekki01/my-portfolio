@@ -15,9 +15,19 @@
       "linkedinButton": "Consultez mon LinkedIn"
     },
     "heroExtra": {
-      "jobTitle": "Ingénieur IA",
+      "jobTitle1": "INGENIEUR INTELLIGENCE",
+      "jobTitle2": "ARTIFICIELLE",
       "exp": "1-2 ans",
-      "location": "Lyon, France"
+      "location": "Basé à Lyon, France",
+      "contactMe": "Contacter Moi"
+    },
+    "about": {
+      "title": "À propos de moi",
+      "description": "Je suis ingénieur en apprentissage automatique, avec de l'expérience dans la santé, le manufacturing et la météorologie. J'ai construit des modèles ML, mis en place des pipelines MLOps, et utilisé des modèles de langage pour automatiser la génération de rapports. Je cherche un poste où je pourrai continuer à évoluer et avoir un impact.",
+      "description_company": "",
+      "description_continue" : "",
+      "location" : "Basé à Lyon, France",
+      "technologies": "Voici quelques technologies avec lesquelles j'ai récemment travaillé:"
     },
     "workExperience": {
       "title": "Où j'ai travaillé"

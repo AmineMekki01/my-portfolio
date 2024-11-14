@@ -1,154 +1,190 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-
-const TechList = styled.div`
-  ul {
-    display: flex;
-    padding: 0;
-    margin: 20px 0 0 0;
-    list-style: none;
-
-    li {
-      position: relative;
-      margin-bottom: 10px;
-      padding-left: 20px;
-      font-size: 1.5rem;
-      color: #8892b0;
-    }
-  }
-`;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const HeroSection = styled.section`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
-  background-color: #0a192f;
-@media (max-width: 900px) {
-    flex-direction: column-reverse;
-  }
-  h1 {
-    color: #64ffda;
-    font-size: clamp(16px, 5vw, 24px);
-    margin: 0;
-  }
-
-  h2 {
-    color: #ccd6f6;
-    font-size: clamp(40px, 8vw, 80px);
-    margin: 10px 0;
-  }
-
-  h3 {
-    color: #8892b0;
-    font-size: clamp(20px, 5vw, 36px);
-    margin: 0;
-  }
-  h4 {
-    color: #8892b0;
-    font-size: 20px;
-    margin: 0;
-    
-  }
-  p {
-    color: #8892b0;
-    font-size: 20px;
-    max-width: 600px;
-
-    margin: 20px auto 0;
-
-    @media (max-width: 600px) {
-        margin: 20px 20px;
-    }
-  }
-
-  a {
-    margin-top: 50px;
-    padding: 15px 30px;
-    font-size: 18px;
-    color: #64ffda;
-    background-color: transparent;
-    border: 1px solid #64ffda;
-    border-radius: 4px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      background-color: rgba(100, 255, 218, 0.1);
-    }
-  }
+  background: #0a192f;
+  color: #ccd6f6;
 `;
 
-const MainHero = styled.div`
+const ProfileContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  position: relative;
+`;
+
+const ProfileImage = styled.img`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #64ffda;
+`;
+
+const ExperienceBubble = styled.div`
+  position: absolute;
+  top: -10px;
+  left: -110px;
+  background: transparent;
+  color: #ccd6f6;
+  padding: 5px 10px;
+  border: 2px solid #ccd6f6;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+`;
+
+const NameContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  align-items: flex-start;
 `;
 
-const ImageWrapper = styled.div`
-  width: 300px;
-  height: 300px;
-  flex-shrink: 0;
-  border-radius: 4px;
-  overflow: hidden;
-  background-color: #64ffda;
-  margin-left: 40px;
-
-  @media (max-width: 768px) {
-    margin: 0 auto;
-  }
-
-  @media (max-width: 400px) {
-    width: 220px;
-    height: 250px;
-  }
+const Name = styled.h3`
+  color: #ccd6f6;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
 `;
 
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
+const Location = styled.span`
+  font-size: 1rem;
+  color: #ccd6f6;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
+const FlagIcon = styled.img`
+  width: 20px;
+  height: 15px;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-  filter: brightness(0.6);
+`;
+
+const Title = styled.h1`
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: #ccd6f6;
+  margin: 10px 0;
+  line-height: 1.1;
+  font-weight: bold;
+`;
+
+
+const SocialContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+`;
+
+const SocialIcon = styled.a`
+  color: #ccd6f6;
+  font-size: 1.5rem;
+  transition: color 0.3s;
 
   &:hover {
-    transform: scale(1.1);
-    filter: brightness(1);
+    color: #64ffda;
   }
 `;
 
+const ContactButton = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  margin-left: 40px;
+  height: 50px;
+  font-size: 1rem;
+  color: #ccd6f6;
+  border: 1px solid #ccd6f6;
+  border-radius: 30px;
+  text-decoration: none;
+  background-color: transparent;
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: rgba(100, 255, 218, 0.1);
+  }
+`;
+
+const TitleContactContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const TitleContact = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 100px;
+`;
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const resumeLink = i18n.language === 'fr' ? '/resume_amine_mekki_fr.pdf' : '/resume_amine_mekki_en.pdf';
+  const resumeDownloadName = i18n.language === 'fr' ? 'Amine_MEKKI_Resume_French.pdf' : 'Amine_MEKKI_Resume_English.pdf';
 
   return (
     <HeroSection>
-      <MainHero>
-        <h1>{t('hero.intro')}</h1>
-        <h2>{t('hero.name')}</h2>
-        <TechList>
-          <ul>
-            <li><EngineeringIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />{t('heroExtra.jobTitle')}</li>
-            <li><WorkOutlineIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />{t('heroExtra.exp')}</li>
-            <li><LocationOnIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />{t('heroExtra.location')}</li>
-          </ul>
-        </TechList>
-        <p>{t('hero.tagline')}</p>
-        <a href="https://www.linkedin.com/in/mekki-amine/" target="_blank" rel="noopener noreferrer">
-          {t('hero.linkedinButton')}
-        </a>
-      </MainHero>
-      
-      <ImageWrapper>
-        <Image src="./images/me_in_grad.jpg" alt="Brittany Chiang" />
-      </ImageWrapper>
+      <ProfileContainer>
+        <ProfileImage src="./images/me_in_grad.jpg" alt="Profile" />
+        <ExperienceBubble>
+          <WorkOutlineIcon  style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />{t('heroExtra.exp')}
+        </ExperienceBubble>
+        <NameContainer>
+          <Name>{t("hero.name")}</Name>
+          <Location>
+            <FlagIcon src="/images/france-flag.png" alt="France Flag" />
+            {t("heroExtra.location")}
+          </Location>
+        </NameContainer>
+      </ProfileContainer>
+
+      <TitleContactContainer>
+        <Title>{t('heroExtra.jobTitle1')}</Title>
+
+        <TitleContact>
+          <Title>{t('heroExtra.jobTitle2')}</Title>
+
+          <ContactButton href="mailto:amine.mekki.contact@gmail.com">
+            <FontAwesomeIcon icon={faEnvelope} />
+            {t('heroExtra.contactMe')}
+          </ContactButton>
+        </TitleContact>
+      </TitleContactContainer>
+
+      <SocialContainer>
+        <SocialIcon href="https://linkedin.com/in/mekki-amine" target="_blank" aria-label="LinkedIn">
+          <FontAwesomeIcon icon={faLinkedin} />
+        </SocialIcon>
+        <SocialIcon href="https://github.com/AmineMekki01" target="_blank" aria-label="GitHub">
+          <FontAwesomeIcon icon={faGithub} />
+        </SocialIcon>
+        <SocialIcon 
+          href={resumeLink} 
+          download={resumeDownloadName} 
+          aria-label={t('header.resume')}
+        >
+          <FontAwesomeIcon icon={faFileAlt} />
+        </SocialIcon>
+      </SocialContainer>
     </HeroSection>
   );
 };

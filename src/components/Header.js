@@ -55,15 +55,6 @@ const StyledButton = styled.a`
   }
 `;
 
-const ResumeButton = styled(StyledButton)`
-  color: #64FFDB;
-  padding: 8px 16px;
-
-  &:hover {
-    background-color: rgba(100, 255, 218, 0.1);
-  }
-`;
-
 const LanguageContainer = styled.div`
   display: flex;
   gap: 1rem;
@@ -98,18 +89,6 @@ const CustomListItem = styled.div`
   align-items: center;
   transition: background-color 0.3s ease-in-out;
 
-  &:hover {
-    background-color: rgba(100, 255, 218, 0.1);
-  }
-`;
-
-const CustomResumeButton = styled.a`
-  color: #64FFDB;
-  padding: 16px;
-  display: flex;
-  text-decoration: none;
-  color: #64FFDB;
-  
   &:hover {
     background-color: rgba(100, 255, 218, 0.1);
   }
@@ -155,11 +134,7 @@ const Header = () => {
     { text: t('header.education'), href: '#education' },
     { text: t('header.contact'), href: '#contact' },
     { text: t('header.technicalStack'), href: '#technical-stack'},
-    {
-      text: t('header.resume'),
-      href: i18n.language === 'fr' ? '/resume_amine_mekki_fr.pdf' : '/resume_amine_mekki_en.pdf',
-      download: i18n.language === 'fr' ? 'Amine_MEKKI_Resume_French.pdf' : 'Amine_MEKKI_Resume_English.pdf'
-    },
+
   ];
 
   const changeLanguage = (lng) => {
@@ -175,7 +150,6 @@ const Header = () => {
             {menuItems.slice(0, -1).map((item, index) => (
               <StyledButton key={index} href={item.href}>{item.text}</StyledButton>
             ))}
-            <ResumeButton href={menuItems[6].href} download={menuItems[6].download}>{menuItems[6].text}</ResumeButton>
           </StyledBox>
           <LanguageContainer>
             <StyledButton onClick={() => changeLanguage('en')}>EN</StyledButton>
@@ -205,7 +179,7 @@ const Header = () => {
               <CustomListItemText primary={item.text} />
             </CustomListItem>
           ))}
-          <CustomResumeButton href={menuItems[6].href} download={menuItems[6].download}>{menuItems[6].text}</CustomResumeButton>
+
         </List>
       </CustomDrawer>
     </HeaderContainer>

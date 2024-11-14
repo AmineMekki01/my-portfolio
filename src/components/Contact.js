@@ -28,7 +28,7 @@ const ContactTitle = styled.h4`
   font-weight: 400;
   margin-bottom: 20px;
   &:before {
-    content: '05. ';
+    content: '06. ';
     color: #64ffda;
   }
 `;

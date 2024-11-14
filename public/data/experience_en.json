@@ -1,24 +1,27 @@
 [
     {
       "company": "Sanofi",
-      "title": "Data Scientist - Apprentice",
-      "range": "Sept 2023 - Currently",
+      "title": "Data Scientist",
+      "range": "September 2023 - August 2024",
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/en",
       "description": [
         "Contributed to the automation of quality report generation using LLMs and RAG, enhancing accuracy and reducing generation time by more than 50%.",
+        "Developed custom tools for data retrieval from VDB and for generating graphical representations.",
+        "Created an evaluation pipeline for the RAG application.",
         "Tech Stack : Python, AWS S3, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
       ]
     },
     {
       "company": "Ecole des Mines Alès",
       "title": "MLOps Engineer - intern",
-      "range": "Jan - March 2024",
+      "range": "January - March 2024",
       "location": "Alès, France",
       "url": "https://www.imt-mines-ales.fr/en",
       "description": [
-        "Developed an MLOps pipeline to automate the end-to-end process of model training, evaluation, and deployment, effectively handling a variety of ML problems.",
-        "Integrated data drift and model drift monitoring solutions to ensure model reliability and performance over time, utilizing custom metrics.",
+        "Developed and implemented an MLOps pipeline to automate end-to-end processes for model training, evaluation, and deployment. ",
+        "Established data and model drift monitoring solutions, ensuring model stability and long-term performance.",
+        "Leveraged AWS services to deliver cost-effective, scalable solutions for model training and deployment.",
         "Tech Stack : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, and GitHub Actions, Docker."
       ]
     },
@@ -37,12 +40,12 @@
     {
       "company": "EuroMov Digital Health in Motion",
       "title": "Machine Learning Engineer - Intern",
-      "range": "Jan - April 2023",
+      "range": "January - April 2023",
       "location": "Montpellier, France",
       "url": "https://dhm.euromov.eu/",
       "description": [
         "Analyzed functional near-infrared spectroscopy (fNIRS) signals from patients undergoing transcranial direct current stimulation (tDCS).",
-        "Derived unique biomarkers to establish correlations between the electric dosage and fNIRS responses. Enabling dosage modulation based on patient responses, contributing to future real-time personalized treatment strategies for cognitive function restoration in patients with brain damage.",
+        "Derived unique biomarkers to establish correlations between the electric dosage and fNIRS responses. Enabling dosage modulation based on patient responses, contributing to a future personalized treatment strategies for cognitive function restoration in patients with brain damage. ",
         "Tech Stack : Python, Github, scikit-learn, Pytorch"
       ]
     }

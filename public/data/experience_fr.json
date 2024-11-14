@@ -1,12 +1,14 @@
 [
     {
       "company": "Sanofi",
-      "title": "Data Scientist - Alternance",
-      "range": "Septembre 2023 - Actuellement",
+      "title": "Data Scientist",
+      "range": "Septembre 2023 - Août 2024",
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/fr",
       "description": [
         "Contribué à l'automatisation de la génération de rapports de qualité en utilisant des LLM et RAG, améliorant la précision et réduisant le temps de génération de plus de 50 %.",
+        "Développement d'outils personnalisés pour la récupération de données depuis la VDB et pour la génération de représentations graphiques.",
+        "Création d'un pipeline d'évaluation pour l'application RAG.",
         "Tech Stack : Python, AWS S3, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
       ]
     },
@@ -17,8 +19,9 @@
       "location": "Alès, France",
       "url": "https://www.imt-mines-ales.fr/fr",
       "description": [
-        "Développement d'un pipeline MLOps pour automatiser le processus de bout en bout de formation, d'évaluation et de déploiement de modèles, gérant efficacement une variété de problèmes de ML.",
-        "Intégration de solutions de surveillance des dérives de données et de modèles pour assurer la fiabilité et les performances des modèles dans le temps, en utilisant des métriques personnalisées.",
+        "Conception et mise en œuvre d'un pipeline MLOps pour automatiser les processus de bout en bout de l'entraînement, évaluation, et déploiement des modèles.",
+        "Mise en place de solutions de surveillance de la dérive des données et des modèles, garantissant la stabilité et la performance à long terme des modèles.",
+        "Utilisation des services AWS pour des solutions d'entraînement et de déploiement de modèles, rentables et évolutives.",
         "Tech Stack : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, et GitHub Actions, Docker."
       ]
     },
@@ -42,7 +45,7 @@
       "url": "https://dhm.euromov.eu/",
       "description": [
         "Analyse des signaux de spectroscopie proche infrarouge fonctionnelle (fNIRS) de patients subissant une stimulation transcrânienne à courant direct (tDCS).",
-        "Dérivation de biomarqueurs uniques pour établir des corrélations entre la dose électrique et les réponses fNIRS. Permettre la modulation de la dose en fonction des réponses des patients, contribuant à des stratégies de traitement personnalisées en temps réel pour la restauration des fonctions cognitives chez les patients atteints de lésions cérébrales.",
+        "Identification de biomarqueurs uniques établissant des corrélations entre la dose électrique et les réponses fNIRS, permettant la modulation des doses en fonction des réponses des patients. Ce projet contribue aux futures stratégies de traitement personnalisé pour restaurer les fonctions cognitives chez les patients souffrant de lésions cérébrales.",
         "Tech Stack : Python, Github, scikit-learn, Pytorch"
       ]
     }

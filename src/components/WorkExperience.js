@@ -18,7 +18,7 @@ const Title = styled.h3`
   font-weight: 600;
 
   &:before {
-    content: '01.';
+    content: '02.';
     margin-right: 10px;
     color: #f6f7f8;
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
@@ -238,14 +238,15 @@ const StyledTabPanel = styled.div`
 
     li {
       display: flex;
-      align-items: center;
+      align-items: flex-start; /* Aligns icon at the top of the text */
       font-size: clamp(18px, 5vw, 20px);
-
       margin-bottom: 10px;
 
       svg {
         margin-right: 10px;
         color: #ffefd6;
+        position: relative;
+        top: 2px; /* Adjust this value to align the icon perfectly with your text */
       }
     }
   }
@@ -262,7 +263,6 @@ const StyledTabPanel = styled.div`
     align-items: center;
     margin-bottom: 5px;
     font-size: clamp(18px, 5vw, 20px);
-
   }
 
   .location {
@@ -270,11 +270,8 @@ const StyledTabPanel = styled.div`
     align-items: center;
     margin-bottom: 25px;
     font-size: clamp(18px, 5vw, 20px);
-
   }
-
-
- 
 `;
+
 
 export default WorkExperience;
