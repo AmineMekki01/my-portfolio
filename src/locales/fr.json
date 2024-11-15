@@ -1,7 +1,7 @@
 {
     "header": {
       "about": "À propos",
-      "workExperience": "Expérience professionnelle",
+      "workExperience": "Expérience",
       "projects": "Projets",
       "education": "Éducation",
       "contact": "Contact",
@@ -17,7 +17,8 @@
     "heroExtra": {
       "jobTitle1": "INGENIEUR INTELLIGENCE",
       "jobTitle2": "ARTIFICIELLE",
-      "exp": "1-2 ans",
+      "exp": "1-2",
+      "expLabel" : "ans",
       "location": "Basé à Lyon, France",
       "contactMe": "Contacter Moi"
     },
@@ -30,13 +31,13 @@
       "technologies": "Voici quelques technologies avec lesquelles j'ai récemment travaillé:"
     },
     "workExperience": {
-      "title": "Où j'ai travaillé"
+      "title": "Expérience"
     },
     "technicalStack": {
-      "title": "Pile technique"
+      "title": "Stack"
     },
     "projects": {
-      "title": "Quelques projets que j'ai réalisés",
+      "title": "Projets",
       "buttonShowMore": "Voir plus"
     },
     "education": {

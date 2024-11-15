@@ -33,16 +33,20 @@ const About = () => {
 const AboutContainer = styled.div`
   padding: 2rem;
   text-align: left;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 500px) {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h4`
   color: #64FFDB;
   margin-bottom: 2rem;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   display: flex;
   align-items: center;
   position: relative;
@@ -68,7 +72,7 @@ const Content = styled.div`
   justify-content: space-between;
   gap: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     flex-direction: column;
      align-items: center;
   }
@@ -99,10 +103,21 @@ const ImageWrapper = styled.div`
     margin: 0 auto;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     width: 220px;
     height: 250px;
   }
+
+  @media (max-width: 400px) {
+    width: 200px;
+    height: 200px;
+  }
+  
+  @media (max-width: 350px) {
+    width: 150px;
+    height: 150px;
+  }
+
 `;
 
 const Image = styled.img`

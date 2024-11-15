@@ -20,7 +20,9 @@ const TechnicalStack = () => {
             <IconWrapper>
               <img src={item.icon} alt={item.name} />
             </IconWrapper>
-            <StackItemText>{item.name}</StackItemText>
+            <StackItemText>
+              {item.name}
+            </StackItemText>
           </StackItem>
         ))}
       </StackList>
@@ -31,8 +33,11 @@ const TechnicalStack = () => {
 const TechnicalStackContainer = styled.div`
   padding: 2rem;
   text-align: center;
-  background-color: #0a192f;
   color: #ccd6f6;
+
+  @media (max-width: 600px) {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h4`
@@ -44,7 +49,7 @@ const Title = styled.h4`
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 600;
 
   &:before {
@@ -67,10 +72,11 @@ const StackList = styled.div`
 const StackItem = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 120px;
   height: 120px;
-  background-color: #112240;
+  background-color: rgb(30, 28, 25);
   padding: 1.5rem;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -78,6 +84,13 @@ const StackItem = styled.div`
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 600px) {
+    width: 100px;
+    height: 100px;
+    padding: 0.5rem;
+
   }
 `;
 
@@ -92,6 +105,11 @@ const IconWrapper = styled.div`
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @media (max-width: 600px) {
+    width: 30px;
+    height: 30px;
   }
 `;
 

@@ -23,7 +23,7 @@ const ContactSection = styled.section`
 
 const ContactTitle = styled.h4`
   color: #64ffda;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
 
   font-weight: 400;
   margin-bottom: 20px;

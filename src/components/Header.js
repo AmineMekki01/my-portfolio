@@ -6,33 +6,35 @@ import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1100;
   transition: background-color 0.3s ease-in-out;
-  background-color: ${({ opacity }) => `rgba(10, 25, 47, ${opacity})`};
+  background-color: ${({ opacity }) => `rgba(15, 10, 5, ${opacity})`};
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 60px;
+
+  @media (max-width: 800px) {
+    height: 50px;
+  }
 `;
 
 const StyledToolbar = styled(Toolbar)`
   display: flex;
-  justify-content: space-between;
-  height: 100px;
+  justify-content: center;
 `;
 
 const StyledBox = styled(Box)`
   display: flex;
   gap: 1rem;
-  height: 100%;
 
-  @media (max-width: 900px) {
+  @media (max-width: 800px) {
     display: none;
   }
-`;
-
-const Logo = styled.img`
-  height: 90px;
-  margin: 5px 0; 
 `;
 
 const StyledButton = styled.a`
@@ -45,15 +47,15 @@ const StyledButton = styled.a`
   padding: 0 12px;
   display: flex;
   align-items: center;
-  height: 100%;
   text-decoration: none;
   color: white;
   transition: background-color 0.3s ease-in-out;
-  
+
   &:hover {
-    background-color: rgba(100, 255, 218, 0.1);
+    border-bottom: 2px solid white;
   }
 `;
+
 
 const LanguageContainer = styled.div`
   display: flex;
@@ -67,7 +69,7 @@ const MobileMenuButton = styled(IconButton)`
 
 const CustomDrawer = styled(Drawer)`
   .MuiPaper-root {
-    background-color: #071528 !important;
+    background-color: rgb(15, 10, 5) !important;
     width: 250px !important;
     height: 100% !important;
   }
@@ -98,7 +100,7 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [opacity, setOpacity] = useState(1);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isSmallScreen = useMediaQuery('(max-width: 900px)');
+  const isSmallScreen = useMediaQuery('(max-width: 800px)');
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -145,7 +147,6 @@ const Header = () => {
     <HeaderContainer opacity={opacity}>
       <AppBar position="static" sx={{ boxShadow: 'none', backgroundColor: 'transparent' }}>
         <StyledToolbar>
-          <Logo src="/images/MyLogo.svg" alt="Logo" />
           <StyledBox>
             {menuItems.slice(0, -1).map((item, index) => (
               <StyledButton key={index} href={item.href}>{item.text}</StyledButton>

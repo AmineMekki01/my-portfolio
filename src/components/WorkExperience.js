@@ -14,7 +14,7 @@ const Title = styled.h3`
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 600;
 
   &:before {
@@ -110,10 +110,10 @@ const WorkExperience = () => {
 
 const StyledSection = styled.section`
   max-width: 900px;
-  height: 100vh;
+  height: 100%;
   .inner {
     display: flex;
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
       display: block;
     }
   }
@@ -128,13 +128,12 @@ const StyledTabList = styled.div`
   list-style: none;
   font-size: 20px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     display: flex;
     overflow-x: auto;
     width: 100%;
-    padding-left: 50px;
-    margin-left: -50px;
     margin-bottom: 30px;
+    border: 2px solid white;
   }
 
   ::-webkit-scrollbar {
@@ -180,7 +179,7 @@ const StyledTabButton = styled.button`
     background-color: #112240;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     padding: 10px 20px;
     border-left: 0;
     border-bottom: 2px solid #64FFDB;
@@ -200,7 +199,7 @@ const StyledHighlight = styled.div`
   transform: translateY(calc(${({ activeTab }) => activeTab} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     top: auto;
     bottom: 0;
     width: 100%;
@@ -214,7 +213,7 @@ const StyledTabPanels = styled.div`
   width: 100%;
   margin-left: 20px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     margin-left: 0;
   }
 

@@ -41,6 +41,10 @@ const Projects = () => {
 const ProjectsContainer = styled.div`
   padding: 2rem;
   text-align: center;
+
+  @media (max-width: 400px) {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h4`
@@ -52,7 +56,7 @@ const Title = styled.h4`
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 600;
 
   &:before {

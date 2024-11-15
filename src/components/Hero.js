@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
+
 const HeroSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -13,9 +14,22 @@ const HeroSection = styled.section`
   align-items: center;
   height: 100vh;
   text-align: center;
-  background: #0a192f;
   color: #ccd6f6;
+  overflow: hidden;
+  padding: 200px 2rem 2rem 2rem;
+  background: radial-gradient(
+    closest-side, 
+    rgba(81, 185, 200, 0.4) 0%,
+    rgba(81, 185, 200, 0.1) 50%,
+    rgba(81, 185, 200, 0) 100%
+  );
+
+  @media (max-width: 700px) {
+    padding: 200px 0 0 0;
+  }
+
 `;
+
 
 const ProfileContainer = styled.div`
   display: flex;
@@ -48,7 +62,16 @@ const ExperienceBubble = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 600px) {
+    top: -40px;
+    left: 80px;
+
+    .expLabel {
+      display: none; /* Hide expLabel on small screens */
+    }
+  }
 `;
+
 
 const NameContainer = styled.div`
   display: flex;
@@ -58,13 +81,13 @@ const NameContainer = styled.div`
 
 const Name = styled.h3`
   color: #ccd6f6;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 5vw, 1.5rem);
   font-weight: bold;
   margin: 0;
 `;
 
 const Location = styled.span`
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 4vw, 1rem);
   color: #ccd6f6;
   display: flex;
   align-items: center;
@@ -78,13 +101,12 @@ const FlagIcon = styled.img`
 `;
 
 const Title = styled.h1`
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(1rem, 5vw, 6rem);
   color: #ccd6f6;
   margin: 10px 0;
   line-height: 1.1;
   font-weight: bold;
 `;
-
 
 const SocialContainer = styled.div`
   display: flex;
@@ -96,10 +118,13 @@ const SocialContainer = styled.div`
 const SocialIcon = styled.a`
   color: #ccd6f6;
   font-size: 1.5rem;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
+  text-shadow: 0px 0px 8px rgba(100, 255, 218, 0.8);
 
   &:hover {
     color: #64ffda;
+    transform: scale(1.1);
+    text-shadow: 0px 0px 12px rgba(100, 255, 218, 1), 0px 0px 30px rgba(100, 255, 218, 0.8);
   }
 `;
 
@@ -108,20 +133,27 @@ const ContactButton = styled.a`
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  margin-left: 40px;
-  height: 50px;
-  font-size: 1rem;
+  margin-left: 20px;
+  font-size: clamp(16px, 8vw, 1rem);
   color: #ccd6f6;
   border: 1px solid #ccd6f6;
   border-radius: 30px;
   text-decoration: none;
   background-color: transparent;
   font-weight: 600;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 0px 8px rgba(100, 255, 218, 0.6), 0px 0px 20px rgba(100, 255, 218, 0.4);
 
   &:hover {
     transform: scale(1.05);
     background-color: rgba(100, 255, 218, 0.1);
+    box-shadow: 0px 0px 12px rgba(100, 255, 218, 1), 0px 0px 30px rgba(100, 255, 218, 0.8);
+  }
+
+  span {
+    @media (max-width: 700px) {
+      display: none;
+    }
   }
 `;
 
@@ -129,11 +161,17 @@ const TitleContactContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const TitleContact = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-left: 100px;
+
+  @media (max-width: 600px) {
+    margin-left: 10px;
+
+  }
 `;
 
 const Hero = () => {
@@ -146,7 +184,9 @@ const Hero = () => {
       <ProfileContainer>
         <ProfileImage src="./images/me_in_grad.jpg" alt="Profile" />
         <ExperienceBubble>
-          <WorkOutlineIcon  style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />{t('heroExtra.exp')}
+          <WorkOutlineIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />
+          <span>{t('heroExtra.exp')}</span>
+          <span className="expLabel">{'. '}{t('heroExtra.expLabel')}</span>
         </ExperienceBubble>
         <NameContainer>
           <Name>{t("hero.name")}</Name>
@@ -165,7 +205,7 @@ const Hero = () => {
 
           <ContactButton href="mailto:amine.mekki.contact@gmail.com">
             <FontAwesomeIcon icon={faEnvelope} />
-            {t('heroExtra.contactMe')}
+            <span>{t('heroExtra.contactMe')}</span>
           </ContactButton>
         </TitleContact>
       </TitleContactContainer>

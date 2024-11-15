@@ -9,8 +9,10 @@ import ClassIcon from '@mui/icons-material/Class';
 const EducationContainer = styled.div`
   padding: 2rem;
   text-align: center;
-  background-color: #0a192f;
   color: #ccd6f6;
+  @media (max-width: 400px) {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h4`
@@ -22,7 +24,7 @@ const Title = styled.h4`
   margin: 10px 0 40px;
   width: 100%;
   white-space: nowrap;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 600;
 
   &:before {
@@ -43,7 +45,7 @@ const EducationList = styled.div`
 `;
 
 const EducationItem = styled.div`
-  background-color: #112240;
+  background-color: rgb(30, 28, 25);
   padding: 1.5rem;
   width: 100%;
   border-radius: 8px;
@@ -53,6 +55,10 @@ const EducationItem = styled.div`
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 400px) {
+    padding: 0.5rem;
   }
 `;
 

@@ -14,8 +14,9 @@ import TechnicalStack from './components/TechnicalStack';
 import About from './components/About';
 
 const MainApp = styled.div`
-  background-color: #0A192F;
+  background-color: #0f0a05;
   color: #ccd6f6;
+  padding: 0 45px;
 `;
 
 const Section = styled.div`

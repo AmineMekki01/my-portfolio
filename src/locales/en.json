@@ -1,7 +1,7 @@
 {
     "header": {
       "about": "About",
-      "workExperience": "Work Experience",
+      "workExperience": "Experience",
       "projects": "Projects",
       "education": "Education",
       "contact": "Contact",
@@ -17,7 +17,8 @@
     "heroExtra": {
       "jobTitle1": "MACHINE LEARNING",
       "jobTitle2": "ENGINEER",
-      "exp": "1-2 years",
+      "exp": "1-2",
+      "expLabel" : "years",
       "location": "Based in Lyon, France",
       "contactMe": "Contact Me"
     },
@@ -30,13 +31,13 @@
       "technologies": "Here are a few technologies I’ve been working with recently:"
     },
     "workExperience" :{
-        "title" : "Where I’ve Worked"
+        "title" : "Experience"
     },
     "technicalStack" :{
-        "title" : "Technical Stack"
+        "title" : "Stack"
     },
     "projects" :{
-        "title" : "Some Things I’ve Built",
+        "title" : "Projects",
         "buttonShowMore" : "Show More"
     },
     "Education" :{

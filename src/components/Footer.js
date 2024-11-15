@@ -3,7 +3,7 @@ import { Typography, Box } from '@mui/material';
 import styled from 'styled-components';
 
 const StyledFooter = styled(Box)`
-  background-color: #0a192f;
+  background-color: rgb(15, 10, 5);
   color: #ccd6f6;
   padding: 1rem;
   text-align: center;

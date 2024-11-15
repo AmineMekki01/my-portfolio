@@ -104,7 +104,7 @@ const ProjectDetailsTitle = styled.div`
 
 const ProjectDetailsDescription = styled.div`
   display: flex;
-  background-color: #282c34;
+  background-color: rgb(30, 28, 25);
   color: black;
   padding: 20px;
   border-radius: 4px;
@@ -114,9 +114,8 @@ const ProjectDetailsDescription = styled.div`
     background-color: transparent;
     color: #ccd6f6;
   }
-
-  @media (max-width: 500px) {
-    padding-bottom: 0;
+  @media (max-width: 700px) {
+    padding: 0;
   }
 `;
 
@@ -143,8 +142,12 @@ const ProjectDetailsStack = styled.ul`
     margin-right: 15px;
     color: #8892b0;
 
-    @media (max-width: 500px) {
+    @media (max-width: 700px) {
       font-size: 12px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 10px;
     }
   }
 
@@ -215,7 +218,12 @@ const ProjectCard = ({ project, index }) => {
           </Typography>
         </ProjectDetailsTitle>
         <ProjectDetailsDescription>
-          <Typography variant="body1" style={{ marginBottom: '20px', fontSize : "20px"}}>
+          <Typography
+            variant="body1"
+            fontSize="22px"
+            fontSizeMd="16px"
+            fontSizeSm="12px"
+          >
             {project.description}
           </Typography>
         </ProjectDetailsDescription>
@@ -246,24 +254,26 @@ const ProjectCard = ({ project, index }) => {
 const Typography = styled.p`
   margin: 0;
   color: ${({ variant }) => (variant === 'overline' ? '#f6f7f8' : '#f6f7f8')};
-  font-size: ${({ variant }) => (variant === 'h5' ? '1.5rem' : variant === 'body1' ? '1rem' : '0.875rem')};
+  font-size: ${({ fontSize, variant }) =>
+    fontSize ? fontSize : variant === 'h5' ? '1.5rem' : variant === 'body1' ? '1rem' : '0.875rem'};
   text-transform: ${({ variant }) => (variant === 'overline' ? 'uppercase' : 'none')};
   font-weight: ${({ variant }) => (variant === 'h5' ? '600' : '400')};
-  margin-bottom: ${({ variant }) => (variant === 'body1' ? '1rem' : '0')};
-  
-  a {
-    text-decoration: None;
-    color: #f6f7f8;
 
+  a {
+    text-decoration: none;
+    color: #f6f7f8;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: ${({ fontSizeMd, fontSize, variant }) =>
+      fontSizeMd ? fontSizeMd : fontSize ? fontSize : variant === 'h5' ? '1.2rem' : variant === 'body1' ? '0.9rem' : '0.75rem'};
   }
 
   @media (max-width: 600px) {
-    font-size: ${({ variant }) => (variant === 'h5' ? '1rem' : variant === 'body1' ? '1rem' : '0rem')}; //# title, text,featured
-  }
-
-  @media (max-width: 500px) {
-    font-size: ${({ variant }) => (variant === 'h5' ? '1rem' : variant === 'body1' ? '0.7rem' : '0rem')};
+    font-size: ${({ fontSizeSm, fontSize, variant }) =>
+      fontSizeSm ? fontSizeSm : fontSize ? fontSize : variant === 'h5' ? '1rem' : variant === 'body1' ? '0.875rem' : '0.75rem'};
   }
 `;
+
 
 export default ProjectCard;
