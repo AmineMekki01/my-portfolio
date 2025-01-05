@@ -4,7 +4,8 @@
       "title": "AI ENGINEER",
       "range": "December 2024 - Present",
       "location": "Lille, France",
-      "url": "https://www.sanofi.com/en",
+      "url": "https://www.genfit.fr/",
+      "logo": "/images/genfit.png",
       "description": [
         "Developing and deploying a multi-object detection and tracking solution.",
         "Developing and implementing a solution for classifying and detecting pathological tissues, as well as automating cell counting in microscopic images"
@@ -16,6 +17,7 @@
       "range": "September 2023 - August 2024",
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/en",
+      "logo": "/images/sanofi.png",
       "description": [
         "Contributed to the automation of quality report generation using LLMs and RAG, enhancing accuracy and reducing generation time by more than 50%.",
         "Developed custom tools for data retrieval from VDB and for generating graphical representations.",
@@ -29,6 +31,7 @@
       "range": "January - March 2024",
       "location": "Alès, France",
       "url": "https://www.imt-mines-ales.fr/en",
+      "logo": "/images/imt.png",
       "description": [
         "Developed and implemented an MLOps pipeline to automate end-to-end processes for model training, evaluation, and deployment. ",
         "Established data and model drift monitoring solutions, ensuring model stability and long-term performance.",
@@ -42,6 +45,7 @@
       "range": "April - August 2023",
       "location": "Saclay, France",
       "url": "https://www.vaisala.com/",
+      "logo": "/images/vaisala.png",
       "description": [
         "Analyzed data from both products to find joint applications and improve their performance.",
         "Conducted in-depth market research and developed machine learning calibration methods, improving product focus and measurements.",
@@ -54,6 +58,7 @@
       "range": "January - April 2023",
       "location": "Montpellier, France",
       "url": "https://dhm.euromov.eu/",
+      "logo": "/images/euromov.png",
       "description": [
         "Analyzed functional near-infrared spectroscopy (fNIRS) signals from patients undergoing transcranial direct current stimulation (tDCS).",
         "Derived unique biomarkers to establish correlations between the electric dosage and fNIRS responses. Enabling dosage modulation based on patient responses, contributing to a future personalized treatment strategies for cognitive function restoration in patients with brain damage. ",

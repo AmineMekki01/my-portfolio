@@ -58,6 +58,7 @@ const WorkExperience = () => {
               isActive={activeTab === index}
               onClick={() => setActiveTab(index)}
             >
+              <img src={job.logo} alt={`${job.company} logo`} />
               {job.company}
             </StyledTabButton>
           ))}
@@ -71,7 +72,9 @@ const WorkExperience = () => {
                 <span className="company">
                   &nbsp;@&nbsp;
                   <a href={job.url} className="inline-link" target="_blank" rel="noopener noreferrer">
-                    {job.company}
+                    {job.company} 
+                    <img src={job.logo} alt={`${job.company} logo`} />
+
                   </a>
                 </span>
               </h2>
@@ -174,6 +177,12 @@ const StyledTabButton = styled.button`
   text-align: left;
   white-space: nowrap;
 
+  img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+  }
+
   &:hover,
   &:focus {
     background-color: #112240;
@@ -184,6 +193,10 @@ const StyledTabButton = styled.button`
     border-left: 0;
     border-bottom: 2px solid #64FFDB;
     text-align: center;
+
+    img {
+      height: 16px; /* Smaller logos for smaller screens */
+    }
   }
 `;
 
@@ -221,6 +234,12 @@ const StyledTabPanels = styled.div`
     color: #64FFDB;
     text-decoration: none;
   }
+  img {
+    height: 40px;
+    width: auto;
+    margin-left: 20px;
+  }
+
 `;
 
 const StyledTabPanel = styled.div`

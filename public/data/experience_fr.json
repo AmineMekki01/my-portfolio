@@ -4,7 +4,8 @@
       "title": "Ingénieur IA",
       "range": "Decembre 2024 - Présent",
       "location": "Lille, France",
-      "url": "https://www.sanofi.com/en",
+      "url": "https://www.genfit.fr/",
+      "logo": "/images/genfit.png",
       "description": [
         "Développement et déploiement d'une solution de détection et de suivi multi-objets.",
         "Développement et mise en œuvre d'une solution pour la classification et la détection de tissus pathologiques, ainsi que pour l'automatisation du comptage cellulaire dans des images microscopiques."
@@ -16,6 +17,7 @@
       "range": "Septembre 2023 - Août 2024",
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/fr",
+      "logo": "/images/sanofi.png",
       "description": [
         "Contribué à l'automatisation de la génération de rapports de qualité en utilisant des LLM et RAG, améliorant la précision et réduisant le temps de génération de plus de 50 %.",
         "Développement d'outils personnalisés pour la récupération de données depuis la VDB et pour la génération de représentations graphiques.",
@@ -29,6 +31,7 @@
       "range": "Janvier - Mars 2024",
       "location": "Alès, France",
       "url": "https://www.imt-mines-ales.fr/fr",
+      "logo": "/images/imt.png",
       "description": [
         "Conception et mise en œuvre d'un pipeline MLOps pour automatiser les processus de bout en bout de l'entraînement, évaluation, et déploiement des modèles.",
         "Mise en place de solutions de surveillance de la dérive des données et des modèles, garantissant la stabilité et la performance à long terme des modèles.",
@@ -42,6 +45,7 @@
       "range": "Avril - Août 2023",
       "location": "Saclay, France",
       "url": "https://www.vaisala.com/fr",
+      "logo": "/images/vaisala.png",
       "description": [
         "Analyse des données des deux produits pour trouver des applications conjointes et améliorer leurs performances.",
         "Réalisation d'études de marché approfondies et développement de méthodes d'étalonnage par apprentissage automatique, améliorant la focalisation et les mesures des produits.",
@@ -54,6 +58,7 @@
       "range": "Janvier - Avril 2023",
       "location": "Montpellier, France",
       "url": "https://dhm.euromov.eu/",
+      "logo": "/images/euromov.png",
       "description": [
         "Analyse des signaux de spectroscopie proche infrarouge fonctionnelle (fNIRS) de patients subissant une stimulation transcrânienne à courant direct (tDCS).",
         "Identification de biomarqueurs uniques établissant des corrélations entre la dose électrique et les réponses fNIRS, permettant la modulation des doses en fonction des réponses des patients. Ce projet contribue aux futures stratégies de traitement personnalisé pour restaurer les fonctions cognitives chez les patients souffrant de lésions cérébrales.",
