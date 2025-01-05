@@ -19,15 +19,15 @@
       "jobTitle2": "ENGINEER",
       "exp": "1-2",
       "expLabel" : "years",
-      "location": "Based in Lyon, France",
+      "location": "Based in Lille, France",
       "contactMe": "Contact Me"
     },
     "about": {
       "title": "About Me",
-      "description": "I am a Machine Learning Engineer with experience in healthcare, manufacturing, and meteorology. I have built ML models, implemented MLOps pipelines, and used language models to automate report generation. I’m seeking a role where I can continue to grow and make an impact.",
+      "description": "I am a Machine Learning Engineer with experience in using data science and machine learning in healthcare, manufacturing, and meteorology. I have created ML models, set up MLOps pipelines, and used language models to automate report writing. I enjoy solving problems and am looking for a role where I can keep learning, contribute, and make a difference.",
       "description_company": "",
       "description_continue" : "",
-      "location" : "Based in Lyon, France",
+      "location" : "Based in Lille, France",
       "technologies": "Here are a few technologies I’ve been working with recently:"
     },
     "workExperience" :{

@@ -4,7 +4,7 @@
   { "name": "AWS", "icon": "/images/aws.png" },
   { "name": "JavaScript", "icon": "/images/javascript.png" },
   { "name": "React", "icon": "/images/react.png" },
-  { "name": "Golang", "icon": "/images/go.png" },
+  { "name": "Golang", "icon": "/images/Go.png" },
   { "name": "Scikit-Learn", "icon": "/images/scikit-learn.png" },
   { "name": "Docker", "icon": "/images/docker.png" },
   { "name": "Kubernetes", "icon": "/images/kubernetes.png" },

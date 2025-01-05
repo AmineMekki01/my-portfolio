@@ -19,15 +19,15 @@
       "jobTitle2": "ARTIFICIELLE",
       "exp": "1-2",
       "expLabel" : "ans",
-      "location": "Basé à Lyon, France",
+      "location": "Basé à Lille, France",
       "contactMe": "Contacter Moi"
     },
     "about": {
       "title": "À propos de moi",
-      "description": "Je suis ingénieur en apprentissage automatique, avec de l'expérience dans la santé, le manufacturing et la météorologie. J'ai construit des modèles ML, mis en place des pipelines MLOps, et utilisé des modèles de langage pour automatiser la génération de rapports. Je cherche un poste où je pourrai continuer à évoluer et avoir un impact.",
+      "description": "Je suis ingénieur en apprentissage automatique avec de l'expérience en science des données et machine learning dans la santé, la fabrication et la météorologie. J'ai créé des modèles ML, mis en place des pipelines MLOps et automatisé la rédaction de rapports. Je cherche un poste pour continuer à apprendre et contribuer.",
       "description_company": "",
       "description_continue" : "",
-      "location" : "Basé à Lyon, France",
+      "location" : "Basé à Lille, France",
       "technologies": "Voici quelques technologies avec lesquelles j'ai récemment travaillé:"
     },
     "workExperience": {

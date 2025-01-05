@@ -1,7 +1,18 @@
-[
+[     
+    {
+      "company": "GENFIT",
+      "title": "AI ENGINEER",
+      "range": "December 2024 - Present",
+      "location": "Lille, France",
+      "url": "https://www.sanofi.com/en",
+      "description": [
+        "Developing and deploying a multi-object detection and tracking solution.",
+        "Developing and implementing a solution for classifying and detecting pathological tissues, as well as automating cell counting in microscopic images"
+      ]
+    },
     {
       "company": "Sanofi",
-      "title": "Data Scientist",
+      "title": "AI ENGINEER",
       "range": "September 2023 - August 2024",
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/en",
