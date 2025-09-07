@@ -8,7 +8,9 @@
       "logo": "/images/genfit.png",
       "description": [
         "Building generative AI apps to automate internal processes in the company.",
-        "Building and deploying an image classification model to classify various histological pathologies."
+        "Maintaining and enhancing a digital pathology pipeline for automated histological tissue detection and cell counting, improving accuracy and throughput.",
+        "Designed a multi-object detection and tracking system to automate the monitoring of lab rats during clinical trials.",
+        "Tech Stack : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, Qdrant, Redis, Postgres, Kafka, IOT, RAG, Kubernetes."
       ]
     },
     {
@@ -19,10 +21,13 @@
       "url": "https://www.sanofi.com/en",
       "logo": "/images/sanofi.png",
       "description": [
-        "Contributed to the automation of quality report generation using LLMs and RAG, enhancing accuracy and reducing generation time by more than 50%.",
-        "Developed custom tools for data retrieval from VDB and for generating graphical representations.",
+        "Contributed to a web app generating 4,000+ quality & MSAT reports/year, working with developers, data scientists, and AI engineers.",
+        "Helped in designing and integrating an intelligent agent (LangGraph) with custom tools to produce formatted tables and charts.",
+        "Developed custom tools for data retrieval from VDB, Table genreation and for generating graphical representations.",
         "Created an evaluation pipeline for the RAG application.",
-        "Tech Stack : Python, AWS S3, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
+        "Built data pipelines to extract and clean information from Excel files for analysis.",
+        "Evaluated vector databases (Pinecone & Redis) for performance.",
+        "Tech Stack : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
       ]
     },
     {

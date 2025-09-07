@@ -7,8 +7,10 @@
       "url": "https://www.genfit.fr/",
       "logo": "/images/genfit.png",
       "description": [
-        "Développement d’applications d’IA générative pour automatiser les processus internes de l’entreprise.",
-        "Conception et déploiement d’un modèle de classification d’images pour identifier diverses pathologies histologiques."
+          "Développement d'applications d'IA générative pour automatiser les processus internes de l'entreprise.",
+          "Maintenance et amélioration d'une pipeline de pathologie numérique pour la détection automatique de tissus histologiques et le comptage cellulaire, augmentant la précision et le débit.",
+          "Conception d'un système de détection et suivi multi-objets pour automatiser la surveillance de rats de laboratoire durant les essais cliniques.",
+          "Stack technique : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, Qdrant, Redis, Postgres, Kafka, IOT, RAG, Kubernetes."
       ]
     },
     {
@@ -19,10 +21,13 @@
       "url": "https://www.sanofi.com/fr",
       "logo": "/images/sanofi.png",
       "description": [
-        "Contribué à l'automatisation de la génération de rapports de qualité en utilisant des LLM et RAG, améliorant la précision et réduisant le temps de génération de plus de 50 %.",
-        "Développement d'outils personnalisés pour la récupération de données depuis la VDB et pour la génération de représentations graphiques.",
-        "Création d'un pipeline d'évaluation pour l'application RAG.",
-        "Tech Stack : Python, AWS S3, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
+        "Contribution à une application web générant plus de 4000 rapports de qualité et de satisfaction client (MSAT) par an, en collaboration avec des développeurs, data scientists et ingénieurs IA.",
+        "Participation à la conception et à l'intégration d'un agent intelligent (LangGraph) avec des outils personnalisés pour produire des tableaux et graphiques formatés.",
+        "Développement d'outils personnalisés pour l'extraction de données de bases vectorielles (VDB), la génération de tableaux et la création de représentations graphiques.",
+        "Création d'une pipeline d'évaluation pour l'application RAG (Retrieval-Augmented Generation).",
+        "Construction de pipelines de données pour extraire et nettoyer des informations de fichiers Excel en vue de leur analyse.",
+        "Évaluation de bases de données vectorielles (Pinecone et Redis) pour en analyser la performance.",
+        "Stack technique : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
       ]
     },
     {
@@ -36,7 +41,7 @@
         "Conception et mise en œuvre d'un pipeline MLOps pour automatiser les processus de bout en bout de l'entraînement, évaluation, et déploiement des modèles.",
         "Mise en place de solutions de surveillance de la dérive des données et des modèles, garantissant la stabilité et la performance à long terme des modèles.",
         "Utilisation des services AWS pour des solutions d'entraînement et de déploiement de modèles, rentables et évolutives.",
-        "Tech Stack : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, et GitHub Actions, Docker."
+        "Stack technique : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, et GitHub Actions, Docker."
       ]
     },
     {
@@ -49,7 +54,7 @@
       "description": [
         "Analyse des données des deux produits pour trouver des applications conjointes et améliorer leurs performances.",
         "Réalisation d'études de marché approfondies et développement de méthodes d'étalonnage par apprentissage automatique, améliorant la focalisation et les mesures des produits.",
-        "Tech Stack : Python, AWS S3, Bitbucket, scikit-learn"
+        "Stack technique : Python, AWS S3, Bitbucket, scikit-learn"
       ]
     },
     {
@@ -62,7 +67,7 @@
       "description": [
         "Analyse des signaux de spectroscopie proche infrarouge fonctionnelle (fNIRS) de patients subissant une stimulation transcrânienne à courant direct (tDCS).",
         "Identification de biomarqueurs uniques établissant des corrélations entre la dose électrique et les réponses fNIRS, permettant la modulation des doses en fonction des réponses des patients. Ce projet contribue aux futures stratégies de traitement personnalisé pour restaurer les fonctions cognitives chez les patients souffrant de lésions cérébrales.",
-        "Tech Stack : Python, Github, scikit-learn, Pytorch"
+        "Stack technique : Python, Github, scikit-learn, Pytorch"
       ]
     }
   ]
