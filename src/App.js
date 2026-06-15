@@ -11,6 +11,7 @@ import SocialSidebar from './components/SocialSidebar';
 import EmailSidebar from './components/EmailSidebar';
 import Education from './components/Education';
 import TechnicalStack from './components/TechnicalStack';
+import Hackathons from './components/Hackathons';
 import About from './components/About';
 
 const MainApp = styled.div`
@@ -43,6 +44,9 @@ function App() {
         </Section>
         <Section id="work-experience">
           <WorkExperience />
+        </Section>
+        <Section id="hackathons">
+          <Hackathons />
         </Section>
         <section id="technical-stack">
           <TechnicalStack />

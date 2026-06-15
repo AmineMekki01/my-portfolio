@@ -132,6 +132,7 @@ const Header = () => {
   const menuItems = [
     { text: t('header.about'), href: '#about' },
     { text: t('header.workExperience'), href: '#work-experience' },
+    { text: t('header.hackathons'), href: '#hackathons' },
     { text: t('header.projects'), href: '#projects' },
     { text: t('header.education'), href: '#education' },
     { text: t('header.contact'), href: '#contact' },
