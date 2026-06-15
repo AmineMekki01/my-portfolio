@@ -15,7 +15,7 @@
     "description": "Predicted single-cell transcriptomic responses to CRISPR single-gene perturbations in human fat-cell precursors. Built a model to forecast gene expression profiles and cell-state proportions for 2,863 unseen gene knockouts, competing against 1,000+ data scientists worldwide.",
     "links": [
       { "label": "Leaderboard", "url": "https://hub.crunchdao.com/competitions/broad-obesity-1/leaderboard" },
-      { "label": "Announcement", "url": "https://www.linkedin.com/posts/crunchlab_obesity-ml-challenge-parts-1-and-2-winners-activity-7334948267672494081-FMfW" }
+      { "label": "Announcement", "url": "https://www.linkedin.com/pulse/obesity-ml-challenge-parts-1-2-winners-crunchlabhq-zykmc/?trackingId=JZRRkoX8T3SumSh7dMg%2FnA%3D%3D" }
     ],
     "tags": ["Single-Cell RNA-seq", "CRISPR", "Gene Perturbation", "scRNA-seq", "Machine Learning", "Computational Biology"]
   }

@@ -15,7 +15,7 @@
     "description": "Prédiction des réponses transcriptomiques unicellulaires aux perturbations CRISPR à un seul gène dans des précurseurs de cellules graisseuses humaines. Construction d'un modèle pour prévoir les profils d'expression génique et les proportions d'états cellulaires pour 2 863 knockouts de gènes non vus, en compétition avec plus de 1 000 data scientists du monde entier.",
     "links": [
       { "label": "Classement", "url": "https://hub.crunchdao.com/competitions/broad-obesity-1/leaderboard" },
-      { "label": "Annonce", "url": "https://www.linkedin.com/posts/crunchlab_obesity-ml-challenge-parts-1-and-2-winners-activity-7334948267672494081-FMfW" }
+      { "label": "Annonce", "url": "https://www.linkedin.com/pulse/obesity-ml-challenge-parts-1-2-winners-crunchlabhq-zykmc/?trackingId=JZRRkoX8T3SumSh7dMg%2FnA%3D%3D" }
     ],
     "tags": ["Single-Cell RNA-seq", "CRISPR", "Perturbation Génique", "scRNA-seq", "Machine Learning", "Biologie Computationnelle"]
   }
