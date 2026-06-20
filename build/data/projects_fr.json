@@ -1,0 +1,51 @@
+[
+    {
+      "title": "Agentic Company Platform",
+      "cover": "./images/agentic-platform.png",
+      "github": "https://github.com/AmineMekki01/agentic-company-platform",
+      "external": "https://github.com/AmineMekki01/agentic-company-platform",
+      "tech": ["Python", "FastAPI", "React", "Vite", "TailwindCSS", "LangGraph", "Qdrant", "PostgreSQL", "Redis", "Docker"],
+      "description": "Une plateforme IA agentique open-source conçue pour que les entreprises l'installent sur leur propre infrastructure. Offre des agents LangGraph configurables avec une interface de chat, un pipeline RAG sur des documents provenant de S3/Notion, et des connecteurs vers des outils externes comme Jira. Inclut des tableaux de bord administrateur pour créer des agents, gérer les sources de connaissances et surveiller les conversations."
+    },
+    {
+      "title": "J.A.R.V.I.S. - Assistant IA Bureau",
+      "cover": "./images/jarvis-assistant.png",
+      "github": "https://github.com/AmineMekki01/AI-Assistant",
+      "external": "https://github.com/AmineMekki01/AI-Assistant",
+      "tech": ["Python", "React", "Vite", "OpenAI Realtime API", "WebSocket", "Qdrant", "AppleScript", "Tavily"],
+      "description": "Un assistant IA vocal first pour macOS qui se connecte à l'API Realtime d'OpenAI. Parlez naturellement pour lire des emails, consulter des calendriers, rechercher sur le web, contrôler Apple Music, gérer une base de connaissances Obsidian via RAG, et mémoriser des faits personnels — le tout avec une sécurité de confirmation avant écriture pour les actions destructrices."
+    },
+    {
+      "title": "Plateforme de gestion des soins de santé",
+      "cover": "./images/tbibi.png",
+      "github": "https://github.com/AmineMekki01/healthcare_management_platform",
+      "external": "https://github.com/AmineMekki01/healthcare_management_platform",
+      "tech": ["Python", "React", "Go", "FastAPI", "Docker", "LangChain"],
+      "description": "Développement de l'application TBIBI, une plateforme web évolutive qui améliore l'accès et la prestation des soins de santé pour les patients et les professionnels. Services clés construits incluant un système de messagerie en temps réel utilisant WebSocket, une recherche de médecins basée sur les symptômes, et une application alimentée par IA pour les médecins pour examiner les documents des patients et trouver des diagnostics possibles."
+    },
+    {
+      "title": "Détection de fraude par carte de crédit",
+      "cover": "./images/credit_cart_fraud_detection.webp",
+      "github": "https://github.com/AmineMekki01/credit_card_fraud_detection",
+      "external": "https://github.com/AmineMekki01/credit_card_fraud_detection",
+      "tech": ["Python", "FastAPI", "Scikit-learn", "Kafka", "Cassandra", "Docker", "React"],
+      "description": "Développement d'un système de détection de fraude en temps réel utilisant FastAPI, Kafka et Cassandra, permettant une surveillance efficace des transactions et une analyse des fraudes avec une architecture de microservices évolutive."
+    },
+    {
+      "title": "Légendage d'images médicales",
+      "cover": "./images/medical_images_captioning.png",
+      "github": "https://github.com/AmineMekki01/MedicalImagesCaptioning",
+      "external": "https://github.com/AmineMekki01/MedicalImagesCaptioning",
+      "tech": ["Python", "FastAPI", "GPT-2", "PyTorch", "Vision Transformer", "ResNet"],
+      "description": "Développement d'un outil d'analyse des images radiographiques thoraciques utilisant Vision Transformer et GPT-2. Amélioration des scores ROUGE et CIDEr de 5% par rapport à l'approche ResNet-GPT2."
+    },
+    {
+      "title": "Détecteur d'hameçonnage d'URL",
+      "cover": "./images/url_phishing.png",
+      "github": "https://github.com/AmineMekki01/URL_phishing",
+      "external": "https://github.com/AmineMekki01/URL_phishing",
+      "tech": ["Python", "FastAPI", "Scikit-learn", "Docker"],
+      "description": "Développement d'une solution d'apprentissage automatique pour détecter les URL d'hameçonnage, impliquant le prétraitement des données, l'ingénierie des caractéristiques et la formation du modèle. Le projet inclut un frontend React et un backend FastAPI, facilitant les interactions utilisateur pour la formation et l'inférence. L'application est conteneurisée en utilisant Docker, assurant un déploiement efficace et une évolutivité si nécessaire."
+    }
+  ]
+  

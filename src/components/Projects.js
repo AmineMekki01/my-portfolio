@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ProjectCard from './ProjectCard';
+import { ProjectSkeleton } from './LoadingSkeleton';
 import { useTranslation } from 'react-i18next';
 
 const Projects = () => {
   const [projects, setProjectsData] = useState([]);
   const [showMore, setShowMore] = useState(false);
+  const [loading, setLoading] = useState(true);
   const {t, i18n } = useTranslation();
 
 
   useEffect(() => {
     const loadProjectsData = async () => {
+      setLoading(true);
       const language = i18n.language;
       const response = await fetch(`/data/projects_${language}.json`);
       const data = await response.json();
       setProjectsData(data);
+      setLoading(false);
     };
     loadProjectsData();
   }, [i18n.language]);
@@ -26,11 +30,19 @@ const Projects = () => {
   return (
     <ProjectsContainer id="projects">
       <Title>{t("projects.title")}</Title>
-      <ProjectGrid>
-        {projectsToShow.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
-        ))}
-      </ProjectGrid>
+      {loading ? (
+        <ProjectGrid>
+          {[...Array(3)].map((_, i) => (
+            <ProjectSkeleton key={i} />
+          ))}
+        </ProjectGrid>
+      ) : (
+        <ProjectGrid>
+          {projectsToShow.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </ProjectGrid>
+      )}
       <ShowMoreButton onClick={() => setShowMore(!showMore)}>
         Show {showMore ? 'Less' : 'More'}
       </ShowMoreButton>
@@ -60,7 +72,7 @@ const Title = styled.h4`
   font-weight: 600;
 
   &:before {
-    content: '04.';
+    content: '05.';
     margin-right: 10px;
     color: #f6f7f8;
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;

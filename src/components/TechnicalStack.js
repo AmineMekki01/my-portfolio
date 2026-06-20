@@ -53,7 +53,7 @@ const Title = styled.h4`
   font-weight: 600;
 
   &:before {
-    content: '03.';
+    content: '04.';
     margin-right: 10px;
     color: #f6f7f8;
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
@@ -80,17 +80,40 @@ const StackItem = styled.div`
   padding: 1.5rem;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #64ffda, #3d3833, #64ffda);
+    background-size: 300% 300%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.08);
+
+    &::before {
+      opacity: 1;
+      animation: gradientMove 3s ease infinite;
+    }
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   @media (max-width: 600px) {
     width: 100px;
     height: 100px;
     padding: 0.5rem;
-
   }
 `;
 

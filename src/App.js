@@ -12,6 +12,7 @@ import EmailSidebar from './components/EmailSidebar';
 import Education from './components/Education';
 import TechnicalStack from './components/TechnicalStack';
 import Hackathons from './components/Hackathons';
+import ScrollToTop from './components/ScrollToTop';
 import About from './components/About';
 
 const MainApp = styled.div`
@@ -63,6 +64,7 @@ function App() {
       </Container>
       <SocialSidebar />
       <EmailSidebar />
+      <ScrollToTop />
       <Footer />
     </MainApp>
   );

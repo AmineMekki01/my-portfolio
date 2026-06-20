@@ -4,6 +4,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { useTranslation } from 'react-i18next';
+import { WorkExperienceSkeleton } from './LoadingSkeleton';
 
 const Title = styled.h3`
   color: #64FFDB;
@@ -36,13 +37,16 @@ const WorkExperience = () => {
   const [activeTab, setActiveTab] = useState(0);
   const { t, i18n } = useTranslation();
   const [workExperienceData, setWorkExperience] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadExperienceData = async () => {
+      setLoading(true);
       const language = i18n.language;
       const response = await fetch(`/data/experience_${language}.json`);
       const data = await response.json();
       setWorkExperience(data);
+      setLoading(false);
     };
     loadExperienceData();
   }, [i18n.language]);
@@ -50,6 +54,9 @@ const WorkExperience = () => {
   return (
     <StyledSection id="work-experience">
       <Title className="numbered-heading">{t("workExperience.title")}</Title>
+      {loading ? (
+        <WorkExperienceSkeleton />
+      ) : (
       <div className="inner">
         <StyledTabList>
           {workExperienceData.map((job, index) => (
@@ -107,6 +114,7 @@ const WorkExperience = () => {
           ))}
         </StyledTabPanels>
       </div>
+      )}
     </StyledSection>
   );
 };

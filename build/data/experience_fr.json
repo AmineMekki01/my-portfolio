@@ -1,0 +1,74 @@
+[
+    {
+      "company": "GENFIT",
+      "title": "Ingénieur IA",
+      "range": "Decembre 2024 - Présent",
+      "location": "Lille, France",
+      "url": "https://www.genfit.fr/",
+      "logo": "/images/genfit.png",
+      "description": [
+          "Développement d'applications d'IA générative pour automatiser les processus internes de l'entreprise.",
+          "Maintenance et amélioration d'une pipeline de pathologie numérique pour la détection automatique de tissus histologiques et le comptage cellulaire, augmentant la précision et le débit.",
+          "Conception d'un système de détection et suivi multi-objets pour automatiser la surveillance de rats de laboratoire durant les essais cliniques.",
+          "Stack technique : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, Qdrant, Redis, Postgres, Kafka, IOT, RAG, Kubernetes."
+      ]
+    },
+    {
+      "company": "Sanofi",
+      "title": "Ingénieur IA",
+      "range": "Septembre 2023 - Août 2024",
+      "location": "Lyon, France",
+      "url": "https://www.sanofi.com/fr",
+      "logo": "/images/sanofi.png",
+      "description": [
+        "Contribution à une application web générant plus de 4000 rapports de qualité et de satisfaction client (MSAT) par an, en collaboration avec des développeurs, data scientists et ingénieurs IA.",
+        "Participation à la conception et à l'intégration d'un agent intelligent (LangGraph) avec des outils personnalisés pour produire des tableaux et graphiques formatés.",
+        "Développement d'outils personnalisés pour l'extraction de données de bases vectorielles (VDB), la génération de tableaux et la création de représentations graphiques.",
+        "Création d'une pipeline d'évaluation pour l'application RAG (Retrieval-Augmented Generation).",
+        "Construction de pipelines de données pour extraire et nettoyer des informations de fichiers Excel en vue de leur analyse.",
+        "Évaluation de bases de données vectorielles (Pinecone et Redis) pour en analyser la performance.",
+        "Stack technique : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
+      ]
+    },
+    {
+      "company": "Ecole des Mines Alès",
+      "title": "Ingénieur MLOps - Stagiaire",
+      "range": "Janvier - Mars 2024",
+      "location": "Alès, France",
+      "url": "https://www.imt-mines-ales.fr/fr",
+      "logo": "/images/imt.png",
+      "description": [
+        "Conception et mise en œuvre d'un pipeline MLOps pour automatiser les processus de bout en bout de l'entraînement, évaluation, et déploiement des modèles.",
+        "Mise en place de solutions de surveillance de la dérive des données et des modèles, garantissant la stabilité et la performance à long terme des modèles.",
+        "Utilisation des services AWS pour des solutions d'entraînement et de déploiement de modèles, rentables et évolutives.",
+        "Stack technique : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, et GitHub Actions, Docker."
+      ]
+    },
+    {
+      "company": "Vaisala",
+      "title": "Data Scientist - Stagiaire",
+      "range": "Avril - Août 2023",
+      "location": "Saclay, France",
+      "url": "https://www.vaisala.com/fr",
+      "logo": "/images/vaisala.png",
+      "description": [
+        "Analyse des données des deux produits pour trouver des applications conjointes et améliorer leurs performances.",
+        "Réalisation d'études de marché approfondies et développement de méthodes d'étalonnage par apprentissage automatique, améliorant la focalisation et les mesures des produits.",
+        "Stack technique : Python, AWS S3, Bitbucket, scikit-learn"
+      ]
+    },
+    {
+      "company": "EuroMov Digital Health in Motion",
+      "title": "Ingénieur en apprentissage automatique - Stagiaire",
+      "range": "Janvier - Avril 2023",
+      "location": "Montpellier, France",
+      "url": "https://dhm.euromov.eu/",
+      "logo": "/images/euromov.png",
+      "description": [
+        "Analyse des signaux de spectroscopie proche infrarouge fonctionnelle (fNIRS) de patients subissant une stimulation transcrânienne à courant direct (tDCS).",
+        "Identification de biomarqueurs uniques établissant des corrélations entre la dose électrique et les réponses fNIRS, permettant la modulation des doses en fonction des réponses des patients. Ce projet contribue aux futures stratégies de traitement personnalisé pour restaurer les fonctions cognitives chez les patients souffrant de lésions cérébrales.",
+        "Stack technique : Python, Github, scikit-learn, Pytorch"
+      ]
+    }
+  ]
+  

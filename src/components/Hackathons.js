@@ -6,6 +6,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import GroupIcon from '@mui/icons-material/Group';
 import LaunchIcon from '@mui/icons-material/Launch';
+import { HackathonSkeleton } from './LoadingSkeleton';
 
 const HackathonsContainer = styled.div`
   padding: 2rem;
@@ -53,10 +54,34 @@ const HackathonCard = styled.div`
   border-radius: 8px;
   text-align: left;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #64ffda, #F6BC00, #64ffda);
+    background-size: 300% 300%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.08);
+
+    &::before {
+      opacity: 1;
+      animation: gradientMove 3s ease infinite;
+    }
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   @media (max-width: 400px) {
@@ -177,13 +202,16 @@ const StyledLink = styled.a`
 const Hackathons = () => {
   const { i18n } = useTranslation();
   const [hackathonsData, setHackathonsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadHackathonsData = async () => {
+      setLoading(true);
       const language = i18n.language;
       const response = await fetch(`/data/hackathons_${language}.json`);
       const data = await response.json();
       setHackathonsData(data);
+      setLoading(false);
     };
     loadHackathonsData();
   }, [i18n.language]);
@@ -191,66 +219,72 @@ const Hackathons = () => {
   return (
     <HackathonsContainer id="hackathons">
       <Title>Hackathons & Competitions</Title>
-      <HackathonList>
-        {hackathonsData.map((item, index) => (
-          <HackathonCard key={index}>
-            <CardHeader>
-              <div>
-                <HackathonName>
-                  <EmojiEventsIcon style={{ color: '#F6BC00' }} />
-                  {item.name}
-                </HackathonName>
-                <Organizer>{item.organizer}</Organizer>
-              </div>
-              <RankingsRow>
-                {item.rankings.map((ranking, rIndex) => (
-                  <RankingBadge key={rIndex} isFirst={ranking.rank === '#1'}>
-                    {ranking.rank === '#1' && <EmojiEventsIcon style={{ fontSize: '1rem' }} />}
-                    {ranking.rank} {ranking.metric}
-                  </RankingBadge>
+      {loading ? (
+        <HackathonList>
+          <HackathonSkeleton />
+        </HackathonList>
+      ) : (
+        <HackathonList>
+          {hackathonsData.map((item, index) => (
+            <HackathonCard key={index}>
+              <CardHeader>
+                <div>
+                  <HackathonName>
+                    <EmojiEventsIcon style={{ color: '#F6BC00' }} />
+                    {item.name}
+                  </HackathonName>
+                  <Organizer>{item.organizer}</Organizer>
+                </div>
+                <RankingsRow>
+                  {item.rankings.map((ranking, rIndex) => (
+                    <RankingBadge key={rIndex} isFirst={ranking.rank === '#1'}>
+                      {ranking.rank === '#1' && <EmojiEventsIcon style={{ fontSize: '1rem' }} />}
+                      {ranking.rank} {ranking.metric}
+                    </RankingBadge>
+                  ))}
+                </RankingsRow>
+              </CardHeader>
+
+              <DetailsRow>
+                <DetailItem>
+                  <CalendarTodayIcon />
+                  {item.date}
+                </DetailItem>
+                <DetailItem>
+                  <LocationOnIcon />
+                  {item.location}
+                </DetailItem>
+                <DetailItem>
+                  <GroupIcon />
+                  {item.team} — {item.username}
+                </DetailItem>
+              </DetailsRow>
+
+              <Description>{item.description}</Description>
+
+              <Tags>
+                {item.tags.map((tag, tIndex) => (
+                  <Tag key={tIndex}>{tag}</Tag>
                 ))}
-              </RankingsRow>
-            </CardHeader>
+              </Tags>
 
-            <DetailsRow>
-              <DetailItem>
-                <CalendarTodayIcon />
-                {item.date}
-              </DetailItem>
-              <DetailItem>
-                <LocationOnIcon />
-                {item.location}
-              </DetailItem>
-              <DetailItem>
-                <GroupIcon />
-                {item.team} — {item.username}
-              </DetailItem>
-            </DetailsRow>
-
-            <Description>{item.description}</Description>
-
-            <Tags>
-              {item.tags.map((tag, tIndex) => (
-                <Tag key={tIndex}>{tag}</Tag>
-              ))}
-            </Tags>
-
-            <LinksRow>
-              {item.links.map((link, lIndex) => (
-                <StyledLink
-                  key={lIndex}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <LaunchIcon />
-                  {link.label}
-                </StyledLink>
-              ))}
-            </LinksRow>
-          </HackathonCard>
-        ))}
-      </HackathonList>
+              <LinksRow>
+                {item.links.map((link, lIndex) => (
+                  <StyledLink
+                    key={lIndex}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LaunchIcon />
+                    {link.label}
+                  </StyledLink>
+                ))}
+              </LinksRow>
+            </HackathonCard>
+          ))}
+        </HackathonList>
+      )}
     </HackathonsContainer>
   );
 };

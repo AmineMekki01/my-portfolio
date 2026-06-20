@@ -1,0 +1,22 @@
+[
+  {
+    "name": "CrunchDAO Obesity ML Challenge – Part 1",
+    "organizer": "CrunchDAO & Eric and Wendy Schmidt Center at the Broad Institute",
+    "date": "Feb 2026",
+    "resultsDate": "June 2026",
+    "location": "Global (Online)",
+    "team": "Virtuosos",
+    "username": "agreeable-amine",
+    "rankings": [
+      { "metric": "L1-Distance", "rank": "#1", "label": "1st Place" },
+      { "metric": "MMD", "rank": "Top 8", "label": "Top 8" },
+      { "metric": "Pearson-Delta", "rank": "Top 10", "label": "Top 10" }
+    ],
+    "description": "Predicted single-cell transcriptomic responses to CRISPR single-gene perturbations in human fat-cell precursors. Built a model to forecast gene expression profiles and cell-state proportions for 2,863 unseen gene knockouts, competing against 1,000+ data scientists worldwide.",
+    "links": [
+      { "label": "Leaderboard", "url": "https://hub.crunchdao.com/competitions/broad-obesity-1/leaderboard" },
+      { "label": "Announcement", "url": "https://www.linkedin.com/pulse/obesity-ml-challenge-parts-1-2-winners-crunchlabhq-zykmc/?trackingId=JZRRkoX8T3SumSh7dMg%2FnA%3D%3D" }
+    ],
+    "tags": ["Single-Cell RNA-seq", "CRISPR", "Gene Perturbation", "scRNA-seq", "Machine Learning", "Computational Biology"]
+  }
+]

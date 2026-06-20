@@ -5,9 +5,12 @@ import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import AnimatedBackground from './AnimatedBackground';
+import { useTypewriter } from '../hooks/useTypewriter';
 
 
 const HeroSection = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +21,7 @@ const HeroSection = styled.section`
   overflow: hidden;
   padding: 200px 2rem 2rem 2rem;
   background: radial-gradient(
-    closest-side, 
+    closest-side,
     rgba(81, 185, 200, 0.4) 0%,
     rgba(81, 185, 200, 0.1) 50%,
     rgba(81, 185, 200, 0) 100%
@@ -27,7 +30,14 @@ const HeroSection = styled.section`
   @media (max-width: 700px) {
     padding: 200px 0 0 0;
   }
+`;
 
+const HeroContent = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 
@@ -170,7 +180,30 @@ const TitleContact = styled.div`
 
   @media (max-width: 600px) {
     margin-left: 10px;
+  }
+`;
 
+const Tagline = styled.p`
+  max-width: 700px;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: #8892b0;
+  margin: 1.5rem auto 0;
+  line-height: 1.6;
+  min-height: 3.2rem;
+`;
+
+const Cursor = styled.span`
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #64ffda;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 `;
 
@@ -178,53 +211,62 @@ const Hero = () => {
   const { t, i18n } = useTranslation();
   const resumeLink = i18n.language === 'fr' ? '/resume_amine_mekki_fr.pdf' : '/resume_amine_mekki_en.pdf';
   const resumeDownloadName = i18n.language === 'fr' ? 'Amine_MEKKI_Resume_French.pdf' : 'Amine_MEKKI_Resume_English.pdf';
+  const tagline = useTypewriter(t('hero.tagline'), 30, 1200);
 
   return (
     <HeroSection>
-      <ProfileContainer>
-        <ProfileImage src="./images/me_in_grad.jpg" alt="Profile" />
-        <ExperienceBubble>
-          <WorkOutlineIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />
-          <span>{t('heroExtra.exp')}</span>
-          <span className="expLabel">{'. '}{t('heroExtra.expLabel')}</span>
-        </ExperienceBubble>
-        <NameContainer>
-          <Name>{t("hero.name")}</Name>
-          <Location>
-            <FlagIcon src="/images/france-flag.png" alt="France Flag" />
-            {t("heroExtra.location")}
-          </Location>
-        </NameContainer>
-      </ProfileContainer>
+      <AnimatedBackground />
+      <HeroContent>
+        <ProfileContainer>
+          <ProfileImage src="./images/me_in_grad.jpg" alt="Profile" />
+          <ExperienceBubble>
+            <WorkOutlineIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />
+            <span>{t('heroExtra.exp')}</span>
+            <span className="expLabel">{'. '}{t('heroExtra.expLabel')}</span>
+          </ExperienceBubble>
+          <NameContainer>
+            <Name>{t("hero.name")}</Name>
+            <Location>
+              <FlagIcon src="/images/france-flag.png" alt="France Flag" />
+              {t("heroExtra.location")}
+            </Location>
+          </NameContainer>
+        </ProfileContainer>
 
-      <TitleContactContainer>
-        <Title>{t('heroExtra.jobTitle1')}</Title>
+        <TitleContactContainer>
+          <Title>{t('heroExtra.jobTitle1')}</Title>
 
-        <TitleContact>
-          <Title>{t('heroExtra.jobTitle2')}</Title>
+          <TitleContact>
+            <Title>{t('heroExtra.jobTitle2')}</Title>
 
-          <ContactButton href="mailto:amine.mekki.contact@gmail.com">
-            <FontAwesomeIcon icon={faEnvelope} />
-            <span>{t('heroExtra.contactMe')}</span>
-          </ContactButton>
-        </TitleContact>
-      </TitleContactContainer>
+            <ContactButton href="mailto:amine.mekki.contact@gmail.com">
+              <FontAwesomeIcon icon={faEnvelope} />
+              <span>{t('heroExtra.contactMe')}</span>
+            </ContactButton>
+          </TitleContact>
+        </TitleContactContainer>
 
-      <SocialContainer>
-        <SocialIcon href="https://linkedin.com/in/mekki-amine" target="_blank" aria-label="LinkedIn">
-          <FontAwesomeIcon icon={faLinkedin} />
-        </SocialIcon>
-        <SocialIcon href="https://github.com/AmineMekki01" target="_blank" aria-label="GitHub">
-          <FontAwesomeIcon icon={faGithub} />
-        </SocialIcon>
-        <SocialIcon 
-          href={resumeLink} 
-          download={resumeDownloadName} 
-          aria-label={t('header.resume')}
-        >
-          <FontAwesomeIcon icon={faFileAlt} />
-        </SocialIcon>
-      </SocialContainer>
+        <Tagline>
+          {tagline}
+          <Cursor />
+        </Tagline>
+
+        <SocialContainer>
+          <SocialIcon href="https://linkedin.com/in/mekki-amine" target="_blank" aria-label="LinkedIn">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </SocialIcon>
+          <SocialIcon href="https://github.com/AmineMekki01" target="_blank" aria-label="GitHub">
+            <FontAwesomeIcon icon={faGithub} />
+          </SocialIcon>
+          <SocialIcon
+            href={resumeLink}
+            download={resumeDownloadName}
+            aria-label={t('header.resume')}
+          >
+            <FontAwesomeIcon icon={faFileAlt} />
+          </SocialIcon>
+        </SocialContainer>
+      </HeroContent>
     </HeroSection>
   );
 };
