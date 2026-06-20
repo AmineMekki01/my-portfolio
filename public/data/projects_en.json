@@ -1,5 +1,21 @@
 [
     {
+      "title": "Agentic Company Platform",
+      "cover": "./images/agentic-platform.png",
+      "github": "https://github.com/AmineMekki01/agentic-company-platform",
+      "external": "https://github.com/AmineMekki01/agentic-company-platform",
+      "tech": ["Python", "FastAPI", "AWS", "React", "TailwindCSS", "LangGraph", "Qdrant", "PostgreSQL", "Redis", "Docker"],
+      "description": "An open-source agentic AI platform designed for companies to install on their own infrastructure. Features configurable LangGraph agents with a chat interface, RAG pipeline over documents from S3/Notion, and connectors to external tools like Jira. Includes admin dashboards for creating agents, managing knowledge sources, and monitoring conversations."
+    },
+    {
+      "title": "J.A.R.V.I.S. - Desktop AI Assistant",
+      "cover": "./images/jarvis-assistant.png",
+      "github": "https://github.com/AmineMekki01/AI-Assistant",
+      "external": "https://github.com/AmineMekki01/AI-Assistant",
+      "tech": ["Python", "React", "OpenAI Realtime API", "WebSocket", "Qdrant", "Tavily"],
+      "description": "A voice-first AI assistant for macOS that connects to OpenAI's Realtime API. Speak naturally to read emails, check calendars, search the web, control Apple Music, manage an Obsidian knowledge base via RAG, and remember personal facts, all with a write-before-confirm safety gate for destructive actions."
+    },
+    {
       "title": "Healthcare Management Platform",
       "cover": "./images/tbibi.png",
       "github": "https://github.com/AmineMekki01/healthcare_management_platform",
