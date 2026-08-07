@@ -1,8 +1,21 @@
-[     
+[
+    {
+      "company": "SeqOne",
+      "title": "AI ENGINEER",
+      "range": "July 2026 - Present",
+      "location": "Montpellier, France",
+      "url": "https://www.seqone.com/",
+      "logo": "/images/seqone.png",
+      "description": [
+        "Working within the API and Agentic team, building AI systems for genomic variant interpretation.",
+        "Built a feature that lets scientists select an SNV/CNV variant and automatically gathers all related information from the platform and scientific literature to generate a synthesizing comment on the variant, including its pathogenicity.",
+        "Tech Stack : Python, AWS, GitLab, AI Agents"
+      ]
+    },
     {
       "company": "GENFIT",
       "title": "AI ENGINEER",
-      "range": "December 2024 - Present",
+      "range": "December 2024 - July 2026",
       "location": "Lille, France",
       "url": "https://www.genfit.fr/",
       "logo": "/images/genfit.png",
@@ -28,20 +41,6 @@
         "Built data pipelines to extract and clean information from Excel files for analysis.",
         "Evaluated vector databases (Pinecone & Redis) for performance.",
         "Tech Stack : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
-      ]
-    },
-    {
-      "company": "Ecole des Mines Alès",
-      "title": "MLOps Engineer - intern",
-      "range": "January - March 2024",
-      "location": "Alès, France",
-      "url": "https://www.imt-mines-ales.fr/en",
-      "logo": "/images/imt.png",
-      "description": [
-        "Developed and implemented an MLOps pipeline to automate end-to-end processes for model training, evaluation, and deployment. ",
-        "Established data and model drift monitoring solutions, ensuring model stability and long-term performance.",
-        "Leveraged AWS services to deliver cost-effective, scalable solutions for model training and deployment.",
-        "Tech Stack : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, and GitHub Actions, Docker."
       ]
     },
     {

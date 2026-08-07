@@ -1,104 +1,80 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import ProjectCard from './ProjectCard';
 import { ProjectSkeleton } from './LoadingSkeleton';
-import { useTranslation } from 'react-i18next';
+import { colors, fonts } from '../theme';
+
+const Section = styled.section`
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 60px 48px 120px;
+
+  @media (max-width: 760px) {
+    padding: 60px 20px 80px;
+  }
+`;
+
+const Eyebrow = styled.div`
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: ${colors.ink40};
+  margin-bottom: 12px;
+  font-family: ${fonts.mono};
+`;
+
+const Heading = styled.h2`
+  font-family: ${fonts.display};
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: ${colors.ink};
+`;
+
+const Rule = styled.div`
+  width: 60px;
+  height: 2px;
+  background: ${colors.gold};
+  margin-bottom: 48px;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+`;
 
 const Projects = () => {
-  const [projects, setProjectsData] = useState([]);
-  const [showMore, setShowMore] = useState(false);
+  const { t, i18n } = useTranslation();
+  const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {t, i18n } = useTranslation();
-
 
   useEffect(() => {
-    const loadProjectsData = async () => {
+    const load = async () => {
       setLoading(true);
-      const language = i18n.language;
-      const response = await fetch(`/data/projects_${language}.json`);
-      const data = await response.json();
-      setProjectsData(data);
+      const response = await fetch(`/data/projects_${i18n.language}.json`);
+      setProjects(await response.json());
       setLoading(false);
     };
-    loadProjectsData();
+    load();
   }, [i18n.language]);
 
-
-  const GRID_LIMIT = 6;
-  const projectsToShow = showMore ? projects : projects.slice(0, GRID_LIMIT);
-
   return (
-    <ProjectsContainer id="projects">
-      <Title>{t("projects.title")}</Title>
+    <Section id="work">
+      <Eyebrow>{t('work.scene')}</Eyebrow>
+      <Heading>{t('work.heading')}</Heading>
+      <Rule />
       {loading ? (
-        <ProjectGrid>
-          {[...Array(3)].map((_, i) => (
-            <ProjectSkeleton key={i} />
-          ))}
-        </ProjectGrid>
+        <Grid>
+          {[...Array(3)].map((_, i) => <ProjectSkeleton key={i} />)}
+        </Grid>
       ) : (
-        <ProjectGrid>
-          {projectsToShow.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
-        </ProjectGrid>
+        <Grid>
+          {projects.map((project, i) => <ProjectCard key={i} project={project} />)}
+        </Grid>
       )}
-      <ShowMoreButton onClick={() => setShowMore(!showMore)}>
-        Show {showMore ? 'Less' : 'More'}
-      </ShowMoreButton>
-    </ProjectsContainer>
+    </Section>
   );
 };
-
-const ProjectsContainer = styled.div`
-  padding: 2rem;
-  text-align: center;
-
-  @media (max-width: 400px) {
-    padding: 0;
-  }
-`;
-
-const Title = styled.h4`
-  color: #64FFDB;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 10px 0 40px;
-  width: 100%;
-  white-space: nowrap;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  font-weight: 600;
-
-  &:before {
-    content: '05.';
-    margin-right: 10px;
-    color: #f6f7f8;
-    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-    font-size: clamp(16px, 3vw, 20px);
-    font-weight: 400;
-  }
-`;
-
-const ProjectGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-`;
-
-const ShowMoreButton = styled.button`
-  background-color: #64ffda;
-  color: #0a192f;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 2rem;
-
-  &:hover {
-    background-color: #52c8b9;
-  }
-`;
 
 export default Projects;

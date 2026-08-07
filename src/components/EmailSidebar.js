@@ -1,45 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
+import { colors, fonts } from '../theme';
 
-const EmailContainer = styled.div`
+const Container = styled.div`
   position: fixed;
   bottom: 0;
-  right: 0;
-  padding: 10px 10px 0 10px;
+  right: 24px;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 760px) {
+    display: none;
+  }
 `;
 
 const EmailText = styled.a`
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  color: #8892b0;
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-  font-size: 14px;
+  color: ${colors.ink40};
+  font-family: ${fonts.mono};
+  font-size: 13px;
   text-decoration: none;
-  transition: color 0.3s;
 
   &:hover {
-    color: #64ffda;
+    color: ${colors.gold};
   }
 `;
 
-const VerticalLine = styled.div`
+const Line = styled.div`
   width: 1px;
-  height: 90px;
-  background-color: #8892b0;
-  margin-top: 20px;
+  height: 80px;
+  background-color: ${colors.ink15};
+  margin-top: 16px;
 `;
 
-const EmailSidebar = () => {
-  return (
-    <EmailContainer>
-      <EmailText href="mailto:amine.mekki.contact@gmail.com">amine.mekki.contact@gmail.com</EmailText>
-      <VerticalLine />
-    </EmailContainer>
-  );
-};
+const EmailSidebar = () => (
+  <Container>
+    <EmailText href="mailto:amine.mekki.contact@gmail.com">amine.mekki.contact@gmail.com</EmailText>
+    <Line />
+  </Container>
+);
 
 export default EmailSidebar;

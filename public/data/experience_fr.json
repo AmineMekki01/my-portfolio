@@ -1,8 +1,21 @@
 [
     {
+      "company": "SeqOne",
+      "title": "Ingénieur IA",
+      "range": "Juillet 2026 - Présent",
+      "location": "Montpellier, France",
+      "url": "https://www.seqone.com/",
+      "logo": "/images/seqone.png",
+      "description": [
+        "Membre de l'équipe API et Agentique, développement de systèmes d'IA pour l'interprétation des variants génomiques.",
+        "Conception d'une fonctionnalité permettant aux scientifiques de sélectionner un variant SNV/CNV et de rassembler automatiquement toutes les informations disponibles sur la plateforme et dans la littérature scientifique afin de générer un commentaire de synthèse sur le variant, incluant sa pathogénicité.",
+        "Stack technique : Python, AWS, GitLab."
+      ]
+    },
+    {
       "company": "GENFIT",
       "title": "Ingénieur IA",
-      "range": "Decembre 2024 - Présent",
+      "range": "Decembre 2024 - Juillet 2026",
       "location": "Lille, France",
       "url": "https://www.genfit.fr/",
       "logo": "/images/genfit.png",
@@ -28,20 +41,6 @@
         "Construction de pipelines de données pour extraire et nettoyer des informations de fichiers Excel en vue de leur analyse.",
         "Évaluation de bases de données vectorielles (Pinecone et Redis) pour en analyser la performance.",
         "Stack technique : Python, FastAPI, AWS S3, AWS Bedrock, LangChain, LangGraph, Pinecone, Redis, RAG, Kubernetes."
-      ]
-    },
-    {
-      "company": "Ecole des Mines Alès",
-      "title": "Ingénieur MLOps - Stagiaire",
-      "range": "Janvier - Mars 2024",
-      "location": "Alès, France",
-      "url": "https://www.imt-mines-ales.fr/fr",
-      "logo": "/images/imt.png",
-      "description": [
-        "Conception et mise en œuvre d'un pipeline MLOps pour automatiser les processus de bout en bout de l'entraînement, évaluation, et déploiement des modèles.",
-        "Mise en place de solutions de surveillance de la dérive des données et des modèles, garantissant la stabilité et la performance à long terme des modèles.",
-        "Utilisation des services AWS pour des solutions d'entraînement et de déploiement de modèles, rentables et évolutives.",
-        "Stack technique : Python, AWS S3, AWS ECR, AWS SageMaker, AWS Lambda, API Gateway, et GitHub Actions, Docker."
       ]
     },
     {

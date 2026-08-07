@@ -1,54 +1,55 @@
 {
-    "header": {
-      "about": "À propos",
-      "workExperience": "Expérience",
-      "hackathons": "Hackathons",
-      "projects": "Projets",
-      "education": "Éducation",
-      "contact": "Contact",
-      "technicalStack": "Pile technique",
-      "resume": "CV"
-    },
-    "hero": {
-      "intro": "Salut, je m'appelle",
-      "name": "Amine MEKKI",
-      "tagline": "Je suis ingénieur IA chez GENFIT, où je construis des systèmes d'IA générative et des plateformes agentiques. Je suis spécialisé en ML, pipelines RAG agentiques et MLOps - toujours ouvert aux opportunités passionnantes en IA et science des données.",
-      "linkedinButton": "Consultez mon LinkedIn"
-    },
-    "heroExtra": {
-      "jobTitle1": "INGENIEUR INTELLIGENCE",
-      "jobTitle2": "ARTIFICIELLE",
-      "exp": "2-3",
-      "expLabel" : "ans",
-      "location": "Basé à Lille, France",
-      "contactMe": "Contacter Moi"
-    },
-    "about": {
-      "title": "À propos de moi",
-      "description": "Je suis ingénieur en apprentissage automatique avec de l'expérience en science des données et machine learning dans la santé, la fabrication et la météorologie. J'ai créé des modèles ML, mis en place des pipelines MLOps et automatisé la rédaction de rapports. Je cherche un poste pour continuer à apprendre et contribuer.",
-      "description_company": "",
-      "description_continue" : "",
-      "location" : "Basé à Lille, France",
-      "technologies": "Voici quelques technologies avec lesquelles j'ai récemment travaillé:"
-    },
-    "workExperience": {
-      "title": "Expérience"
-    },
-    "technicalStack": {
-      "title": "Stack"
-    },
-    "projects": {
-      "title": "Projets",
-      "buttonShowMore": "Voir plus"
-    },
-    "education": {
-      "title": "Éducation"
-    },
-    "contact": {
-      "title": "Entrer en contact",
-      "mainTitle": "Bonjour !",
-      "description": "Ma boîte de réception est toujours ouverte. Que vous souhaitiez discuter d'IA, de MLOps ou de systèmes agentiques, que vous ayez une question ou que vous vouliez simplement dire bonjour, n'hésitez pas à me contacter.",
-      "button": "Contactez-moi"
+  "header": {
+    "journey": "Parcours",
+    "quests": "Quêtes",
+    "stack": "Stack",
+    "work": "Travaux",
+    "connect": "Contact",
+    "menu": "Menu",
+    "resume": "CV"
+  },
+  "hero": {
+    "name": "Amine MEKKI",
+    "eyebrow": "INGÉNIEUR IA · MACHINE LEARNING · SYSTÈMES AGENTIQUES",
+    "headline": "Concevoir des systèmes d'apprentissage automatique, un agent à la fois.",
+    "tagline": "Ingénieur IA chez GENFIT, où je construis des systèmes d'apprentissage automatique, des pipelines RAG et des plateformes agentiques derrière l'IA en production. Issu d'une formation en ingénierie biomédicale.",
+    "ctaPrimary": "VOIR_PARCOURS ▸",
+    "ctaSecondary": "CONTACT"
+  },
+  "heroExtra": {
+    "location": "Montpellier, France"
+  },
+  "journey": {
+    "scene": "SCÈNE 01",
+    "heading": "En route vers l'ingénierie IA",
+    "subheading": "École, recherche et production — une route sinueuse, pas une ligne droite.",
+    "educationTitle": "Ingénieur en informatique, IA et science des données",
+    "educationDesc": "Diplôme d'ingénieur en informatique, IA et science des données à IMT Mines Alès, obtenu en double diplôme avec un Master of Science en ingénierie biomédicale à l'Université de Montpellier, apprentissage automatique et deep learning d'un côté, traitement du signal et imagerie médicale de l'autre.",
+    "types": {
+      "education": "FORMATION",
+      "euromov-digital-health-in-motion": "RECHERCHE",
+      "vaisala": "SCIENCE DES DONNÉES",
+      "sanofi": "INGÉNIERIE IA",
+      "ecole-des-mines-ales": "MLOPS",
+      "genfit": "INGÉNIERIE IA"
     }
+  },
+  "quests": {
+    "scene": "SCÈNE 02",
+    "heading": "Hackathons & compétitions",
+    "subheading": "Des détours hors de la route principale — en compétition contre des inconnus sur des problèmes ML ouverts et difficiles."
+  },
+  "stack": {
+    "scene": "SCÈNE 03",
+    "heading": "La stack ML & agents"
+  },
+  "work": {
+    "scene": "SCÈNE 04",
+    "heading": "Projets sélectionnés"
+  },
+  "contact": {
+    "scene": "SCÈNE 05 — FIN",
+    "heading": "Discutons",
+    "description": "Je suis actuellement ingénieur IA chez GENFIT, où je construis des systèmes d'IA générative et des plateformes agentiques. Que vous souhaitiez discuter d'IA, de MLOps, de systèmes agentiques, ou d'une opportunité — n'hésitez pas à me contacter."
   }
-  
+}

@@ -1,271 +1,221 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import AnimatedBackground from './AnimatedBackground';
 import { useTypewriter } from '../hooks/useTypewriter';
+import { colors, fonts } from '../theme';
+import HeroWaterfall from './HeroWaterfall';
 
+const fadeUpWord = keyframes`
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+`;
+
+const blink = keyframes`
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+`;
 
 const HeroSection = styled.section`
-  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  color: #ccd6f6;
-  overflow: hidden;
-  padding: 200px 2rem 2rem 2rem;
-  background: radial-gradient(
-    closest-side,
-    rgba(81, 185, 200, 0.4) 0%,
-    rgba(81, 185, 200, 0.1) 50%,
-    rgba(81, 185, 200, 0) 100%
-  );
-
-  @media (max-width: 700px) {
-    padding: 200px 0 0 0;
-  }
+  padding: 120px 48px 60px;
+  max-width: 1060px;
+  margin: 0 auto;
+  position: relative;
+  isolation: isolate;
 `;
 
 const HeroContent = styled.div`
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 680px;
 `;
 
-
-const ProfileContainer = styled.div`
+const IdentityRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   margin-bottom: 20px;
-  position: relative;
 `;
 
-const ProfileImage = styled.img`
-  width: 80px;
-  height: 80px;
+const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #64ffda;
+  border: 1px solid ${colors.ink15};
 `;
 
-const ExperienceBubble = styled.div`
-  position: absolute;
-  top: -10px;
-  left: -110px;
-  background: transparent;
-  color: #ccd6f6;
-  padding: 5px 10px;
-  border: 2px solid #ccd6f6;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const IdentityText = styled.div`
+  font-family: ${fonts.mono};
+  font-size: 12px;
+  color: ${colors.ink50};
 
-  @media (max-width: 600px) {
-    top: -40px;
-    left: 80px;
-
-    .expLabel {
-      display: none; /* Hide expLabel on small screens */
-    }
+  strong {
+    color: ${colors.ink};
+    font-weight: 600;
   }
 `;
 
-
-const NameContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const Name = styled.h3`
-  color: #ccd6f6;
-  font-size: clamp(1rem, 5vw, 1.5rem);
-  font-weight: bold;
-  margin: 0;
-`;
-
-const Location = styled.span`
-  font-size: clamp(0.7rem, 4vw, 1rem);
-  color: #ccd6f6;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-`;
-
-const FlagIcon = styled.img`
-  width: 20px;
-  height: 15px;
-  object-fit: cover;
-`;
-
-const Title = styled.h1`
-  font-size: clamp(1rem, 5vw, 6rem);
-  color: #ccd6f6;
-  margin: 10px 0;
-  line-height: 1.1;
-  font-weight: bold;
-`;
-
-const SocialContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-`;
-
-const SocialIcon = styled.a`
-  color: #ccd6f6;
-  font-size: 1.5rem;
-  transition: color 0.3s, transform 0.3s;
-  text-shadow: 0px 0px 8px rgba(100, 255, 218, 0.8);
-
-  &:hover {
-    color: #64ffda;
-    transform: scale(1.1);
-    text-shadow: 0px 0px 12px rgba(100, 255, 218, 1), 0px 0px 30px rgba(100, 255, 218, 0.8);
-  }
-`;
-
-const ContactButton = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  margin-left: 20px;
-  font-size: clamp(16px, 8vw, 1rem);
-  color: #ccd6f6;
-  border: 1px solid #ccd6f6;
-  border-radius: 30px;
-  text-decoration: none;
-  background-color: transparent;
+const Eyebrow = styled.div`
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: ${colors.gold};
+  margin-bottom: 20px;
   font-weight: 600;
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0px 0px 8px rgba(100, 255, 218, 0.6), 0px 0px 20px rgba(100, 255, 218, 0.4);
-
-  &:hover {
-    transform: scale(1.05);
-    background-color: rgba(100, 255, 218, 0.1);
-    box-shadow: 0px 0px 12px rgba(100, 255, 218, 1), 0px 0px 30px rgba(100, 255, 218, 0.8);
-  }
-
-  span {
-    @media (max-width: 700px) {
-      display: none;
-    }
-  }
+  font-family: ${fonts.mono};
 `;
 
-const TitleContactContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+const Headline = styled.h1`
+  font-family: ${fonts.display};
+  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  line-height: 1.08;
+  font-weight: 600;
+  margin: 0 0 28px 0;
+  color: ${colors.ink};
+  max-width: 940px;
 `;
 
-const TitleContact = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 100px;
-
-  @media (max-width: 600px) {
-    margin-left: 10px;
-  }
+const Word = styled.span`
+  display: inline-block;
+  margin-right: 12px;
+  animation: ${fadeUpWord} 0.7s ease both;
+  animation-delay: ${({ $delay }) => $delay}s;
 `;
 
 const Tagline = styled.p`
-  max-width: 700px;
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  color: #8892b0;
-  margin: 1.5rem auto 0;
-  line-height: 1.6;
-  min-height: 3.2rem;
+  font-size: 18px;
+  line-height: 1.65;
+  color: ${colors.ink65};
+  max-width: 640px;
+  margin: 0 0 36px 0;
+  min-height: 3.2em;
 `;
 
 const Cursor = styled.span`
   display: inline-block;
   width: 2px;
-  height: 1.2em;
-  background-color: #64ffda;
-  margin-left: 4px;
+  height: 1em;
+  background-color: ${colors.gold};
+  margin-left: 3px;
   vertical-align: text-bottom;
-  animation: blink 1s step-end infinite;
+  animation: ${blink} 1s step-end infinite;
+`;
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+const CtaRow = styled.div`
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+`;
+
+const PrimaryCta = styled.a`
+  background: ${colors.ink};
+  color: ${colors.bg};
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 26px;
+  border-radius: 2px;
+  font-family: ${fonts.mono};
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #3a352e;
+  }
+`;
+
+const SecondaryCta = styled.a`
+  border: 1px solid ${colors.ink15};
+  color: ${colors.ink};
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 14px 26px;
+  border-radius: 2px;
+  font-family: ${fonts.mono};
+  letter-spacing: 0.5px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: ${colors.gold};
+    color: ${colors.gold};
+  }
+`;
+
+const SocialRow = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+`;
+
+const SocialLink = styled.a`
+  color: ${colors.ink50};
+  font-size: 18px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: ${colors.gold};
   }
 `;
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const tagline = useTypewriter(t('hero.tagline'), 12, 900);
   const resumeLink = i18n.language === 'fr' ? '/resume_amine_mekki_fr.pdf' : '/resume_amine_mekki_en.pdf';
   const resumeDownloadName = i18n.language === 'fr' ? 'Amine_MEKKI_Resume_French.pdf' : 'Amine_MEKKI_Resume_English.pdf';
-  const tagline = useTypewriter(t('hero.tagline'), 30, 1200);
+  const words = t('hero.headline').split(' ');
 
   return (
-    <HeroSection>
-      <AnimatedBackground />
+    <HeroSection id="top">
+      <HeroWaterfall />
       <HeroContent>
-        <ProfileContainer>
-          <ProfileImage src="./images/me_in_grad.jpg" alt="Profile" />
-          <ExperienceBubble>
-            <WorkOutlineIcon style={{ verticalAlign: 'middle', marginRight: '8px', color: '#64ffda' }} />
-            <span>{t('heroExtra.exp')}</span>
-            <span className="expLabel">{'. '}{t('heroExtra.expLabel')}</span>
-          </ExperienceBubble>
-          <NameContainer>
-            <Name>{t("hero.name")}</Name>
-            <Location>
-              <FlagIcon src="/images/france-flag.png" alt="France Flag" />
-              {t("heroExtra.location")}
-            </Location>
-          </NameContainer>
-        </ProfileContainer>
+        <IdentityRow>
+          <Avatar src="./images/me_in_grad.jpg" alt={t('hero.name')} />
+          <IdentityText>
+            <strong>{t('hero.name')}</strong> · {t('heroExtra.location')}
+          </IdentityText>
+        </IdentityRow>
 
-        <TitleContactContainer>
-          <Title>{t('heroExtra.jobTitle1')}</Title>
+        <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
 
-          <TitleContact>
-            <Title>{t('heroExtra.jobTitle2')}</Title>
-
-            <ContactButton href="mailto:amine.mekki.contact@gmail.com">
-              <FontAwesomeIcon icon={faEnvelope} />
-              <span>{t('heroExtra.contactMe')}</span>
-            </ContactButton>
-          </TitleContact>
-        </TitleContactContainer>
+        <Headline>
+          {words.map((word, i) => (
+            <Word key={`${word}-${i}`} $delay={0.15 + i * 0.06}>{word}</Word>
+          ))}
+        </Headline>
 
         <Tagline>
           {tagline}
           <Cursor />
         </Tagline>
 
-        <SocialContainer>
-          <SocialIcon href="https://linkedin.com/in/mekki-amine" target="_blank" aria-label="LinkedIn">
+        <CtaRow>
+          <PrimaryCta href="#journey">{t('hero.ctaPrimary')}</PrimaryCta>
+          <SecondaryCta href="#contact">{t('hero.ctaSecondary')}</SecondaryCta>
+        </CtaRow>
+
+        <SocialRow>
+          <SocialLink href="https://linkedin.com/in/mekki-amine" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FontAwesomeIcon icon={faLinkedin} />
-          </SocialIcon>
-          <SocialIcon href="https://github.com/AmineMekki01" target="_blank" aria-label="GitHub">
+          </SocialLink>
+          <SocialLink href="https://github.com/AmineMekki01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <FontAwesomeIcon icon={faGithub} />
-          </SocialIcon>
-          <SocialIcon
-            href={resumeLink}
-            download={resumeDownloadName}
-            aria-label={t('header.resume')}
-          >
+          </SocialLink>
+          <SocialLink href="mailto:amine.mekki.contact@gmail.com" aria-label="Email">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </SocialLink>
+          <SocialLink href={resumeLink} download={resumeDownloadName} aria-label={t('header.resume')}>
             <FontAwesomeIcon icon={faFileAlt} />
-          </SocialIcon>
-        </SocialContainer>
+          </SocialLink>
+        </SocialRow>
       </HeroContent>
     </HeroSection>
   );

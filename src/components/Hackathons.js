@@ -7,285 +7,267 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import GroupIcon from '@mui/icons-material/Group';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { HackathonSkeleton } from './LoadingSkeleton';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
+import { colors, fonts } from '../theme';
 
-const HackathonsContainer = styled.div`
-  padding: 2rem;
-  text-align: center;
-  color: #ccd6f6;
+const Section = styled.section`
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 60px 48px;
 
-  @media (max-width: 400px) {
-    padding: 0;
+  @media (max-width: 760px) {
+    padding: 60px 20px;
   }
 `;
 
-const Title = styled.h4`
-  color: #64FFDB;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 10px 0 40px;
-  width: 100%;
-  white-space: nowrap;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+const Eyebrow = styled.div`
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: ${colors.ink40};
+  margin-bottom: 12px;
+  font-family: ${fonts.mono};
+`;
+
+const Heading = styled.h2`
+  font-family: ${fonts.display};
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
   font-weight: 600;
-
-  &:before {
-    content: '03.';
-    margin-right: 10px;
-    color: #f6f7f8;
-    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-    font-size: clamp(16px, 3vw, 20px);
-    font-weight: 400;
-  }
+  margin: 0 0 8px 0;
+  color: ${colors.ink};
 `;
 
-const HackathonList = styled.div`
+const Rule = styled.div`
+  width: 60px;
+  height: 2px;
+  background: ${colors.gold};
+  margin-bottom: 24px;
+`;
+
+const Subheading = styled.p`
+  font-size: 16px;
+  color: ${colors.ink55};
+  max-width: 640px;
+  margin: 0 0 48px 0;
+`;
+
+const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 20px;
 `;
 
-const HackathonCard = styled.div`
-  background-color: rgb(30, 28, 25);
-  padding: 1.5rem;
-  width: 100%;
-  border-radius: 8px;
-  text-align: left;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+const Card = styled.div`
   position: relative;
+  background: ${colors.ink02};
+  border: 1px solid ${colors.ink15};
+  border-radius: 4px;
+  padding: 36px;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  transform: ${({ $visible }) => ($visible ? 'translateY(0)' : 'translateY(28px)')};
+  transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.3s ease;
+
+  &:hover {
+    border-color: rgba(156, 122, 63, 0.5);
+  }
 
   &::before {
     content: '';
     position: absolute;
-    inset: -1px;
-    border-radius: 9px;
-    background: linear-gradient(135deg, #64ffda, #F6BC00, #64ffda);
-    background-size: 300% 300%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: -1;
+    top: -1px;
+    left: -1px;
+    width: 18px;
+    height: 18px;
+    border-top: 1px solid ${colors.gold};
+    border-left: 1px solid ${colors.gold};
   }
 
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.08);
-
-    &::before {
-      opacity: 1;
-      animation: gradientMove 3s ease infinite;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 18px;
+    height: 18px;
+    border-bottom: 1px solid ${colors.gold};
+    border-right: 1px solid ${colors.gold};
   }
 
-  @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  @media (max-width: 400px) {
-    padding: 0.5rem;
+  @media (max-width: 600px) {
+    padding: 22px;
   }
 `;
 
 const CardHeader = styled.div`
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  align-items: flex-start;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 1rem;
+  margin-bottom: 6px;
 `;
 
-const HackathonName = styled.h5`
-  color: #ccd6f6;
+const Name = styled.h3`
+  font-family: ${fonts.display};
+  font-size: 24px;
+  font-weight: 600;
   margin: 0;
+  color: ${colors.ink};
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(18px, 5vw, 22px);
 `;
 
-const Organizer = styled.p`
-  color: #8892b0;
-  margin: 0.25rem 0 0 34px;
-  font-size: clamp(14px, 3vw, 16px);
-`;
-
-const RankingsRow = styled.div`
+const Badges = styled.div`
   display: flex;
-  gap: 0.75rem;
+  gap: 8px;
   flex-wrap: wrap;
 `;
 
-const RankingBadge = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background-color: ${({ isFirst }) => (isFirst ? '#64FFDB' : '#112240')};
-  color: ${({ isFirst }) => (isFirst ? '#0a192f' : '#64FFDB')};
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: clamp(12px, 2.5vw, 14px);
-  border: ${({ isFirst }) => (isFirst ? 'none' : '1px solid #64FFDB')};
+const Badge = styled.span`
+  font-size: 11px;
+  font-weight: 600;
+  color: ${colors.goldDark};
+  background: ${colors.goldSoft};
+  border-radius: 2px;
+  padding: 5px 10px;
+  white-space: nowrap;
+  font-family: ${fonts.mono};
 `;
 
-const DetailsRow = styled.div`
+const Organizer = styled.div`
+  color: ${colors.ink40};
+  font-size: 14px;
+  margin-bottom: 16px;
+`;
+
+const Details = styled.div`
   display: flex;
+  gap: 20px;
+  color: ${colors.ink40};
+  font-size: 13px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 1rem 0;
-  color: #8892b0;
-  font-size: clamp(14px, 3vw, 16px);
+  font-family: ${fonts.mono};
 
   svg {
-    color: #64FFDB;
-    font-size: 1.1rem;
-    margin-right: 6px;
+    font-size: 14px;
+    margin-right: 4px;
+    vertical-align: -2px;
   }
 `;
 
-const DetailItem = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 const Description = styled.p`
-  color: #ccd6f6;
-  font-size: clamp(15px, 3vw, 17px);
-  line-height: 1.6;
-  margin: 0 0 1rem 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: ${colors.ink70};
+  margin: 0 0 20px 0;
 `;
 
 const Tags = styled.div`
   display: flex;
+  gap: 8px;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 `;
 
 const Tag = styled.span`
-  background-color: #112240;
-  color: #64FFDB;
+  font-size: 12px;
+  color: ${colors.ink70};
+  background: ${colors.ink04};
+  border: 1px solid ${colors.ink15};
+  border-radius: 2px;
   padding: 4px 10px;
-  border-radius: 4px;
-  font-size: clamp(11px, 2.5vw, 13px);
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  font-family: ${fonts.mono};
 `;
 
-const LinksRow = styled.div`
+const Links = styled.div`
   display: flex;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 1rem;
 `;
 
-const StyledLink = styled.a`
+const LinkItem = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #64FFDB;
+  color: ${colors.goldDark};
   text-decoration: none;
-  font-size: clamp(14px, 3vw, 16px);
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: ${fonts.mono};
 
   &:hover {
-    text-decoration: underline;
+    color: ${colors.ink};
   }
 
   svg {
-    font-size: 1.1rem;
+    font-size: 15px;
   }
 `;
 
+const QuestCard = ({ item }) => {
+  const [ref, visible] = useRevealOnScroll();
+
+  return (
+    <Card ref={ref} $visible={visible}>
+      <CardHeader>
+        <Name><EmojiEventsIcon style={{ color: colors.gold, fontSize: 22 }} />{item.name}</Name>
+        <Badges>
+          {item.rankings.map((ranking, i) => (
+            <Badge key={i}>{ranking.rank} {ranking.metric}</Badge>
+          ))}
+        </Badges>
+      </CardHeader>
+      <Organizer>{item.organizer}</Organizer>
+      <Details>
+        <span><CalendarTodayIcon />{item.date}</span>
+        <span><LocationOnIcon />{item.location}</span>
+        <span><GroupIcon />{item.team} — {item.username}</span>
+      </Details>
+      <Description>{item.description}</Description>
+      <Tags>
+        {item.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+      </Tags>
+      <Links>
+        {item.links.map((link, i) => (
+          <LinkItem key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+            <LaunchIcon />{link.label}
+          </LinkItem>
+        ))}
+      </Links>
+    </Card>
+  );
+};
+
 const Hackathons = () => {
-  const { i18n } = useTranslation();
-  const [hackathonsData, setHackathonsData] = useState([]);
+  const { t, i18n } = useTranslation();
+  const [hackathons, setHackathons] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadHackathonsData = async () => {
+    const load = async () => {
       setLoading(true);
-      const language = i18n.language;
-      const response = await fetch(`/data/hackathons_${language}.json`);
-      const data = await response.json();
-      setHackathonsData(data);
+      const response = await fetch(`/data/hackathons_${i18n.language}.json`);
+      setHackathons(await response.json());
       setLoading(false);
     };
-    loadHackathonsData();
+    load();
   }, [i18n.language]);
 
   return (
-    <HackathonsContainer id="hackathons">
-      <Title>Hackathons & Competitions</Title>
+    <Section id="quests">
+      <Eyebrow>{t('quests.scene')}</Eyebrow>
+      <Heading>{t('quests.heading')}</Heading>
+      <Rule />
+      <Subheading>{t('quests.subheading')}</Subheading>
       {loading ? (
-        <HackathonList>
-          <HackathonSkeleton />
-        </HackathonList>
+        <List><HackathonSkeleton /></List>
       ) : (
-        <HackathonList>
-          {hackathonsData.map((item, index) => (
-            <HackathonCard key={index}>
-              <CardHeader>
-                <div>
-                  <HackathonName>
-                    <EmojiEventsIcon style={{ color: '#F6BC00' }} />
-                    {item.name}
-                  </HackathonName>
-                  <Organizer>{item.organizer}</Organizer>
-                </div>
-                <RankingsRow>
-                  {item.rankings.map((ranking, rIndex) => (
-                    <RankingBadge key={rIndex} isFirst={ranking.rank === '#1'}>
-                      {ranking.rank === '#1' && <EmojiEventsIcon style={{ fontSize: '1rem' }} />}
-                      {ranking.rank} {ranking.metric}
-                    </RankingBadge>
-                  ))}
-                </RankingsRow>
-              </CardHeader>
-
-              <DetailsRow>
-                <DetailItem>
-                  <CalendarTodayIcon />
-                  {item.date}
-                </DetailItem>
-                <DetailItem>
-                  <LocationOnIcon />
-                  {item.location}
-                </DetailItem>
-                <DetailItem>
-                  <GroupIcon />
-                  {item.team} — {item.username}
-                </DetailItem>
-              </DetailsRow>
-
-              <Description>{item.description}</Description>
-
-              <Tags>
-                {item.tags.map((tag, tIndex) => (
-                  <Tag key={tIndex}>{tag}</Tag>
-                ))}
-              </Tags>
-
-              <LinksRow>
-                {item.links.map((link, lIndex) => (
-                  <StyledLink
-                    key={lIndex}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LaunchIcon />
-                    {link.label}
-                  </StyledLink>
-                ))}
-              </LinksRow>
-            </HackathonCard>
-          ))}
-        </HackathonList>
+        <List>
+          {hackathons.map((item, i) => <QuestCard key={i} item={item} />)}
+        </List>
       )}
-    </HackathonsContainer>
+    </Section>
   );
 };
 

@@ -1,144 +1,100 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import techStackData from '../data/techStack.json';
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import techStackData from '../data/techStack.json';
+import { colors, fonts } from '../theme';
 
-const TechnicalStack = () => {
-  const [techStack, setTechStack] = useState([]);
-  const { t } = useTranslation();
+const float = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+`;
 
-  useEffect(() => {
-    setTechStack(techStackData);
-  }, []);
+const Section = styled.section`
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 60px 48px;
 
-  return (
-    <TechnicalStackContainer id="technical-stack">
-      <Title>{t("technicalStack.title")}</Title>
-      <StackList>
-        {techStack.map((item, index) => (
-          <StackItem key={index}>
-            <IconWrapper>
-              <img src={item.icon} alt={item.name} />
-            </IconWrapper>
-            <StackItemText>
-              {item.name}
-            </StackItemText>
-          </StackItem>
-        ))}
-      </StackList>
-    </TechnicalStackContainer>
-  );
-};
-
-const TechnicalStackContainer = styled.div`
-  padding: 2rem;
-  text-align: center;
-  color: #ccd6f6;
-
-  @media (max-width: 600px) {
-    padding: 0;
+  @media (max-width: 760px) {
+    padding: 60px 20px;
   }
 `;
 
-const Title = styled.h4`
-  color: #64FFDB;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 10px 0 40px;
-  width: 100%;
-  white-space: nowrap;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+const Eyebrow = styled.div`
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: ${colors.ink40};
+  margin-bottom: 12px;
+  font-family: ${fonts.mono};
+`;
+
+const Heading = styled.h2`
+  font-family: ${fonts.display};
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
   font-weight: 600;
-
-  &:before {
-    content: '04.';
-    margin-right: 10px;
-    color: #f6f7f8;
-    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-    font-size: clamp(16px, 3vw, 20px);
-    font-weight: 400;
-  }
+  margin: 0 0 8px 0;
+  color: ${colors.ink};
 `;
 
-const StackList = styled.div`
+const Rule = styled.div`
+  width: 60px;
+  height: 2px;
+  background: ${colors.gold};
+  margin-bottom: 48px;
+`;
+
+const Cloud = styled.div`
   display: flex;
+  gap: 10px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
 `;
 
-const StackItem = styled.div`
+const Chip = styled.span`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 120px;
-  background-color: rgb(30, 28, 25);
-  padding: 1.5rem;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 9px;
-    background: linear-gradient(135deg, #64ffda, #3d3833, #64ffda);
-    background-size: 300% 300%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: -1;
-  }
+  gap: 8px;
+  font-size: 14px;
+  color: ${colors.ink70};
+  background: ${colors.ink02};
+  border: 1px solid ${colors.ink15};
+  border-radius: 2px;
+  padding: 10px 16px;
+  font-family: ${fonts.mono};
+  animation: ${float} 3.2s ease-in-out infinite;
+  animation-delay: ${({ $delay }) => $delay}s;
+  transition: border-color 0.2s ease, color 0.2s ease;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.08);
-
-    &::before {
-      opacity: 1;
-      animation: gradientMove 3s ease infinite;
-    }
+    border-color: ${colors.gold};
+    color: ${colors.goldDark};
   }
-
-  @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  @media (max-width: 600px) {
-    width: 100px;
-    height: 100px;
-    padding: 0.5rem;
-  }
-`;
-
-const IconWrapper = styled.div`
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 16px;
+    height: 16px;
     object-fit: contain;
   }
-
-  @media (max-width: 600px) {
-    width: 30px;
-    height: 30px;
-  }
 `;
 
-const StackItemText = styled.div`
-  color: #ccd6f6;
-  font-size: 1rem;
-`;
+const DELAYS = [0, 0.3, 0.6, 0.9, 1.2];
+
+const TechnicalStack = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Section id="stack">
+      <Eyebrow>{t('stack.scene')}</Eyebrow>
+      <Heading>{t('stack.heading')}</Heading>
+      <Rule />
+      <Cloud>
+        {techStackData.map((tool, i) => (
+          <Chip key={tool.name} $delay={DELAYS[i % DELAYS.length]}>
+            <img src={tool.icon} alt="" />
+            {tool.name}
+          </Chip>
+        ))}
+      </Cloud>
+    </Section>
+  );
+};
 
 export default TechnicalStack;

@@ -1,72 +1,59 @@
 import React from 'react';
-import { CssBaseline, Container } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import WorkExperience from './components/WorkExperience';
+import MarqueeTicker from './components/MarqueeTicker';
+import Journey from './components/Journey';
+import Hackathons from './components/Hackathons';
+import TechnicalStack from './components/TechnicalStack';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import SocialSidebar from './components/SocialSidebar'; 
+import SocialSidebar from './components/SocialSidebar';
 import EmailSidebar from './components/EmailSidebar';
-import Education from './components/Education';
-import TechnicalStack from './components/TechnicalStack';
-import Hackathons from './components/Hackathons';
 import ScrollToTop from './components/ScrollToTop';
-import About from './components/About';
+import { colors } from './theme';
+import { useGlobalScrollProgress } from './hooks/useScrollProgress';
 
-const MainApp = styled.div`
-  background-color: #0f0a05;
-  color: #ccd6f6;
-  padding: 0 45px;
+const Page = styled.div`
+  background-color: ${colors.bg};
+  color: ${colors.ink};
+  min-height: 100vh;
+  position: relative;
 `;
 
-const Section = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem 0;
-
-  @media (max-width: 768px) {
-    padding: 4rem 0;
-  }
+const ProgressBar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: ${colors.gold};
+  z-index: 100;
+  width: ${({ $progress }) => $progress * 100}%;
+  transition: width 0.1s linear;
 `;
 
 function App() {
+  const progress = useGlobalScrollProgress();
+
   return (
-    <MainApp>
+    <Page>
       <CssBaseline />
+      <ProgressBar $progress={progress} />
       <Header />
       <Hero />
-      <Container>
-        <Section id="about">
-          <About />
-        </Section>
-        <Section id="work-experience">
-          <WorkExperience />
-        </Section>
-        <Section id="hackathons">
-          <Hackathons />
-        </Section>
-        <section id="technical-stack">
-          <TechnicalStack />
-        </section>
-        <Section id="projects">
-          <Projects />
-        </Section>
-        <section id="education">
-          <Education/>
-        </section>
-        <Section id="contact">
-          <Contact />
-        </Section>
-      </Container>
+      <MarqueeTicker />
+      <Journey />
+      <Hackathons />
+      <TechnicalStack />
+      <Projects />
+      <Contact />
       <SocialSidebar />
       <EmailSidebar />
       <ScrollToTop />
       <Footer />
-    </MainApp>
+    </Page>
   );
 }
 

@@ -1,190 +1,215 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppBar, Toolbar, Box, IconButton, Drawer, List, ListItemText, useMediaQuery } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Drawer, List, useMediaQuery } from '@mui/material';
 import styled from 'styled-components';
+import { colors, fonts } from '../theme';
 
-const HeaderContainer = styled.div`
+const HeaderBar = styled.header`
   position: fixed;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1100;
-  transition: background-color 0.3s ease-in-out;
-  background-color: ${({ opacity }) => `rgba(15, 10, 5, ${opacity})`};
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
   display: flex;
   align-items: center;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  height: 60px;
+  justify-content: space-between;
+  padding: 20px 48px;
+  border-bottom: 1px solid ${colors.ink10};
+  background: rgba(245, 239, 226, ${({ $scrolled }) => ($scrolled ? 0.92 : 0.75)});
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
 
-  @media (max-width: 800px) {
-    height: 50px;
+  @media (max-width: 700px) {
+    padding: 16px 20px;
   }
 `;
 
-const StyledToolbar = styled(Toolbar)`
+const Logo = styled.a`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: ${fonts.mono};
+  font-size: 14px;
+  font-weight: 600;
+  color: ${colors.ink};
+  text-decoration: none;
+  letter-spacing: 1px;
 `;
 
-const StyledBox = styled(Box)`
-  display: flex;
-  gap: 1rem;
+const Dot = styled.span`
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: ${colors.gold};
+  display: inline-block;
+  animation: recPulse 1.6s ease-in-out infinite;
 
-  @media (max-width: 800px) {
+  @keyframes recPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.85); }
+  }
+`;
+
+const DesktopNav = styled.nav`
+  display: flex;
+  gap: 26px;
+  align-items: center;
+
+  @media (max-width: 860px) {
     display: none;
   }
 `;
 
-const StyledButton = styled.a`
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
+const NavLink = styled.a`
+  color: ${colors.ink65};
   text-decoration: none;
-  color: white;
-  transition: background-color 0.3s ease-in-out;
+  font-size: 13px;
+  font-family: ${fonts.mono};
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
 
   &:hover {
-    border-bottom: 2px solid white;
+    color: ${colors.ink};
   }
 `;
 
-
-const LanguageContainer = styled.div`
-  display: flex;
-  gap: 1rem;
+const LangButton = styled.button`
+  background: none;
+  border: 1px solid ${({ $active }) => ($active ? colors.gold : colors.ink15)};
+  color: ${({ $active }) => ($active ? colors.ink : colors.ink50)};
+  font-family: ${fonts.mono};
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 2px;
+  cursor: pointer;
 `;
 
-const MobileMenuButton = styled(IconButton)`
-  color: #64FFDB !important;
-  font-size: 80px;
+const ConnectLink = styled.a`
+  color: ${colors.bg};
+  background: ${colors.ink};
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 2px;
+  font-family: ${fonts.mono};
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #3a352e;
+  }
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: 1px solid ${colors.ink15};
+  color: ${colors.ink};
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-family: ${fonts.mono};
+  cursor: pointer;
+
+  @media (max-width: 860px) {
+    display: block;
+  }
 `;
 
 const CustomDrawer = styled(Drawer)`
   .MuiPaper-root {
-    background-color: rgb(15, 10, 5) !important;
-    width: 250px !important;
-    height: 100% !important;
+    background-color: ${colors.bg} !important;
+    width: 100% !important;
+    padding: 40px;
   }
 `;
 
-const CustomListItemText = styled(ListItemText)`
-  .MuiTypography-root {
-    color: white !important;
-  }
-`;
-
-const CustomListItem = styled.div`
-  padding: 16px;
-  text-align: left;
-  cursor: pointer;
+const MobileLink = styled.a`
+  display: block;
+  color: ${colors.ink};
   text-decoration: none;
-  color: #0a192f;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: rgba(100, 255, 218, 0.1);
-  }
+  font-size: 24px;
+  font-family: ${fonts.display};
+  margin-bottom: 28px;
+  cursor: pointer;
 `;
+
+const LangRow = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+`;
+
+const NAV_ITEMS = [
+  { key: 'journey', href: '#journey' },
+  { key: 'quests', href: '#quests' },
+  { key: 'stack', href: '#stack' },
+  { key: 'work', href: '#work' },
+];
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const [opacity, setOpacity] = useState(1);
+  const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isSmallScreen = useMediaQuery('(max-width: 800px)');
-
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-    const newOpacity = scrollTop > 50 ? 0.9 : 1;
-    setOpacity(newOpacity);
-  };
+  const isSmallScreen = useMediaQuery('(max-width: 860px)');
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setDrawerOpen(open);
-  };
+  const changeLanguage = (lng) => i18n.changeLanguage(lng);
 
-  const handleMenuItemClick = (href) => {
+  const closeAndScroll = (href) => {
     setDrawerOpen(false);
     setTimeout(() => {
-      document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-    }, 300);
-  };
-
-  const menuItems = [
-    { text: t('header.about'), href: '#about' },
-    { text: t('header.workExperience'), href: '#work-experience' },
-    { text: t('header.hackathons'), href: '#hackathons' },
-    { text: t('header.projects'), href: '#projects' },
-    { text: t('header.education'), href: '#education' },
-    { text: t('header.contact'), href: '#contact' },
-    { text: t('header.technicalStack'), href: '#technical-stack'},
-
-  ];
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    }, 250);
   };
 
   return (
-    <HeaderContainer opacity={opacity}>
-      <AppBar position="static" sx={{ boxShadow: 'none', backgroundColor: 'transparent' }}>
-        <StyledToolbar>
-          <StyledBox>
-            {menuItems.slice(0, -1).map((item, index) => (
-              <StyledButton key={index} href={item.href}>{item.text}</StyledButton>
-            ))}
-          </StyledBox>
-          <LanguageContainer>
-            <StyledButton onClick={() => changeLanguage('en')}>EN</StyledButton>
-            <StyledButton onClick={() => changeLanguage('fr')}>FR</StyledButton>
-          </LanguageContainer>
-          {isSmallScreen && (
-            <MobileMenuButton edge="end" onClick={toggleDrawer(true)}>
-              <MenuIcon />
-            </MobileMenuButton>
-          )}
-        </StyledToolbar>
-      </AppBar>
-      <CustomDrawer 
-        anchor="right" 
-        open={drawerOpen} 
-        onClose={toggleDrawer(false)}
-        PaperProps={{
-          sx: {
-            width: { xs: '80%', sm: '250px' },
-            height: { xs: '100%', sm: '100%' },
-          },
-        }}
-      >
-        <List>
-          {menuItems.slice(0, -1).map((item, index) => (
-            <CustomListItem key={index} onClick={() => handleMenuItemClick(item.href)}>
-              <CustomListItemText primary={item.text} />
-            </CustomListItem>
-          ))}
+    <HeaderBar $scrolled={scrolled}>
+      <Logo href="#top">
+        <Dot />
+        A_MEKKI
+      </Logo>
 
+      <DesktopNav>
+        {NAV_ITEMS.map((item) => (
+          <NavLink key={item.key} href={item.href}>
+            {t(`header.${item.key}`)}
+          </NavLink>
+        ))}
+        <LangButton $active={i18n.language === 'en'} onClick={() => changeLanguage('en')}>EN</LangButton>
+        <LangButton $active={i18n.language === 'fr'} onClick={() => changeLanguage('fr')}>FR</LangButton>
+        <ConnectLink href="#contact">{t('header.connect')}</ConnectLink>
+      </DesktopNav>
+
+      {isSmallScreen && (
+        <MobileMenuButton onClick={() => setDrawerOpen(true)} aria-label={t('header.menu')}>
+          {t('header.menu')}
+        </MobileMenuButton>
+      )}
+
+      <CustomDrawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <List>
+          {NAV_ITEMS.map((item) => (
+            <MobileLink key={item.key} onClick={() => closeAndScroll(item.href)}>
+              {t(`header.${item.key}`)}
+            </MobileLink>
+          ))}
+          <MobileLink onClick={() => closeAndScroll('#contact')} style={{ color: colors.gold }}>
+            {t('header.connect')}
+          </MobileLink>
         </List>
+        <LangRow>
+          <LangButton $active={i18n.language === 'en'} onClick={() => changeLanguage('en')}>EN</LangButton>
+          <LangButton $active={i18n.language === 'fr'} onClick={() => changeLanguage('fr')}>FR</LangButton>
+        </LangRow>
       </CustomDrawer>
-    </HeaderContainer>
+    </HeaderBar>
   );
 };
 

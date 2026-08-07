@@ -2,278 +2,124 @@ import React from 'react';
 import styled from 'styled-components';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
+import { colors, fonts } from '../theme';
 
-const StyledCard = styled.div`
-  display: flex;
-  min-height: 400px;
-  background-color: transparent;
-  color: #ccd6f6;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  transition: all 0.3s ease-in-out;
+const Card = styled.div`
   position: relative;
-  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
-
-  @media (max-width: 1000px) {
-    flex-direction: column;
-    height: 100%;
-    &:hover .project-details {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    &:hover .project-title {
-      opacity: 0;
-    }
-  }
-`;
-
-const CoverImage = styled.img`
-  width: 50%;
-  height: 100%;
-  filter: brightness(0.7);
-  object-fit: cover;
-  overflow: hidden;
+  background: ${colors.ink02};
+  border: 1px solid ${colors.ink15};
+  border-radius: 4px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  transform: ${({ $visible }) => ($visible ? 'translateY(0)' : 'translateY(28px)')};
+  transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.3s ease;
 
   &:hover {
-    filter: brightness(1);
+    border-color: rgba(156, 122, 63, 0.5);
   }
 
-  @media (max-width: 1000px) {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const ProjectDetails = styled.div`
-  display: flex;
-  width: 50%;
-  background-color: transparent;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  border-radius: 0 8px 8px 0;
-
-  @media (max-width: 1000px) {
+  &::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(10, 25, 47, 0.85);
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
+    top: -1px;
+    left: -1px;
+    width: 16px;
+    height: 16px;
+    border-top: 1px solid ${colors.gold};
+    border-left: 1px solid ${colors.gold};
   }
-`;
 
-const ProjectTitle = styled.div`
-  display: none;
-
-  @media (max-width: 1000px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10;
+  &::after {
+    content: '';
     position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: rgba(10, 25, 47, 0.85);
-    padding: 20px;
-  }
-
-  @media (max-width: 500px) {
-    margin: 0;
+    bottom: -1px;
+    right: -1px;
+    width: 16px;
+    height: 16px;
+    border-bottom: 1px solid ${colors.gold};
+    border-right: 1px solid ${colors.gold};
   }
 `;
 
-const ProjectDetailsTitle = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: ${({ alignLeft }) => (alignLeft ? 'flex-start' : 'flex-end')};
-  height: 50px;
-
-  @media (max-width: 1000px) {
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 500px) {
-    margin: 0;
-  }
+const Title = styled.h3`
+  font-family: ${fonts.display};
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: ${colors.ink};
 `;
 
-const ProjectDetailsDescription = styled.div`
-  display: flex;
-  background-color: rgb(30, 28, 25);
-  color: black;
-  padding: 20px;
-  border-radius: 4px;
-
-
-  @media (max-width: 1000px) {
-    background-color: transparent;
-    color: #ccd6f6;
-  }
-  @media (max-width: 700px) {
-    padding: 0;
-  }
+const Description = styled.p`
+  font-size: 14px;
+  line-height: 1.65;
+  color: ${colors.ink70};
+  margin: 0 0 18px 0;
+  flex: 1;
 `;
 
-const ProjectStackLinks = styled.div`
+const Tags = styled.div`
   display: flex;
-  flex-direction: column;
-  align-self: ${({ alignLeft }) => (alignLeft ? 'flex-start' : 'flex-end')};
-  @media (max-width: 1000px) {
-    align-self: center;
-  }
-`;
-
-const ProjectDetailsStack = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
+  gap: 6px;
   flex-wrap: wrap;
-  margin-top: 10px;
-  color: white;
-  margin-left: auto;
-
-  li {
-    font-size: 14px;
-    margin-right: 15px;
-    color: #8892b0;
-
-    @media (max-width: 700px) {
-      font-size: 12px;
-    }
-
-    @media (max-width: 500px) {
-      font-size: 10px;
-    }
-  }
-
-  @media (max-width: 1000px) {
-    justify-content: center;
-    margin-left: 0;
-  }
-
-  @media (max-width: 500px) {
-    margin: 0;
-  }
+  margin-bottom: 18px;
 `;
 
-const ProjectLinks = styled.div`
-  display: flex;
+const Tag = styled.span`
+  font-size: 11px;
+  color: ${colors.ink70};
+  background: ${colors.ink04};
+  border: 1px solid ${colors.ink15};
+  border-radius: 2px;
+  padding: 3px 8px;
+  font-family: ${fonts.mono};
+`;
 
-  margin-left: ${({ alignLeft }) => (alignLeft ? '0' : 'auto')};
-  margin-right: ${({ alignLeft }) => (alignLeft ? 'auto' : '0')};
+const Links = styled.div`
+  display: flex;
+  gap: 16px;
 
   a {
-    color: #ccd6f6;
-    margin-right: 10px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    gap: 6px;
+    color: ${colors.ink50};
+    text-decoration: none;
+    font-size: 13px;
+    font-family: ${fonts.mono};
 
     &:hover {
-      color: #64ffda;
+      color: ${colors.gold};
     }
-
-    svg {
-      font-size: 1.5rem;
-
-      @media (max-width: 500px) {
-        font-size: 1rem;
-      }
-    }
-  }
-
-  @media (max-width: 1000px) {
-    justify-content: center;
-    margin: 0 auto;
   }
 `;
 
-const ProjectCard = ({ project, index }) => {
-  const isEven = index % 2 === 0;
+const ProjectCard = ({ project }) => {
+  const [ref, visible] = useRevealOnScroll();
 
   return (
-    <StyledCard reverse={!isEven}>
-      <CoverImage src={project.cover} alt={project.title} className="cover" />
-      <ProjectTitle className="project-title">
-        <Typography variant="overline" style={{ color: '#ffefd6' }}>
-          Personal Project
-        </Typography>
-        <Typography variant="h5" style={{ marginBottom: '10px' }}>
-          {project.title}
-        </Typography>
-      </ProjectTitle>
-      <ProjectDetails className="project-details">
-        <ProjectDetailsTitle alignLeft={!isEven}>
-          <Typography variant="overline" style={{ color: '#ffefd6' }}>
-            Personal Project
-          </Typography>
-          <Typography variant="h5" style={{ marginBottom: '10px' }}>
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
-                {project.title}
-              </a>
-          </Typography>
-        </ProjectDetailsTitle>
-        <ProjectDetailsDescription>
-          <Typography
-            variant="body1"
-            fontSize="22px"
-            fontSizeMd="16px"
-            fontSizeSm="12px"
-          >
-            {project.description}
-          </Typography>
-        </ProjectDetailsDescription>
-        <ProjectStackLinks  alignLeft={!isEven}>
-          <ProjectDetailsStack>
-            {project.tech.map((tech, index) => (
-              <li key={index}>{tech}</li>
-            ))}
-          </ProjectDetailsStack>
-          <ProjectLinks alignLeft={!isEven}>
-            {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer">
-                <GitHubIcon />
-              </a>
-            )}
-            {project.external && (
-              <a href={project.external} target="_blank" rel="noopener noreferrer">
-                <LaunchIcon />
-              </a>
-            )}
-          </ProjectLinks>
-        </ProjectStackLinks>
-      </ProjectDetails>
-    </StyledCard>
+    <Card ref={ref} $visible={visible}>
+      <Title>{project.title}</Title>
+      <Description>{project.description}</Description>
+      <Tags>
+        {project.tech.map((tech) => <Tag key={tech}>{tech}</Tag>)}
+      </Tags>
+      <Links>
+        {project.github && (
+          <a href={project.github} target="_blank" rel="noopener noreferrer">
+            <GitHubIcon style={{ fontSize: 16 }} /> GitHub
+          </a>
+        )}
+        {project.external && project.external !== project.github && (
+          <a href={project.external} target="_blank" rel="noopener noreferrer">
+            <LaunchIcon style={{ fontSize: 16 }} /> Live
+          </a>
+        )}
+      </Links>
+    </Card>
   );
 };
-
-const Typography = styled.p`
-  margin: 0;
-  color: ${({ variant }) => (variant === 'overline' ? '#f6f7f8' : '#f6f7f8')};
-  font-size: ${({ fontSize, variant }) =>
-    fontSize ? fontSize : variant === 'h5' ? '1.5rem' : variant === 'body1' ? '1rem' : '0.875rem'};
-  text-transform: ${({ variant }) => (variant === 'overline' ? 'uppercase' : 'none')};
-  font-weight: ${({ variant }) => (variant === 'h5' ? '600' : '400')};
-
-  a {
-    text-decoration: none;
-    color: #f6f7f8;
-  }
-
-  @media (max-width: 1000px) {
-    font-size: ${({ fontSizeMd, fontSize, variant }) =>
-      fontSizeMd ? fontSizeMd : fontSize ? fontSize : variant === 'h5' ? '1.2rem' : variant === 'body1' ? '0.9rem' : '0.75rem'};
-  }
-
-  @media (max-width: 600px) {
-    font-size: ${({ fontSizeSm, fontSize, variant }) =>
-      fontSizeSm ? fontSizeSm : fontSize ? fontSize : variant === 'h5' ? '1rem' : variant === 'body1' ? '0.875rem' : '0.75rem'};
-  }
-`;
-
 
 export default ProjectCard;

@@ -7,14 +7,15 @@ const shimmer = keyframes`
 `;
 
 const SkeletonBase = styled.div`
-  background: linear-gradient(90deg, #2a2724 25%, #3d3833 50%, #2a2724 75%);
+  background: linear-gradient(90deg, rgba(20,18,16,0.05) 25%, rgba(20,18,16,0.1) 50%, rgba(20,18,16,0.05) 75%);
   background-size: 200% 100%;
   animation: ${shimmer} 1.5s infinite;
   border-radius: 4px;
 `;
 
 const SkeletonCard = styled.div`
-  background-color: rgb(30, 28, 25);
+  background-color: rgba(20,18,16,0.02);
+  border: 1px solid rgba(20,18,16,0.15);
   padding: 1.5rem;
   border-radius: 8px;
   display: flex;
@@ -60,8 +61,7 @@ export const HackathonSkeleton = () => (
 );
 
 export const ProjectSkeleton = () => (
-  <SkeletonCard style={{ minHeight: '300px' }}>
-    <SkeletonBase style={{ height: '200px', width: '100%', borderRadius: '8px' }} />
+  <SkeletonCard style={{ minHeight: '260px' }}>
     <SkeletonTitle />
     <SkeletonLine width="90%" />
     <SkeletonLine width="70%" />
@@ -73,25 +73,12 @@ export const ProjectSkeleton = () => (
   </SkeletonCard>
 );
 
-export const WorkExperienceSkeleton = () => (
-  <div style={{ display: 'flex', gap: '2rem', width: '100%' }}>
-    <SkeletonBase style={{ height: '200px', width: '200px' }} />
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <SkeletonTitle />
-      <SkeletonLine width="40%" />
-      <SkeletonLine width="30%" />
-      <SkeletonLine width="100%" />
-      <SkeletonLine width="90%" />
-      <SkeletonLine width="80%" />
-    </div>
+export const JourneySkeleton = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+    {[...Array(4)].map((_, i) => (
+      <div key={i} style={{ display: 'flex', justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end' }}>
+        <SkeletonBase style={{ height: '160px', width: '45%', borderRadius: '8px' }} />
+      </div>
+    ))}
   </div>
-);
-
-export const EducationSkeleton = () => (
-  <SkeletonCard>
-    <SkeletonTitle />
-    <SkeletonLine width="50%" />
-    <SkeletonLine width="40%" />
-    <SkeletonLine width="70%" />
-  </SkeletonCard>
 );
