@@ -26,6 +26,8 @@ export function buildJourneyNodes({ education, experience, typeLabels, education
     period: education[0] ? education[0].range : '',
     title: educationTitle,
     org: education[0] ? education[0].institution : '',
+    logo: education[0] ? education[0].logo : undefined,
+    gallery: education[0] ? education[0].gallery || [] : [],
     desc: educationDesc,
     bullets: [],
     tags: Array.from(
@@ -52,6 +54,8 @@ export function buildJourneyNodes({ education, experience, typeLabels, education
       period: job.range,
       title: job.title,
       org: `${job.company} · ${job.location}`,
+      logo: job.logo,
+      gallery: job.gallery || [],
       desc: '',
       bullets,
       tags,

@@ -49,6 +49,17 @@ const Avatar = styled.img`
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid ${colors.ink15};
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0.25s;
+
+  &:hover {
+    transform: scale(5);
+    z-index: 50;
+    box-shadow: 0 18px 34px rgba(20, 18, 16, 0.32);
+  }
 `;
 
 const IdentityText = styled.div`

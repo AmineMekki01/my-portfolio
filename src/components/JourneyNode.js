@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors, fonts } from '../theme';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
@@ -102,10 +102,40 @@ const TypeBadge = styled.span`
   text-transform: uppercase;
 `;
 
+const Meta = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-direction: ${({ $side }) => ($side === 'left' ? 'row-reverse' : 'row')};
+
+  @media (max-width: 760px) {
+    flex-direction: row;
+  }
+`;
+
+const LogoWrap = styled.div`
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid ${colors.ink15};
+  background: ${colors.bg};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+
 const Org = styled.div`
   font-size: 14px;
   color: ${colors.ink45};
-  margin-bottom: 14px;
 `;
 
 const Desc = styled.p`
@@ -149,18 +179,110 @@ const Tag = styled.span`
   font-family: ${fonts.mono};
 `;
 
+const ARCH_TILT = [-9, 7, -5];
+const ARCH_LIFT = [0, 10, 4];
+
+const Arch = styled.div`
+  display: flex;
+  height: 78px;
+  margin-bottom: 10px;
+  justify-content: ${({ $side }) => ($side === 'left' ? 'flex-end' : 'flex-start')};
+
+  @media (max-width: 760px) {
+    justify-content: flex-start;
+  }
+`;
+
+const ArchPhoto = styled.div`
+  width: 62px;
+  height: 62px;
+  flex: none;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 3px solid ${colors.bg};
+  box-shadow: 0 8px 16px rgba(20, 18, 16, 0.16);
+  align-self: flex-start;
+  margin-top: ${({ $index }) => ARCH_LIFT[$index % ARCH_LIFT.length]}px;
+  margin-left: ${({ $index }) => ($index === 0 ? '0' : '-16px')};
+  position: relative;
+  z-index: ${({ $index }) => 10 - $index};
+  cursor: pointer;
+  transform: rotate(${({ $index }) => ARCH_TILT[$index % ARCH_TILT.length]}deg) scale(1);
+  transform-origin: center center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0.25s;
+
+  &:hover {
+    transform: rotate(0deg) scale(5);
+    z-index: 50;
+    box-shadow: 0 18px 34px rgba(20, 18, 16, 0.32);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+`;
+
+const LogoBadge = ({ src, alt }) => {
+  const [errored, setErrored] = useState(false);
+  if (!src || errored) return null;
+  return (
+    <LogoWrap>
+      <img src={src} alt={alt} onError={() => setErrored(true)} />
+    </LogoWrap>
+  );
+};
+
+const ArchPhotoItem = ({ src, alt, index, onFail }) => {
+  const [errored, setErrored] = useState(false);
+  if (!src || errored) return null;
+  return (
+    <ArchPhoto $index={index}>
+      <img
+        src={src}
+        alt={alt}
+        onError={() => {
+          setErrored(true);
+          onFail();
+        }}
+      />
+    </ArchPhoto>
+  );
+};
+
 const JourneyNode = ({ node }) => {
   const [ref, visible] = useRevealOnScroll();
+  const [failedShots, setFailedShots] = useState(0);
+  const galleryCount = node.gallery ? node.gallery.length : 0;
+  const showArch = galleryCount > 0 && failedShots < galleryCount;
 
   return (
     <Row ref={ref} $visible={visible}>
       <Dot $current={node.current} />
       <Connector $side={node.side} $visible={visible} />
       <Card $side={node.side}>
+        {showArch && (
+          <Arch $side={node.side}>
+            {node.gallery.map((src, i) => (
+              <ArchPhotoItem
+                key={src}
+                src={src}
+                alt={`${node.org} — work sample ${i + 1}`}
+                index={i}
+                onFail={() => setFailedShots((count) => count + 1)}
+              />
+            ))}
+          </Arch>
+        )}
         <Period>{node.period}</Period>
         <Title>{node.title}</Title>
         <TypeBadge>{node.type}</TypeBadge>
-        <Org>{node.org}</Org>
+        <Meta $side={node.side}>
+          <LogoBadge src={node.logo} alt="" />
+          <Org>{node.org}</Org>
+        </Meta>
         {node.desc && <Desc>{node.desc}</Desc>}
         {node.bullets.length > 0 && (
           <Bullets>

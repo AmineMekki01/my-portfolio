@@ -10,19 +10,19 @@
   },
   "hero": {
     "name": "Amine MEKKI",
-    "eyebrow": "AI ENGINEER · MACHINE LEARNING · AGENTIC SYSTEMS",
-    "headline": "Engineering machine learning systems, one agent at a time.",
-    "tagline": "AI Engineer at GENFIT, building the machine learning systems, RAG pipelines, and agentic platforms behind production AI. Rooted in a background in biomedical engineering.",
+    "eyebrow": "AI ENGINEER : MACHINE LEARNING · AGENTIC SYSTEMS",
+    "headline": "Engineering AI systems",
+    "tagline": "AI Engineer at SeqOne, building agentic software solutions.",
     "ctaPrimary": "PLAY_JOURNEY ▸",
     "ctaSecondary": "CONNECT"
   },
   "heroExtra": {
-    "location": "Montpellier, France"
+    "location": "France"
   },
   "journey": {
     "scene": "SCENE 01",
     "heading": "Building toward AI engineering",
-    "subheading": "School, research, and production — a winding road, not a straight line.",
+    "subheading": "School, research, and production, a winding road, not a straight line.",
     "educationTitle": "Software Engineer, AI & Data Science",
     "educationDesc": "Engineering degree in Computer Science, AI and Data Science at IMT Mines Alès, completed as a double degree alongside a Master of Science in Biomedical Engineering at the University of Montpellier, machine learning and deep learning on one side, medical signal processing and imaging on the other.",
     "types": {
@@ -37,7 +37,7 @@
   "quests": {
     "scene": "SCENE 02",
     "heading": "Hackathons & competitions",
-    "subheading": "Detours off the main road — competing against strangers on hard, open ML problems."
+    "subheading": "Detours off the main road, competing against strangers on hard, open ML problems."
   },
   "stack": {
     "scene": "SCENE 03",
@@ -50,6 +50,6 @@
   "contact": {
     "scene": "SCENE 05 — FIN",
     "heading": "Let's talk",
-    "description": "I'm currently an AI Engineer at GENFIT, building generative AI systems and agentic platforms. Whether you want to discuss AI, MLOps, agentic systems, or an opportunity — feel free to reach out."
+    "description": "I'm currently an AI Engineer at SeqOne, building generative AI systems and agentic platforms. Whether you want to discuss AI, MLOps, agentic systems, or an opportunity, feel free to reach out."
   }
 }

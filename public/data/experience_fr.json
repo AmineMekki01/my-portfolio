@@ -6,6 +6,7 @@
       "location": "Montpellier, France",
       "url": "https://www.seqone.com/",
       "logo": "/images/seqone.png",
+      "gallery": ["/images/journey/seqone-1.png", "/images/journey/seqone-2.png"],
       "description": [
         "Membre de l'équipe API et Agentique, développement de systèmes d'IA pour l'interprétation des variants génomiques.",
         "Conception d'une fonctionnalité permettant aux scientifiques de sélectionner un variant SNV/CNV et de rassembler automatiquement toutes les informations disponibles sur la plateforme et dans la littérature scientifique afin de générer un commentaire de synthèse sur le variant, incluant sa pathogénicité.",
@@ -19,6 +20,7 @@
       "location": "Lille, France",
       "url": "https://www.genfit.fr/",
       "logo": "/images/genfit.png",
+      "gallery": ["/images/journey/genfit-1.png", "/images/journey/genfit-2.png"],
       "description": [
           "Développement d'applications d'IA générative pour automatiser les processus internes de l'entreprise.",
           "Maintenance et amélioration d'une pipeline de pathologie numérique pour la détection automatique de tissus histologiques et le comptage cellulaire, augmentant la précision et le débit.",
@@ -33,6 +35,7 @@
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/fr",
       "logo": "/images/sanofi.png",
+      "gallery": ["/images/journey/sanofi-1.png", "/images/journey/sanofi-2.png"],
       "description": [
         "Contribution à une application web générant plus de 4000 rapports de qualité et de satisfaction client (MSAT) par an, en collaboration avec des développeurs, data scientists et ingénieurs IA.",
         "Participation à la conception et à l'intégration d'un agent intelligent (LangGraph) avec des outils personnalisés pour produire des tableaux et graphiques formatés.",
@@ -50,6 +53,7 @@
       "location": "Saclay, France",
       "url": "https://www.vaisala.com/fr",
       "logo": "/images/vaisala.png",
+      "gallery": ["/images/journey/vaisala-1.png", "/images/journey/vaisala-2.png"],
       "description": [
         "Analyse des données des deux produits pour trouver des applications conjointes et améliorer leurs performances.",
         "Réalisation d'études de marché approfondies et développement de méthodes d'étalonnage par apprentissage automatique, améliorant la focalisation et les mesures des produits.",
@@ -63,6 +67,7 @@
       "location": "Montpellier, France",
       "url": "https://dhm.euromov.eu/",
       "logo": "/images/euromov.png",
+      "gallery": ["/images/journey/euromov-1.png", "/images/journey/euromov-2.png"],
       "description": [
         "Analyse des signaux de spectroscopie proche infrarouge fonctionnelle (fNIRS) de patients subissant une stimulation transcrânienne à courant direct (tDCS).",
         "Identification de biomarqueurs uniques établissant des corrélations entre la dose électrique et les réponses fNIRS, permettant la modulation des doses en fonction des réponses des patients. Ce projet contribue aux futures stratégies de traitement personnalisé pour restaurer les fonctions cognitives chez les patients souffrant de lésions cérébrales.",

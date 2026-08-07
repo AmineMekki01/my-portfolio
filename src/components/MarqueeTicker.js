@@ -8,12 +8,14 @@ const marquee = keyframes`
 `;
 
 const Track = styled.div`
+  position: relative;
+  z-index: 3;
   border-top: 1px solid ${colors.ink10};
   border-bottom: 1px solid ${colors.ink10};
   padding: 16px 0;
   overflow: hidden;
   white-space: nowrap;
-  background: ${colors.bgSoft};
+  background: linear-gradient(${colors.bgSoft}, ${colors.bgSoft}), ${colors.bg};
 `;
 
 const Scroller = styled.div`

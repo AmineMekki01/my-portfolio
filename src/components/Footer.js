@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 
 const Footer = () => (
   <StyledFooter>
-    AMINE_MEKKI · AI ENGINEER · LILLE, FRANCE · {new Date().getFullYear()}
+    AMINE_MEKKI · AI ENGINEER · FRANCE · {new Date().getFullYear()}
   </StyledFooter>
 );
 

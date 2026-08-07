@@ -6,6 +6,7 @@
       "location": "Montpellier, France",
       "url": "https://www.seqone.com/",
       "logo": "/images/seqone.png",
+      "gallery": ["/images/journey/seqone-1.png", "/images/journey/seqone-2.png"],
       "description": [
         "Working within the API and Agentic team, building AI systems for genomic variant interpretation.",
         "Built a feature that lets scientists select an SNV/CNV variant and automatically gathers all related information from the platform and scientific literature to generate a synthesizing comment on the variant, including its pathogenicity.",
@@ -19,6 +20,7 @@
       "location": "Lille, France",
       "url": "https://www.genfit.fr/",
       "logo": "/images/genfit.png",
+      "gallery": ["/images/journey/genfit-1.png", "/images/journey/genfit-2.png"],
       "description": [
         "Building generative AI apps to automate internal processes in the company.",
         "Maintaining and enhancing a digital pathology pipeline for automated histological tissue detection and cell counting, improving accuracy and throughput.",
@@ -33,6 +35,7 @@
       "location": "Lyon, France",
       "url": "https://www.sanofi.com/en",
       "logo": "/images/sanofi.png",
+      "gallery": ["/images/journey/sanofi-1.png", "/images/journey/sanofi-2.png"],
       "description": [
         "Contributed to a web app generating 4,000+ quality & MSAT reports/year, working with developers, data scientists, and AI engineers.",
         "Helped in designing and integrating an intelligent agent (LangGraph) with custom tools to produce formatted tables and charts.",
@@ -50,6 +53,7 @@
       "location": "Saclay, France",
       "url": "https://www.vaisala.com/",
       "logo": "/images/vaisala.png",
+      "gallery": ["/images/journey/vaisala-1.png", "/images/journey/vaisala-2.png"],
       "description": [
         "Analyzed data from both products to find joint applications and improve their performance.",
         "Conducted in-depth market research and developed machine learning calibration methods, improving product focus and measurements.",
@@ -63,6 +67,7 @@
       "location": "Montpellier, France",
       "url": "https://dhm.euromov.eu/",
       "logo": "/images/euromov.png",
+      "gallery": ["/images/journey/euromov-1.png", "/images/journey/euromov-2.png"],
       "description": [
         "Analyzed functional near-infrared spectroscopy (fNIRS) signals from patients undergoing transcranial direct current stimulation (tDCS).",
         "Derived unique biomarkers to establish correlations between the electric dosage and fNIRS responses. Enabling dosage modulation based on patient responses, contributing to a future personalized treatment strategies for cognitive function restoration in patients with brain damage. ",
